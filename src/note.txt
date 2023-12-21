@@ -1,0 +1,129 @@
+//import { useDispatch, useSelector } from "react-redux"
+//import { RootState, AppDispatch }  from "../stores/store"
+//import { getTodo, addTodo, updateTodo, todoToggle, deleteTodo, postTodo, fetchTodo } from "./todoSlice"
+import { useEffect, useState } from "react"
+import axios from "axios"
+
+
+const Todo: React.FC = () => {
+
+    interface todos {
+        id: number,
+        task: string,
+        description: string,
+    }
+    interface FormData {
+        id: number,
+        task: string,
+        description: string
+    }
+
+
+    //const todos = useSelector((state: RootState) => state.todos.todos)
+
+    //const dispatch = useDispatch<AppDispatch>()
+    //const [ id, setId ] = useState(0)
+    //const [ todoTask, setTodoTask ] = useState<string>('')
+    //const [ todoDescription, setTodoDescription ] = useState<string>('')
+    const [ data, setData ] = useState<todos[]>([])
+    const [ formData, setFormData ] = useState<FormData>({
+        id: Date.now(),
+        task: '',
+        description: ''
+    })
+
+    //const [ id, setId ]= useState(Date.now())
+    //const [ completed, setCompleted ] = useState<boolean>(false)
+    //const [ todoInput, setTodoInput ] = useState('')
+
+    /**const handlePostTodo = async () => {
+        try {
+            const newTodo = { id: Date.now(), task: todoTask, description: todoDescription, completed: false }
+            await axios.post("http://localhost:3001/api/write-json", newTodo)
+            console.log("Data successfully posted to JSON file.")
+        } catch (error) {
+            console.error("Error posting data:", error)
+        }
+    }*/
+    //console.log(`test ${getTodo}`)
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value
+        }))
+    }
+
+    const handleSubmit = async (e: React.FormEvent) => {
+       e.preventDefault()
+        try {
+            //const data = { id: Date.now(), task: todoTask, description: todoDescription, completed: false }
+            await axios.post("http://localhost:3000/todo", formData)
+            console.log("Data successfully posted to JSON file.")
+            //dispatch(addTodo(response.data))
+        } catch (error) {
+            console.error("post error")
+        }
+    }
+    const deleteData = async (id: number) => {
+        await axios.delete(`http://localhost:3000/todo/${id}`);
+        setData(data.filter(item => item.id !== id));
+     }
+    
+    
+    
+    useEffect (() => {
+        //dispatch(getTodo())
+        fetchTodo()
+    })
+    
+    const fetchTodo = async () => {
+        const response = await axios.get("http://localhost:3000/todo")
+        console.log(response.data)
+        setData(response.data)
+        //dispatch(getTodo(response.data))
+
+    }
+    console.log(data)
+    
+    
+
+    return (
+        <div>
+            <div className="flex justify-center p-10 text-lg">
+                <form className="space-x-4" onSubmit={handleSubmit}>
+                    <label htmlFor="task">
+                        Task:
+                        <input className="ms-2 p-1 text-base border border-slate-500 rounded-md" name="task" type="text" value={formData.task} onChange={handleInputChange} required />
+                    </label>
+                    
+                    <label htmlFor="description">
+                        Description:
+                        <input className="ms-2 border text-base p-1 border-slate-500 rounded-md" name="description" type="text" value={formData.description} onChange={handleInputChange} required />
+                    </label>                  
+                    <button className="py-1 px-4 rounded-md text-white bg-slate-500" type="submit">Add</button>
+                </form>
+            </div>
+            
+
+            <div className="grid grid-cols-12 gap-10 p-10">
+                {data.map((item) => (
+                    <div key={item.id} className="col-span-3 p-4 rounded-md border border-slate-500">
+                        <div className="mb-4"><h1>{item.id}</h1></div>
+                        <div className="flex space-x-3"><h1 className="text-lg font-bold">Task:</h1><span className="text-lg">{item.task}</span></div>
+                        <div className="flex space-x-3"><h1 className="text-lg font-bold">Description:</h1><span className="text-lg">{item.description}</span></div>
+                        <div className="flex space-x-3"><h1 className="text-lg font-bold">Completed:</h1><span className="text-lg">{}</span></div>
+                        <div><button onClick={() => deleteData(item.id)}>delete</button></div>
+                    </div>
+                ))}
+                
+              
+            </div>
+        </div>
+    )
+}
+
+export default Todo
+
+<input className="w-72 border text-base p-1 border-slate-500 rounded-md" name="category" type="text" value={formData.category} onChange={handleInputChange} required /> 
+<input className=" w-72  text-base p-1 rounded-md" name="description" type="text" value={formData.description} onChange={handleInputChange} required />   
