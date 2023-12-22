@@ -1,165 +1,53 @@
 {
   "todo": [
     {
-      "id": 1703072870872,
-      "task": "fgjfj",
-      "description": "trrhrhrh",
-      "completed": "Completed",
-      "category": "home"
-    },
-    {
-      "id": 1703072878239,
-      "task": "hfhfg",
-      "description": "yttikti",
-      "completed": "Completed",
-      "category": "office"
-    },
-    {
-      "id": 1703072910759,
-      "task": "ryrttut",
-      "description": "fgjj",
-      "completed": "Completed",
-      "category": "home"
-    },
-    {
-      "id": 1703072916535,
-      "task": "ryrttut",
-      "description": "fhgfhf",
+      "id": 1703185374178,
+      "todo": "drfdhd",
+      "description": "fxcbcncn",
       "completed": "Not completed",
-      "category": "home"
+      "category": "Office"
     },
     {
-      "id": 1703073608978,
-      "task": "ryrttut",
-      "description": "uikuyo",
-      "completed": "Not completed",
-      "category": "office"
-    },
-    {
-      "id": 1703073624633,
-      "task": "gddgd",
-      "description": "trrhrhrh",
-      "completed": "Not completed",
-      "category": "office"
-    },
-    {
-      "id": 1703086065626,
-      "task": "hfhfg",
-      "description": "fhgfhf",
+      "id": 1703185382490,
+      "todo": "nfnfmmfm",
+      "description": "hmmgmgmgmg",
       "completed": "Completed",
-      "category": "office"
-    },
-    {
-      "id": 1703086073786,
-      "task": "ryrttut",
-      "description": "jhkhjkh",
-      "completed": "Completed",
-      "category": "office"
-    },
-    {
-      "id": 1703089662284,
-      "task": "ryrttut",
-      "description": "yttikti",
-      "completed": "Completed",
-      "category": "church"
-    },
-    {
-      "id": 1703089668433,
-      "task": "gddgd",
-      "description": "jhkhjkh",
-      "completed": "Not completed",
-      "category": "church"
-    },
-    {
-      "id": 1703106170560,
-      "task": "hfhfg",
-      "description": "fhgfhf",
-      "completed": "Not completed",
-      "category": "Shopping"
-    },
-    {
-      "id": 1703106175825,
-      "task": "hfhfg",
-      "description": "fhgfhf",
-      "completed": "Not completed",
       "category": "Church"
     },
     {
-      "id": 1703106875267,
-      "task": "ryrttut",
-      "description": "fhgfhf",
-      "completed": "Not completed",
-      "category": "Church"
-    },
-    {
-      "id": 1703106904530,
-      "task": "hfhfg",
-      "description": "uikuyo",
+      "id": 1703185391258,
+      "todo": "ddngnfnff",
+      "description": "gnfgnfnfnfggn",
       "completed": "Not completed",
       "category": "Home"
     },
     {
-      "id": 1703106921202,
-      "task": "ryrttut",
-      "description": "trrhrhrh",
-      "completed": "Not completed",
-      "category": "Shopping"
-    },
-    {
-      "id": 1703106988059,
-      "task": "fgjfj",
-      "description": "fhgfhf",
-      "completed": "Not completed",
-      "category": "Shopping"
-    },
-    {
-      "id": 1703106997011,
-      "task": "hfhfg",
-      "description": "fhgfhf",
-      "completed": "Not completed",
-      "category": "Church"
-    },
-    {
-      "id": 1703107068739,
-      "task": "hfhfg",
-      "description": "fhgfhf",
-      "completed": "Not completed",
-      "category": "Home"
-    },
-    {
-      "id": 1703107074779,
-      "task": "ryrttut",
-      "description": "uikuyo",
-      "completed": "Not completed",
-      "category": "Home"
-    },
-    {
-      "id": 1703107853421,
-      "task": "hfhfg",
-      "description": "xvxvxc",
-      "completed": "Not completed",
-      "category": "Home"
-    },
-    {
-      "id": 1703107858861,
-      "task": "cxvxvx",
-      "description": "dss",
-      "completed": "Not completed",
-      "category": "Church"
-    },
-    {
-      "id": 1703107864165,
-      "task": "etw",
-      "description": "gdhdf",
-      "completed": "Not completed",
-      "category": "Shopping"
-    },
-    {
-      "id": 1703108395215,
-      "task": "Contribution",
-      "description": "Contribute code or a monetary donation to an open-source software project",
+      "id": 1703185399970,
+      "todo": "ouoiu",
+      "description": "uytjttttttttttttttttttt",
       "completed": "Completed",
-      "category": "Church"
+      "category": "Home"
+    },
+    {
+      "id": 1703185415714,
+      "todo": "wtwtwd",
+      "description": "hdfhhnddf",
+      "completed": "Not completed",
+      "category": "Shopping"
+    },
+    {
+      "id": 1703185428794,
+      "todo": "dhdrfhd",
+      "description": "czvzbccxb",
+      "completed": "Completed",
+      "category": "Office"
+    },
+    {
+      "id": 1703185438562,
+      "todo": "reyeeye",
+      "description": "htrfghrfhrfn",
+      "completed": "Completed",
+      "category": "Shopping"
     }
   ]
 }

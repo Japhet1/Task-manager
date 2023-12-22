@@ -7,8 +7,7 @@ const TodoView: React.FC = () => {
 
 
     return (
-        <div>
-          
+        <div className="relative z-10">
             <TodoList/>
         </div>
     )

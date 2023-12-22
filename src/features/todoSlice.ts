@@ -4,19 +4,22 @@ import { AppThunk } from '../stores/store';
 
 interface Todo {
     id: number,
-    task: string,
+    todo: string,
     description: string,
     completed: string,
-    category: string
-
+    category: string,
 }
+
 
 interface TodosState {
     todos: Todo[];
+    selectedCategory: string | null
+    
   }
   
   const initialState: TodosState = {
     todos: [],
+    selectedCategory: null
   };
   
 
@@ -26,6 +29,9 @@ const todosSlice = createSlice({
     reducers: {
       setTodos: (state, action: PayloadAction<Todo[]>) => {
         state.todos = action.payload;
+      },
+      setCategory: (state, action: PayloadAction<string | null>) => {
+        state.selectedCategory = action.payload
       },
       addTodo: (state, action: PayloadAction<Todo>) => {
         state.todos.push(action.payload);
@@ -42,7 +48,7 @@ const todosSlice = createSlice({
     },
   });
 
-  export const { setTodos, addTodo, updateTodo, removeTodo } = todosSlice.actions;
+  export const { setTodos, addTodo, updateTodo, removeTodo, setCategory } = todosSlice.actions;
 
   export const fetchTodos = (): AppThunk => async (dispatch) => {
     try {
@@ -52,7 +58,7 @@ const todosSlice = createSlice({
       console.error('Error fetching todos:', error);
     }
   };
-  
+
   export const createTodo = (todo: Todo): AppThunk => async (dispatch) => {
     try {
       const response = await axios.post('http://localhost:3000/todo', todo);

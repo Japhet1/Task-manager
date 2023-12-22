@@ -11,11 +11,12 @@ const App = () => {
   return (
     <main className="font-candara">
       <NavBar/>
-      <div className="flex justify-between items-end mx-10 px-10 py-8">
+      <div className="relative flex justify-between items-end mx-10 px-10 py-10">
         <CreateTodo/>
         <FilterTodo/>
       </div>
       <TodoView/>
+      
     </main>
   )
   

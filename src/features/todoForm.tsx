@@ -10,18 +10,12 @@ interface Change {
 }
 
 const TodoForm: React.FC<Change> = ({visible, onClose}) => {
-    
-    if (!visible) return null
-    const handleOnClose = (e: React.MouseEvent<HTMLDivElement>) => {
-        const containerId = (e.target as HTMLDivElement).id 
-        if (containerId === 'container') onClose()
-    }
-
-    const categoryOption = ["Office", "Home", "Church", "Shopping"]
+   
+    const categoryOption = ["Select category", "Office", "Home", "Church", "Shopping"]
   
     interface FormData {
         id: number,
-        task: string,
+        todo: string,
         description: string,
         completed: string,
         category: string
@@ -30,12 +24,17 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
     //const [ selectedValue, setSelectedValue ] = useState<string>()
     const [ formData, setFormData ] = useState<FormData>({
         id: Date.now(),
-        task: '',
+        todo: '',
         description: '',
         completed: '',
         category: ''
     })
-   
+
+    if (!visible) return null
+    const handleOnClose = (e: React.MouseEvent<HTMLDivElement>) => {
+        const containerId = (e.target as HTMLDivElement).id 
+        if (containerId === 'container') onClose()
+    }
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target
@@ -45,23 +44,22 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
         }))
     }
 
-  
     const handleAddTodo = (e: React.FormEvent) => {
         e.preventDefault()
-        setFormData({id: Date.now(), task: '', description: '', completed: 'Not completed', category: '' })
+        setFormData({id: Date.now(), todo: '', description: '', completed: 'Not completed', category: '' })
         dispatch(createTodo(formData))
     };
 
     return (
-        <div id='container' onClick={handleOnClose} className='flex justify-center items-center fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm px-10 py-5'>
+        <div id='container' onClick={handleOnClose} className='flex justify-center items-center fixed z-20 inset-0 bg-black bg-opacity-30 backdrop-blur-sm px-10 py-5'>
             <div className="flex justify-center text-lg">
                 <form className="px-10 py-5 bg-slate-200 rounded-md shadow-md" onSubmit={handleAddTodo}>
                     
                     <div className='mb-8 flex justify-between items-center'><h1 className='text-3xl text-slate-500 font-bold'>Create Task</h1><div className='flex justify-end items-end'><button className='rounded-full p-2 border border-slate-500' onClick={onClose}><BsX/></button></div></div>
                     <div className='space-y-3'>
                         <div className='space-y-1'>
-                            <label htmlFor="task">Name:</label><br/>
-                            <input className="w-72 p-1 text-base rounded-md" name="task" type="text" value={formData.task} onChange={handleInputChange} required />
+                            <label htmlFor="todo">Name:</label><br/>
+                            <input className="w-72 p-1 text-base rounded-md" name="todo" type="text" value={formData.todo} onChange={handleInputChange} required />
                         </div>
                     
                         <div className='space-y-1'>
