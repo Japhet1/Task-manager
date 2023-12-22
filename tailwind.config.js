@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        "candara": "corbel"
+        "candara": "Comfortaa"
       }
     },
   },
