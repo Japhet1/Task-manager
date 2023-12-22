@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
      "int": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "json-server": "json-server --watch data/db.json"
+    "json-server": "json-server --watch data/db.json -p 5000"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",

@@ -52,7 +52,7 @@ const todosSlice = createSlice({
 
   export const fetchTodos = (): AppThunk => async (dispatch) => {
     try {
-      const response = await axios.get('http://localhost:3000/todo');
+      const response = await axios.get('http://localhost:5000/todo');
       dispatch(setTodos(response.data));
     } catch (error) {
       console.error('Error fetching todos:', error);
@@ -61,7 +61,7 @@ const todosSlice = createSlice({
 
   export const createTodo = (todo: Todo): AppThunk => async (dispatch) => {
     try {
-      const response = await axios.post('http://localhost:3000/todo', todo);
+      const response = await axios.post('http://localhost:5000/todo', todo);
       dispatch(addTodo(response.data));
     } catch (error) {
       console.error('Error creating todo:', error);
@@ -70,7 +70,7 @@ const todosSlice = createSlice({
   
   export const updateTodoAsync = (todo: Todo): AppThunk => async (dispatch) => {
     try {
-      await axios.put(`http://localhost:3000/todo/${todo.id}`, todo);
+      await axios.put(`http://localhost:5000/todo/${todo.id}`, todo);
       dispatch(updateTodo(todo));
     } catch (error) {
       console.error('Error updating todo:', error);
@@ -79,7 +79,7 @@ const todosSlice = createSlice({
   
   export const removeTodoAsync = (id: number): AppThunk => async (dispatch) => {
     try {
-      await axios.delete(`http://localhost:3000/todo/${id}`);
+      await axios.delete(`http://localhost:5000/todo/${id}`);
       dispatch(removeTodo(id));
     } catch (error) {
       console.error('Error removing todo:', error);
