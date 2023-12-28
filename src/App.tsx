@@ -1,5 +1,6 @@
 import CreateTodo from "./component/createTodo"
 import FilterTodo from "./component/filterTodo"
+import Footer from "./component/footer"
 import NavBar from "./component/navBar"
 import TodoView from "./features/todoView"
 
@@ -16,6 +17,7 @@ const App = () => {
         <FilterTodo/>
       </div>
       <TodoView/>
+      <Footer/>
       
     </main>
   )

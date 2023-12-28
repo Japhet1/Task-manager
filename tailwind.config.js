@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        "candara": "Signika"
+        //"candara": "Signika"
+        "candara": "gill sans mt"
       }
     },
   },

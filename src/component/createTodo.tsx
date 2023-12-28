@@ -11,7 +11,7 @@ const CreateTodo: React.FC = () => {
 
     return (
         <main>
-            <div className='flex space-x-2 text-lg'>
+            <div className='flex space-x-1 text-lg hover:scale-110 transition-all'>
                 <div className='text-2xl text-slate-500'><MdNoteAdd/></div>
                 <button className=''
                     onClick={() => setOpenModal(true)}

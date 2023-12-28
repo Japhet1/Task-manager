@@ -55,7 +55,7 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
             <div className="flex justify-center text-lg">
                 <form className="px-10 py-5 bg-slate-200 rounded-md shadow-md" onSubmit={handleAddTodo}>
                     
-                    <div className='mb-8 flex justify-between items-center'><h1 className='text-3xl text-slate-500 font-bold'>Create Task</h1><div className='flex justify-end items-end'><button className='rounded-full p-2 border border-slate-500' onClick={onClose}><BsX/></button></div></div>
+                    <div className='mb-8 flex justify-between items-center'><h1 className='text-3xl text-slate-500 font-bold'>Create Task</h1><div className='flex justify-end items-end hover:scale-110 transition-all'><button className='rounded-full p-2 border border-slate-500' onClick={onClose}><BsX/></button></div></div>
                     <div className='space-y-3'>
                         <div className='space-y-1'>
                             <label htmlFor="todo">Name:</label><br/>
@@ -81,7 +81,7 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
                         </div>
                     </div>
                     <div className='mt-8'>
-                        <button className="py-1 px-4 rounded-md text-white bg-slate-500" type="submit">Add</button>
+                        <button className="py-1 px-4 rounded-md text-white bg-slate-500 hover:scale-110 transition-all" type="submit">Add</button>
                     </div>                   
                     
                 </form>
