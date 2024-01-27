@@ -1,0 +1,9 @@
+import React from 'react'
+
+const CategoryForm = () => {
+  return (
+    <main></main>
+  )
+}
+
+export default CategoryForm
