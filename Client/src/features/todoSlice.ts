@@ -56,8 +56,9 @@ export const { setTodos, addTodo, updateTodo, removeTodo, setCategory, setStatus
 export const fetchTodos = (): AppThunk => async (dispatch) => {
   try {
     const response = await axios.get('http://localhost:5000/todo');
-    dispatch(setTodos(response.data));
-    console.log(response.data)
+    const reversedData = response.data.reverse();
+    dispatch(setTodos(reversedData));
+    //console.log(response.data)
   } catch (error) {
     console.error('Error fetching todos:', error);
   }

@@ -1,60 +1,165 @@
 {
   "todo": [
     {
-      "id": 1706390776524,
-      "todo": "tjrtyj",
-      "description": "cgcgjcgj",
-      "status": "In progress",
-      "category": "Home"
-    },
-    {
-      "id": 1706390795915,
-      "todo": "gjfjfj",
-      "description": "rurturutrur",
+      "id": 1706469775056,
+      "todo": "Information and Communication Technology ",
+      "description": "During my academic journey, I have gained a strong foundation in computer science, programming languages, and software development methodologies. ",
       "status": "Pending",
-      "category": "Church"
+      "category": "office"
     },
     {
-      "id": 1706390813475,
-      "todo": "tewtwy",
-      "description": "ttyiyuy",
-      "status": "Pending",
-      "category": "Backend"
-    },
-    {
-      "id": 1706390820649,
-      "todo": "reyeyre",
-      "description": "yktyk",
+      "id": 1706472466318,
+      "todo": "Information and Communication Technology ",
+      "description": "During my academic journey, I have gained a strong foundation in computer science, programming languages, and software development methodologies. ",
       "status": "Pending",
       "category": "Frontend"
     },
     {
-      "id": 1706390826102,
-      "todo": "ewteryw",
-      "description": "trurtyuy",
+      "id": 1706472493942,
+      "todo": "Information and Communication Technology ",
+      "description": "During my academic journey, I have gained a strong foundation in computer science, programming languages, and software development methodologies. ",
+      "status": "Pending",
+      "category": "Church"
+    },
+    {
+      "id": 1706472522925,
+      "todo": "Information and Communication Technology ",
+      "description": "During my academic journey, I have gained a strong foundation in computer science, programming languages, and software development methodologies. ",
+      "status": "Pending",
+      "category": "Shopping"
+    },
+    {
+      "id": 1706472554189,
+      "todo": "Information and Communication Technology ",
+      "description": "During my academic journey, I have gained a strong foundation in computer science, programming languages, and software development methodologies. ",
+      "status": "Pending",
+      "category": "Backend"
+    },
+    {
+      "id": 1706472577741,
+      "todo": "Information and Communication Technology",
+      "description": "During my academic journey, I have gained a strong foundation in computer science, programming languages, and software development methodologies. ",
+      "status": "Pending",
+      "category": "Frontend"
+    },
+    {
+      "id": 1706472597325,
+      "todo": "Information and Communication Technology",
+      "description": "During my academic journey, I have gained a strong foundation in computer science, programming languages, and software development methodologies. ",
+      "status": "Pending",
+      "category": "Home"
+    },
+    {
+      "id": 1706472615861,
+      "todo": "Information and Communication Technology ",
+      "description": "During my academic journey, I have gained a strong foundation in computer science, programming languages, and software development methodologies. ",
+      "status": "Pending",
+      "category": "Church"
+    },
+    {
+      "id": 1706472632741,
+      "todo": "Information and Communication Technology ",
+      "description": "What excites me most about [Company Name] is your reputation for pushing technological boundaries and your commitment to developing innovative IT solutions. ",
+      "status": "Pending",
+      "category": "Frontend"
+    },
+    {
+      "id": 1706473933973,
+      "todo": "Information and Communication Technology",
+      "description": "What excites me most about [Company Name] is your reputation for pushing technological boundaries and your commitment to developing innovative IT solutions. ",
+      "status": "Pending",
+      "category": "office"
+    },
+    {
+      "id": 1706473952100,
+      "todo": "Information and Communication Technology",
+      "description": "If you are interested, please upload a motivation letter in English summarising your educational background and your motivation to apply.",
+      "status": "Pending",
+      "category": "Church"
+    },
+    {
+      "id": 1706473975221,
+      "todo": "Information and Communication Technology ",
+      "description": "If you are interested, please upload a motivation letter in English summarising your educational background and your motivation to apply.",
+      "status": "Pending",
+      "category": "Home"
+    },
+    {
+      "id": 1706473991645,
+      "todo": "Information and Communication Technology ",
+      "description": "If you are interested, please upload a motivation letter in English summarising your educational background and your motivation to apply.",
+      "status": "Pending",
+      "category": "Shopping"
+    },
+    {
+      "id": 1706474008341,
+      "todo": "Information and Communication Technology ",
+      "description": "If you are interested, please upload a motivation letter in English summarising your educational background and your motivation to apply.",
       "status": "In progress",
       "category": "Shopping"
     },
     {
-      "id": 1706390831414,
-      "todo": "wewt",
-      "description": "rtrurtu",
-      "status": "Completed",
-      "category": "Church"
+      "id": 1706474026669,
+      "todo": "Information and Communication Technology ",
+      "description": "During my academic journey, I have gained a strong foundation in computer science, programming languages, and software development methodologies. ",
+      "status": "Pending",
+      "category": "Backend"
     },
     {
-      "id": 1706390835307,
-      "todo": "rery",
-      "description": "rtuyrtur",
-      "status": "Completed",
-      "category": "Church"
-    },
-    {
-      "id": 1706390841011,
-      "todo": "ryiryr",
-      "description": "hdjfj",
+      "id": 1706474048372,
+      "todo": "Information and Communication Technology ",
+      "description": "During my academic journey, I have gained a strong foundation in computer science, programming languages, and software development methodologies. ",
       "status": "Pending",
       "category": "office"
+    },
+    {
+      "id": 1706474066676,
+      "todo": "Information and Communication Technology ",
+      "description": "What excites me most about [Company Name] is your reputation for pushing technological boundaries and your commitment to developing innovative IT solutions. ",
+      "status": "In progress",
+      "category": "Backend"
+    },
+    {
+      "id": 1706474253315,
+      "todo": "Information and Communication Technology ",
+      "description": "What excites me most about [Company Name] is your reputation for pushing technological boundaries and your commitment to developing innovative IT solutions. ",
+      "status": "Pending",
+      "category": "office"
+    },
+    {
+      "id": 1706474270211,
+      "todo": "Information and Communication Technology ",
+      "description": "If you are interested, please upload a motivation letter in English summarising your educational background and your motivation to apply.",
+      "status": "Completed",
+      "category": "Church"
+    },
+    {
+      "id": 1706474285611,
+      "todo": "Information and Communication Technology ",
+      "description": "If you are interested, please upload a motivation letter in English summarising your educational background and your motivation to apply.",
+      "status": "Completed",
+      "category": "Frontend"
+    },
+    {
+      "id": 1706474310826,
+      "todo": "Information and Communication Technology ",
+      "description": "During my academic journey, I have gained a strong foundation in computer science, programming languages, and software development methodologies.",
+      "status": "Completed",
+      "category": "Home"
+    },
+    {
+      "id": 1706475162549,
+      "todo": "Information and Communication Technology",
+      "description": "What excites me most about [Company Name] is your reputation for pushing technological boundaries and your commitment to developing innovative IT solutions. ",
+      "status": "In progress",
+      "category": "Home"
+    },
+    {
+      "id": 1706980357102,
+      "todo": "Information and Communication Technology ",
+      "description": "What excites me most about [Company Name] is your reputation for pushing technological boundaries and your commitment to developing innovative IT solutions.",
+      "status": "Completed",
+      "category": "Backend"
     }
   ],
   "category": [

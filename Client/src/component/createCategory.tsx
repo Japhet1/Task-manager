@@ -35,7 +35,7 @@ const CreateCategory: React.FC = () => {
   return (
     <main>
         <div className=''>
-            <div className='border border-slate-300 p-2 rounded-md'>
+            <div className='border border-slate-300 p-2 rounded-lg'>
                 <form onSubmit={handleSubmit} className='flex item-center space-x-2' action="">
                     <div className=''>
                         <input 
@@ -47,7 +47,7 @@ const CreateCategory: React.FC = () => {
                             onChange={handleInputChange}
                         />
                     </div>
-                    <div><button className='bg-slate-700 text-white rounded-md py-1 px-2' type='submit'>Add</button></div>
+                    <div><button className='bg-slate-700 text-white rounded-lg py-1 px-2' type='submit'>Add</button></div>
                 </form>      
             </div>
         </div>
