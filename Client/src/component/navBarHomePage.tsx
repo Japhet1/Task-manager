@@ -1,9 +1,9 @@
 import React from "react";
 import { PiNotepad } from "react-icons/pi";
-import User from "./user";
 
 
-const NavBar = () => {
+
+const NavBarHomePage = () => {
 
   return (
     <main className="mx-10 px-10">
@@ -12,7 +12,6 @@ const NavBar = () => {
               <PiNotepad className="text-4xl" />
               <a href='/'><h1 className="">ACTRACKER</h1></a>
           </div>
-          <User/>
         </div>
     </main>
 
@@ -20,4 +19,4 @@ const NavBar = () => {
   )
 }
 
-export default NavBar
+export default NavBarHomePage

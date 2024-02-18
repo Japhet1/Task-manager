@@ -1,11 +1,10 @@
 import React from 'react'
-import CreateTodo from "./component/createTodo"
-// import FilterTodo from "./component/filterTodo"
-import Footer from "./component/footer"
-import NavBar from "./component/navBar"
-import TodoView from "./features/todoView"
-import CreateCategory from './component/createCategory'
-import Notification from './component/notification'
+import SignUpPage from './Pages/SignUpPage'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Footer from './component/footer';
+import SignInPage from './Pages/SignInPage';
+import Dashboard from './Pages/dashboard';
+
 
 
 
@@ -14,16 +13,16 @@ const App = () => {
 
   return (
     <main className="font-candara">
-      <NavBar/>
-      <div className='flex justify-end mx-10 px-10 pt-5'>
-        <Notification/>
-      </div>
-      <div className="relative flex justify-between items-center mx-10 px-10 py-10">
-        <CreateTodo/>
-        <CreateCategory/>
-      </div>
-      <TodoView/>
-      <Footer/>
+      <BrowserRouter>
+        
+        <Routes>
+          <Route path='/' element={<SignUpPage/>} />
+          <Route path='/signin' element={<SignInPage/>} />
+          <Route path='/dashboard' element={<Dashboard/>} />
+        </Routes>
+        <Footer/>
+      </BrowserRouter>
+      
     </main>
   )
   

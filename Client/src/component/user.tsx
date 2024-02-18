@@ -8,7 +8,7 @@ const User = () => {
                 <h1><strong>Welcome!</strong> elompassah81@gmail.com</h1>
             </div>
             <div>
-                <button className='py-1 px-4 text-white rounded-lg bg-slate-700'>Logout</button>
+                <button className='py-1 px-4 text-white rounded-lg bg-slate-700'><a href="/signin">Logout</a></button>
             </div>
         </div>
     </main>

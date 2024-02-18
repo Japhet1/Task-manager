@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateTodoAsync } from '../features/todoSlice';
 import {  AppDispatch, RootState } from '../stores/store'
 import { BsX } from 'react-icons/bs'
+// import { useSelector } from 'react-redux';
+// import { RootState } from '../stores/store';
 
 interface Change {
     visible: boolean,
@@ -11,7 +13,7 @@ interface Change {
     id: number
 }
 
-const UpdateForm: React.FC<Change> = ({visible, onClose}) => {
+const UpdateForm: React.FC<Change> = ({visible, onClose }) => {
    
     
   
@@ -21,6 +23,7 @@ const UpdateForm: React.FC<Change> = ({visible, onClose}) => {
         description: string,
         status: string,
         category: string
+        //todos: []
     }
     
     const dispatch = useDispatch<AppDispatch>();
@@ -33,6 +36,7 @@ const UpdateForm: React.FC<Change> = ({visible, onClose}) => {
         description: '',
         status: '',
         category: ''
+        //todo: todos[]
     })
 
     if (!visible) return null

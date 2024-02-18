@@ -151,7 +151,7 @@
       "id": 1706475162549,
       "todo": "Information and Communication Technology",
       "description": "What excites me most about [Company Name] is your reputation for pushing technological boundaries and your commitment to developing innovative IT solutions. ",
-      "status": "In progress",
+      "status": "Completed",
       "category": "Home"
     },
     {
@@ -186,10 +186,6 @@
     {
       "id": 1705874180088,
       "category": "Frontend"
-    },
-    {
-      "id": 1706390776526,
-      "category": "office"
     }
   ]
 }
