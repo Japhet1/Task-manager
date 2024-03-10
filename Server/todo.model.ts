@@ -6,8 +6,9 @@ export interface ITodo extends Document {
   //id: number,
   todo: string,
   description: string,
-  completed: string,
+  status: string,
   category: string,
+  assigned: string
 }
 
 const todoSchema: Schema = new Schema({
@@ -16,8 +17,9 @@ const todoSchema: Schema = new Schema({
   //id: { type: Number, require: true },
   todo: { type: String, required: true },
   description: { type: String, required: true },
-  completed: { type: String },
+  status: { type: String },
   category: { type: String, required: true },
+  assigned: { type: String, required: true },
 }, {timestamps: true});
 
 const TodoModel = mongoose.model<ITodo>('Todo', todoSchema);

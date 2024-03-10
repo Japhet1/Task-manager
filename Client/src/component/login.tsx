@@ -25,7 +25,7 @@ const Login = () => {
                             <label className='text-sm'>Remember Password</label>
                         </div>
                         <div>
-                            <h1 className='text-sm text-blue-500'>Reset Password</h1>
+                            <div><a href='' className='text-sm text-blue-500'>Reset Password</a></div>
                         </div>
                     </div>
                 </div>

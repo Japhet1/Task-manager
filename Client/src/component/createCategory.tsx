@@ -45,6 +45,7 @@ const CreateCategory: React.FC = () => {
                             placeholder='Add new category ....'
                             value={formData.category}
                             onChange={handleInputChange}
+                            required
                         />
                     </div>
                     <div><button className='bg-slate-700 text-white rounded-lg py-1 px-2' type='submit'>Add</button></div>

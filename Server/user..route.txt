@@ -1,0 +1,13 @@
+import { Router } from 'express';
+//import TodoController from './todo.controller';
+import authenticateToken from './user.middleware';
+import { loginUser, signUser } from './user.controller'
+//const { loginUser, signUser } = require('../controllers/userControllers')
+
+const router: Router = Router();
+
+router.post('/login', loginUser)
+router.post('/signup', signUser)
+
+
+export default router;

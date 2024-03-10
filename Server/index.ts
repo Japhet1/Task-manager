@@ -3,15 +3,14 @@ import mongoose, { ConnectOptions } from 'mongoose';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import todoRoutes from './todo.route';
+import userRoutes from "./user.route"
+import categoryRoutes from "./category.route"
 
 const PORT = 8000
 
 const app: Express = express()
 
-mongoose.connect('mongodb://localhost:27017/todoapp', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-} as ConnectOptions);
+
 
 // Middleware
 app.use(bodyParser.json());
@@ -23,7 +22,21 @@ app.use(cors());
 // });
 
 // Use the todo routes
-app.use('/todos', todoRoutes);
+app.use('/api/todos', todoRoutes);
+app.use('/api/users', userRoutes)
+app.use('/api/categories', categoryRoutes)
+
+mongoose.connect('mongodb://localhost:27017/todoapp', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+} as ConnectOptions);
+
+const db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once('open', () => {
+  console.log('Connected to MongoDB');
+});
 
 app.listen(PORT, () => {
     console.log(`listen on port ${PORT}`)

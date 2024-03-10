@@ -12,9 +12,9 @@ class TodoController {
   }
 
   public static async createTodo(req: Request, res: Response): Promise<void> {
-    const { todo, description, completed, category } = req.body;
+    const { todo, description, completed, category, assigned } = req.body;
     try {
-      const newTodo: ITodo = new TodoModel({ todo, description, completed, category });
+      const newTodo: ITodo = new TodoModel({ todo, description, completed, category, assigned });
       const savedTodo: ITodo = await newTodo.save();
       res.status(201).json({ todo: savedTodo });
     } catch (error) {
@@ -24,11 +24,11 @@ class TodoController {
 
   public static async updateTodo(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
-    const { completed } = req.body;
+    const { status } = req.body;
   
     try {
       const updatedTodo = await TodoModel
-        .findByIdAndUpdate(id, { completed }, { new: true })
+        .findByIdAndUpdate(id, { status }, { new: true })
         .lean() as ITodo;
   
       if (!updatedTodo) {

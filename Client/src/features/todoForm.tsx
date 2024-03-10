@@ -18,7 +18,8 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
         todo: string,
         description: string,
         status: string,
-        category: string
+        category: string,
+        assigned: string
     }
     const dispatch = useDispatch<AppDispatch>();
     const categories = useSelector((state: RootState) => state.categories.categories)
@@ -28,7 +29,8 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
         todo: '',
         description: '',
         status: '',
-        category: ''
+        category: '',
+        assigned: ''
     })
 
     if (!visible) return null
@@ -48,7 +50,7 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
 
     const handleAddTodo = (e: React.FormEvent) => {
         e.preventDefault()
-        setFormData({id: Date.now(), todo: '', description: '', status: 'Pending', category: '' })
+        setFormData({id: Date.now(), todo: '', description: '', status: 'Pending', category: '', assigned: '' })
         dispatch(createTodo(formData))
     };
 
@@ -59,6 +61,11 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
                     
                     <div className='mb-8 flex justify-between items-center'><h1 className='text-3xl text-slate-500 font-bold'>Create a task</h1><div className='flex justify-end items-end hover:scale-110 transition-all'><button className='rounded-full p-2 border border-slate-500' onClick={onClose}><BsX/></button></div></div>
                     <div className='space-y-3'>
+                        <div className='space-y-1'>
+                            <label htmlFor="todo">Assigned To:</label><br/>
+                            <input className="w-72 p-1 text-base rounded-md" name="assigned" type="text" value={formData.assigned} onChange={handleInputChange} required />
+                        </div>
+
                         <div className='space-y-1'>
                             <label htmlFor="todo">Task:</label><br/>
                             <input className="w-72 p-1 text-base rounded-md" name="todo" type="text" value={formData.todo} onChange={handleInputChange} required />

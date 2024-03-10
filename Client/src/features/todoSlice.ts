@@ -8,6 +8,7 @@ interface Todo {
   description: string,
   status: string,
   category: string,
+  assigned: string
 }
 
 interface TodosState {
@@ -56,6 +57,7 @@ export const { setTodos, addTodo, updateTodo, removeTodo, setCategory, setStatus
 export const fetchTodos = (): AppThunk => async (dispatch) => {
   try {
     const response = await axios.get('http://localhost:5000/todo');
+    //const response = await axios.get('http://localhost:8000/api/todos');
     const reversedData = response.data.reverse();
     dispatch(setTodos(reversedData));
     //console.log(response.data)
@@ -67,6 +69,7 @@ export const fetchTodos = (): AppThunk => async (dispatch) => {
 export const createTodo = (todo: Todo): AppThunk => async (dispatch) => {
   try {
     const response = await axios.post('http://localhost:5000/todo', todo);
+    //const response = await axios.post('http://localhost:8000/api/todos', todo);
     dispatch(addTodo(response.data));
   } catch (error) {
     console.error('Error creating todo:', error);
@@ -76,6 +79,7 @@ export const createTodo = (todo: Todo): AppThunk => async (dispatch) => {
 export const updateTodoAsync = (todo: Todo): AppThunk => async (dispatch) => {
   try {
     await axios.put(`http://localhost:5000/todo/${todo.id}`, todo);
+    //await axios.put(`http://localhost:8000/api/todos/${todo.id}`, todo);
     dispatch(updateTodo(todo));
   } catch (error) {
     console.error('Error updating todo:', error);
@@ -85,6 +89,7 @@ export const updateTodoAsync = (todo: Todo): AppThunk => async (dispatch) => {
 export const removeTodoAsync = (id: number): AppThunk => async (dispatch) => {
   try {
     await axios.delete(`http://localhost:5000/todo/${id}`);
+    //await axios.delete(`http://localhost:8000/api/todos/${id}`);
     dispatch(removeTodo(id));
   } catch (error) {
     console.error('Error removing todo:', error);

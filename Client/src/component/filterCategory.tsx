@@ -4,9 +4,14 @@ import { FaTrash } from 'react-icons/fa'
 import { removeCategoryAsync } from '../features/categorySlice';
 import { useEffect, useState } from 'react';
 import { setCategory } from '../features/todoSlice';
+//import CategoryHead from './categoryHead'
+//import TodoList from '../features/todoList'
+
+//export let CategoryHead = ''
 
 const FilterCategory: React.FC  = () => {
     const [ filter, setFilter ] = useState("")
+    //const [ cat, setCat ] = useState("")
     const dispatch = useDispatch<AppDispatch>();
     const categories = useSelector((state: RootState) => state.categories.categories)
     //const todos = useSelector((state: RootState) => state.todos.todos);
@@ -22,6 +27,7 @@ const FilterCategory: React.FC  = () => {
 
     useEffect(() => {
         dispatch(setCategory(filter))
+        //CategoryHead = filter
         // showAll()
     })
 
@@ -44,9 +50,16 @@ const FilterCategory: React.FC  = () => {
                         }}
                         />
                     </div>
+                   
                 </div>
+
                 
               ))}
+               <div className='hidden'>
+                {/* <Todolist category={filter}/>
+                <TodoList/> */}
+                    {/* <TodoList category={filter}/> */}
+               </div>
     </main>
   )
 }

@@ -1,11 +1,13 @@
 import React from 'react'
+import Notification from './notification'
 
 const User = () => {
   return (
     <main>
         <div className='flex items-center gap-5'>
-            <div className='text-slate-700'>
+            <div className='text-slate-700 flex justify-center items-center space-x-4'>
                 <h1><strong>Welcome!</strong> elompassah81@gmail.com</h1>
+                <Notification/>
             </div>
             <div>
                 <button className='py-1 px-4 text-white rounded-lg bg-slate-700'><a href="/signin">Logout</a></button>
