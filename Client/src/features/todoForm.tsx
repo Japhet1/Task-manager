@@ -14,7 +14,8 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
     
   
     interface FormData {
-        id: number,
+        _id: string,
+        date: Date,
         todo: string,
         description: string,
         status: string,
@@ -25,7 +26,8 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
     const categories = useSelector((state: RootState) => state.categories.categories)
     //const [ selectedValue, setSelectedValue ] = useState<string>()
     const [ formData, setFormData ] = useState<FormData>({
-        id: Date.now(),
+        _id: '',
+        date: new Date(),
         todo: '',
         description: '',
         status: '',
@@ -50,8 +52,9 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
 
     const handleAddTodo = (e: React.FormEvent) => {
         e.preventDefault()
-        setFormData({id: Date.now(), todo: '', description: '', status: 'Pending', category: '', assigned: '' })
+        setFormData({_id: '', date: new Date(), todo: '', description: '', status: 'Pending', category: '', assigned: '' })
         dispatch(createTodo(formData))
+        console.log(formData)
     };
 
     return (
@@ -80,10 +83,10 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
                         <div className='space-y-1'>
                             <label htmlFor="category">Category:</label><br/>
                              
-                            <select className='w-72 p-1 text-base rounded-md' name="category" id="category" value={formData.category} onChange={handleInputChange} required>
+                            <select className='w-72 p-1 text-base rounded-md' name="category" id="category" value={formData.category} onChange={handleInputChange}>
                             
-                                {categories.map((option, index) => (
-                                    <option key={index} value={option.category}>{option.category}</option>
+                                {categories.map((option) => (
+                                    <option key={option._id} value={option.category}>{option.category}</option>
                                 ))}
                                 
                             </select>

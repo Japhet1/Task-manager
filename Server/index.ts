@@ -1,10 +1,11 @@
 import express, { Express, Request, Response} from 'express'
 import mongoose, { ConnectOptions } from 'mongoose';
-import bodyParser from 'body-parser';
+//import bodyParser from 'body-parser';
 import cors from 'cors';
 import todoRoutes from './todo.route';
 import userRoutes from "./user.route"
 import categoryRoutes from "./category.route"
+import dotenv from 'dotenv';
 
 const PORT = 8000
 
@@ -13,7 +14,12 @@ const app: Express = express()
 
 
 // Middleware
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
+app.use(express.json())
+app.use((req, res, next) => {
+    console.log(req.path, req.method)
+    next()
+})
 
 app.use(cors());
 

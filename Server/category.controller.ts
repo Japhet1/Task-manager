@@ -5,7 +5,7 @@ class CategoryController {
   public static async getAllCategories(req: Request, res: Response): Promise<void> {
     try {
       const categories: ICategory[] = await CategoryModel.find();
-      res.status(200).json({ categories });
+      res.status(200).json( categories );
     } catch (error) {
       res.status(500).json({ error: 'Internal Server Error' });
     }
@@ -16,7 +16,7 @@ class CategoryController {
     try {
       const newCategory: ICategory = new CategoryModel({ category });
       const savedCategory: ICategory = await newCategory.save();
-      res.status(201).json({ category: savedCategory });
+      res.status(201).json( savedCategory );
     } catch (error) {
       res.status(500).json({ error: 'Internal Server Error' });
     }

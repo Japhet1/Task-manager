@@ -78,7 +78,9 @@ import express, { Router } from 'express';
 const router: Router = express.Router();
 
 // Import controller functions
-import { loginUser, signUser } from './user.controller';
+import { loginUser, signUser, getAllUser } from './user.controller';
+
+router.get('/', getAllUser);
 
 // Login route
 router.post('/login', loginUser);

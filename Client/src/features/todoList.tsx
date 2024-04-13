@@ -11,20 +11,19 @@ import Status from '../component/status';
 import UpdateTodo from '../component/updateTodo';
 import DeleteTodo from '../component/deleteTodo';
 import date from 'date-and-time';
-//import CategoryHead from '../component/categoryHead';
-//import { setCategories } from './categorySlice';
-//import { CategoryHead } from '../component/filterCategory';
-//import { formathistanceToNow } from "date-fns";
+// import getUser from '../component/getUser'
 
 const ITEMS_PER_PAGE = 12;
-// interface Category {
-//   category: string
-// }
 
-const TodoList: React.FC = () => {  
+
+const TodoList: React.FC = () => { 
+  // const user = getUser();
+  // const token = JSON.parse(localStorage.getItem('user') || '')
+  // const user = token 
   
     interface Todo {
-        id: number,
+        _id: string,
+        date: Date,
         todo: string,
         description: string,
         status: string,
@@ -50,12 +49,13 @@ const TodoList: React.FC = () => {
 
     console.log(filteredData)
     
+    // const token: token = localStorage.getItem('userToken');
     
 
     const filterTodos = todos ? (
         Array.isArray(todos) ?
           todos.filter((todo) => 
-            filteredData === null ? true : todo.category.toLowerCase().includes(filteredData.toLowerCase())
+            filteredData === null || '' ? true : todo.category.toLowerCase().includes(filteredData.toLowerCase())
           ) 
           // todos.filter((todo) => 
           //   filteredByStatus === null ? true : todo.status.toLowerCase().includes(filteredByStatus.toLowerCase())
@@ -65,7 +65,7 @@ const TodoList: React.FC = () => {
     const filter = todos ? (
       Array.isArray(todos) ?
         todos.filter((todo) => 
-          filteredByStatus === null ? true : todo.category.toLowerCase().includes(filteredByStatus.toLowerCase())
+          filteredByStatus === null || '' ? true : todo.category.toLowerCase().includes(filteredByStatus.toLowerCase())
         ) 
         // todos.filter((todo) => 
         //   filteredByStatus === null ? true : todo.status.toLowerCase().includes(filteredByStatus.toLowerCase())
@@ -93,8 +93,12 @@ const TodoList: React.FC = () => {
     
   
     useEffect(() => {
-      dispatch(fetchTodos());
-      dispatch(fetchCategories());
+
+      
+        dispatch(fetchTodos());
+        dispatch(fetchCategories());
+      
+  
     }, [dispatch]);
     
     const newfilter = filterTodos.length | filter.length;
@@ -145,12 +149,12 @@ const TodoList: React.FC = () => {
             { showCards ? (
               <div className="grid grid-cols-12 gap-10">
               {displayedTodos.slice(0, ITEMS_PER_PAGE).map((item) => (
-                  <div key={item.id} className="relative col-span-4 rounded-lg bg-gray-50 border border-slate-300">
+                  <div key={item._id} className="relative col-span-4 rounded-lg bg-gray-50 border border-slate-300">
                       <div className='p-5'>
-                          <div className="flex justify-between text-gray-500 mb-4">
+                          <div className="flex justify-between text-gray-500 mb-5">
                             
                             <div className='space-y-4'>
-                                <h1>{date.format(new Date(item.id), 'DD-MM-YYYY')}</h1>
+                                <h1>{date.format(new Date(item.date), 'DD-MM-YYYY')}</h1>
                                 <h1 
                                     className={ item.status === "Pending"? 'text-red-500 font-semibold' : 
                                                 item.status === "In progress"? 'text-orange-500 font-semibold': 
@@ -160,8 +164,8 @@ const TodoList: React.FC = () => {
                                 </h1>
                             </div>
                             <div className='flex space-x-2'>
-                                <UpdateTodo item={item.id}/>
-                                <DeleteTodo item={item.id}/>
+                                <UpdateTodo item={item._id}/>
+                                <DeleteTodo item={item._id}/>
                             </div>
                           </div>
                           <div className='space-y-3 mb-10'>
@@ -229,11 +233,10 @@ const TodoList: React.FC = () => {
                       </thead>
                       <tbody>
                         {displayedTodos.slice(0, ITEMS_PER_PAGE).map((item) => (
-                          <tr key={item.id} className='border rounded-lg'>
-                            <td className='p-3 text-base text-slate-600'><h1>{date.format(new Date(item.id), 'DD-MM-YYYY')}</h1></td>
+                          <tr key={item._id} className='border rounded-lg'>
+                            <td className='p-3 text-base text-slate-600'><h1>{date.format(new Date(item.date), 'DD-MM-YYYY')}</h1></td>
                             <td className='p-3'>
-                              <h1 
-                                  className={ item.status === "Pending"? 'text-red-500 font-semibold' : 
+                              <h1 className={ item.status === "Pending"? 'text-red-500 font-semibold' : 
                                               item.status === "In progress"? 'text-orange-500 font-semibold': 
                                               item.status === "Completed"? 'text-green-500 font-semibold': ""
                                             }>
@@ -242,7 +245,7 @@ const TodoList: React.FC = () => {
                               </td>
                               <td className='p-3 text-base text-slate-600'><h1>{item.todo}</h1></td>
                               <td className='p-3 text-base text-slate-600'><h1>{item.description}</h1></td>
-                              <td className='p-3 text-base text-slate-600 font-semibold'>
+                              <td className='p-3 text-base text-slate-600 font-bold'>
                                 <h1>
                                   {item.assigned}
                                 </h1>
@@ -261,8 +264,8 @@ const TodoList: React.FC = () => {
                               </td>
                               <td className='p-3'>
                                 <div className='flex space-x-2'>
-                                  <UpdateTodo item={item.id}/>
-                                  <DeleteTodo item={item.id}/>
+                                  <UpdateTodo item={item._id}/>
+                                  <DeleteTodo item={item._id}/>
                                 </div>
                               </td>
                           </tr>

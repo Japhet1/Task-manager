@@ -6,7 +6,7 @@ import {  AppDispatch } from '../stores/store'
 
 
 interface FormData {
-  id: number,
+  _id: string,
   category: string
 }
 
@@ -14,7 +14,7 @@ const CreateCategory: React.FC = () => {
 
     const dispatch = useDispatch<AppDispatch>()
     const [formData, setFormData] = useState<FormData>({
-        id: Date.now(),
+        _id: '',
         category: ""
       });
     
@@ -28,7 +28,7 @@ const CreateCategory: React.FC = () => {
     
       const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        setFormData({id: Date.now(), category: "" })
+        setFormData({_id: '', category: '' })
         dispatch(createCategory(formData))
 
       };

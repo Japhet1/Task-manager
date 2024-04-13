@@ -1,8 +1,10 @@
 import { Router } from 'express';
 import TodoController from './todo.controller';
-//import authenticateToken from './user.middleware';
+import authenticateToken from './user.middleware';
 
 const router: Router = Router();
+
+router.use(authenticateToken)
 
 // router.get('/', authenticateToken, TodoController.getAllTodos);
 // router.post('/', authenticateToken, TodoController.createTodo);

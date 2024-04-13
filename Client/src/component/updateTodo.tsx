@@ -8,7 +8,7 @@ import UpdateForm from './updateForm'
 // import { RootState } from '../stores/store';
 
 interface ID {
-    item: number
+    item: string
 }
 
 const UpdateTodo: React.FC<ID> = ({item}) => {
@@ -23,7 +23,7 @@ const UpdateTodo: React.FC<ID> = ({item}) => {
             <button className='p-2 text-slate-700 rounded-lg bg-gray-200' onClick={() => setOpenModal(true)}>
                 <FaEdit />
             </button>  
-            <UpdateForm onClose={handleOnClose} visible={openModal} id={item}/> 
+            <UpdateForm onClose={handleOnClose} visible={openModal} _id={item}/> 
 
         </main>
     )

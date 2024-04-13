@@ -10,7 +10,7 @@ interface Change {
     visible: boolean,
     onClose: () => void,
     //todos: Todo[],
-    id: number
+    _id: string
 }
 
 const UpdateForm: React.FC<Change> = ({visible, onClose }) => {
@@ -18,11 +18,13 @@ const UpdateForm: React.FC<Change> = ({visible, onClose }) => {
     
   
     interface Todo {
-        id: number,
+        _id: string,
+        date: Date,
         todo: string,
         description: string,
         status: string,
         category: string
+        assigned: string
         //todos: []
     }
     
@@ -31,11 +33,13 @@ const UpdateForm: React.FC<Change> = ({visible, onClose }) => {
     //const todos = useSelector((state: RootState) => state.todos.todos);
     //const [ selectedValue, setSelectedValue ] = useState<string>()
     const [ formData, setFormData ] = useState<Todo>({
-        id: Date.now(),
+        _id: '',
+        date: new Date(),
         todo: '',
         description: '',
         status: '',
-        category: ''
+        category: '',
+        assigned: ''
         //todo: todos[]
     })
 
@@ -56,7 +60,7 @@ const UpdateForm: React.FC<Change> = ({visible, onClose }) => {
 
     const handleAddTodo = (e: React.FormEvent) => {
         e.preventDefault()
-        setFormData({id: Date.now(), todo: '', description: '', status: 'Pending', category: '' })
+        setFormData({_id: '', date: new Date(), todo: '', description: '', status: 'Pending', category: '', assigned: '' })
         dispatch(updateTodoAsync(formData))
         //dispatch(updateTodoAsync({ ...todo, status: 'Pending' }));
         //setFormData({...todos, description: "",  category: "" })

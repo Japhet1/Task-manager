@@ -1,4 +1,4 @@
-import { RootState, AppDispatch } from '../stores/store';
+import { AppDispatch, allCategories } from '../stores/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaTrash } from 'react-icons/fa'
 import { removeCategoryAsync } from '../features/categorySlice';
@@ -10,33 +10,29 @@ import { setCategory } from '../features/todoSlice';
 //export let CategoryHead = ''
 
 const FilterCategory: React.FC  = () => {
-    const [ filter, setFilter ] = useState("")
-    //const [ cat, setCat ] = useState("")
+    const [ filter, setFilter ] = useState('')
     const dispatch = useDispatch<AppDispatch>();
-    const categories = useSelector((state: RootState) => state.categories.categories)
+    const categories = useSelector(allCategories)
     //const todos = useSelector((state: RootState) => state.todos.todos);
 
-    const handleRemoveCategory = (id: number) => {
-        dispatch(removeCategoryAsync(id));
+    const handleRemoveCategory = (_id: string) => {
+        dispatch(removeCategoryAsync(_id));
     };
 
-    // const showAll = () => {
-    //     dispatch(setTodos(todos))
-    // }
+    //console.log(categories)
+
 
 
     useEffect(() => {
         dispatch(setCategory(filter))
-        //CategoryHead = filter
-        // showAll()
     })
 
   return (
     <main className='space-y-3'>
         <div className='text-xl font-semibold'><h1>Categories</h1></div>
             <div><button className='ms-3'>All</button></div>
-            {categories.map((category, index) => (
-                <div key={index} className="flex justify-between items-center group px-2 rounded">
+            {categories.map((category) => (
+                <div key={category._id} className="flex justify-between items-center group px-2 rounded">
                     <a href="/">
                         <button onClick={(e) => { e.preventDefault(); setFilter(category.category)} }>{category.category}</button>
                     </a>
@@ -46,20 +42,13 @@ const FilterCategory: React.FC  = () => {
                         className="text-slate-700 text-sm cursor-pointer"
                         onClick={(event) => {
                             event.stopPropagation(); // Prevent the click event from propagating to parent elements
-                            handleRemoveCategory(category.id);
+                            handleRemoveCategory(category._id);
                         }}
                         />
                     </div>
                    
                 </div>
-
-                
-              ))}
-               <div className='hidden'>
-                {/* <Todolist category={filter}/>
-                <TodoList/> */}
-                    {/* <TodoList category={filter}/> */}
-               </div>
+            ))}
     </main>
   )
 }

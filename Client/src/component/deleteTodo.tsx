@@ -7,13 +7,13 @@ import { useDispatch } from 'react-redux';
 //import { RootState } from '../stores/store';
 
 interface ID {
-    item: number
+    item: string
 }
 
 const DeleteTodo: React.FC<ID> = ({item}) => {
     const dispatch = useDispatch<AppDispatch>();
-    const handleRemoveTodo = (id: number) => {
-        dispatch(removeTodoAsync(id));
+    const handleRemoveTodo = (_id: string) => {
+        dispatch(removeTodoAsync(_id));
     }
 
     return (

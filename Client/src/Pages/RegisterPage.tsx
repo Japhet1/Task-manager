@@ -1,11 +1,11 @@
 import React from 'react'
 // import FilterTodo from "./component/filterTodo"
 import NavBarHomePage from '../component/navBarHomePage'
-import SignUp from '../component/signUp'
+import Register from '../component/register'
 
 
 
-const SignUpPage = () => {
+const RegisterPage = () => {
   
 
   return (
@@ -16,7 +16,7 @@ const SignUpPage = () => {
           <img className='text-slate-300 w-192 h-192 object-cover' src="/3.png" alt="" />
         </div>
         <div>
-          <SignUp/>
+          <Register/>
         </div>
       </div>
     </main>
@@ -24,4 +24,4 @@ const SignUpPage = () => {
   
 }
 
-export default SignUpPage
+export default RegisterPage

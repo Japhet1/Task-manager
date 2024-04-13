@@ -8,8 +8,9 @@ export default {
     extend: {
       fontFamily: {
         //"candara": "Signika"
-        "candara": "Montserrat"
-        // "candara": "Bahnschrift"
+        //"candara": "Montserrat"
+        "candara": "Bahnschrift"
+        // "candara": "Poppins"
       },
       width: {
         '128': '32rem', // You can adjust the value as needed

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     // "allowJs": true,
-    // "esModuleInterop": true,
+     "esModuleInterop": true,
     // "allowSyntheticDefaultImports": true,
     // "forceConsistentCasingInFileNames": true,
     // "types": ["vite/client", "node"],
@@ -20,7 +20,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
+    "jsx": "react",
 
     /* Linting */
     "strict": true,
