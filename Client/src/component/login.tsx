@@ -1,28 +1,25 @@
 import React, { useState } from 'react'
 import { BsGoogle } from 'react-icons/bs'
 import { IoRemoveOutline } from "react-icons/io5";
-import { useDispatch } from 'react-redux';
-import {  AppDispatch } from '../stores/store'
-import { loginApi } from '../features/authSlice'
-import { useNavigate } from 'react-router-dom';
+// import { useDispatch } from 'react-redux';
+// import {  AppDispatch } from '../stores/store'
+// import { loginApi } from '../features/authSlice'
+// import { useNavigate } from 'react-router-dom';
+import { useLogin } from '../component/useLogin'
 
 const Login = () => {
-    const dispatch = useDispatch<AppDispatch>();
-    const navigate = useNavigate()
+    // const dispatch = useDispatch<AppDispatch>();
+    
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    // const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const { loginApi, error, isLoading } = useLogin()
     
-    const handleAddTodo = (e: React.FormEvent) => {
+    const handleAddTodo = async (e: React.FormEvent) => {
         e.preventDefault()
-        const data = { username, email, password }
-        dispatch(loginApi(data))
-        // localStorage.setItem('user', JSON.stringify(data));
-        // setIsLoggedIn(true);
-
-        // {isLoggedIn && <Navigate to="/dashboard" />}
-        navigate('/dashboard');
+        
+        await loginApi(username, email, password )        
+        // navigate('/dashboard');
     };
     
     return (
@@ -69,7 +66,8 @@ const Login = () => {
                     </div>
                     
                     <div>
-                        <button className='w-96 bg-blue-500 p-2 rounded-md text-white'>Login</button>
+                        <button className='w-96 bg-blue-500 p-2 rounded-md text-white' disabled={isLoading}>Login</button>
+                        {error && <div className="error">{error}</div>}
                     </div>
                     <div className='w-96'>
                         <div className='flex items-center space-x-2'>

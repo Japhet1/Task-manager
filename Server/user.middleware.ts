@@ -6,7 +6,7 @@ import User from './user.model';
 
 dotenv.config();
 
-const secretKey = process.env.SECRET_KEY || '';
+const secretKey = process.env.SECRET || '';
 
 const authenticateToken = async (req: Request, res: Response, next: NextFunction) => {
   // const token = req.header('Authorization')?.split(' ')[1];

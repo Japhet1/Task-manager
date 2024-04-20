@@ -123,7 +123,7 @@ export const registerApi = (user: AuthData): AppThunk => async (dispatch) => {
         // if (response) {
           // save the user to locale storage
           
-          localStorage.setItem('user', JSON.stringify(response.data))
+          localStorage.setItem('user', JSON.stringify(response.data));
 
           // update Auth Context
           dispatch(signup(response.data));
@@ -134,23 +134,23 @@ export const registerApi = (user: AuthData): AppThunk => async (dispatch) => {
     }
 };
 
-export const loginApi = (user: AuthData): AppThunk => async (dispatch) => {
-  try {
-      //Make async call to signup endpoint
-      const response = await axios.post('http://localhost:8000/api/users/login', user);
-      console.log(response.data);
-      // if (response) {
-        // save the user to locale storage
-        localStorage.setItem('user', JSON.stringify(response.data))
+// export const loginApi = (user: AuthData): AppThunk => async (dispatch) => {
+//   try {
+//       //Make async call to signup endpoint
+//       const response = await axios.post('http://localhost:8000/api/users/login', user);
+//       console.log(response.data);
+//       // if (response) {
+//         // save the user to locale storage
+//         localStorage.setItem('user', JSON.stringify(response.data));
 
-        // update Auth Context
-        dispatch(login(response.data));
-      // }
-  } catch (error) {
-      //Handle error
-      console.error('Error creating account:', error);
-  }
-}
+//         // update Auth Context
+//         dispatch(login(response.data));
+//       // }
+//   } catch (error) {
+//       //Handle error
+//       console.error('Error sign in account:', error);
+//   }
+// }
 
 export const logoutApi = (): AppThunk => async (dispatch) => {
   localStorage.removeItem('user')

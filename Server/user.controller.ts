@@ -62,7 +62,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const secretKey = process.env.SECRET_KEY || ''
+const secretKey = process.env.SECRET || ''
 
 const createToken = (_id: string) => {
     return jwt.sign({ _id }, secretKey, { expiresIn: '1d' });

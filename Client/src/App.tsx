@@ -13,7 +13,7 @@ import RegisterPage from './Pages/RegisterPage';
 
 const App = () => {
   
-  //const [isLoggedIn, setIsLoggedIn] = useState(true)
+  
 
   return (
     <main className="font-candara">
@@ -29,7 +29,7 @@ const App = () => {
       <BrowserRouter>
         
         <Routes>
-          <Route path="*" element={<SignInPage/>} />
+          <Route path="*" element={<RegisterPage/>} />
           <Route path='/dashboard' element={<Dashboard/>} />
           <Route path='/login' element={<SignInPage/>} />
           <Route path='/signup' element={<RegisterPage/>} />
