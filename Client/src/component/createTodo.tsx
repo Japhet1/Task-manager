@@ -20,7 +20,6 @@ const CreateTodo: React.FC = () => {
                     <h1>New Task</h1>
                 </button>
             </div>
-           
             <TodoForm onClose={handleOnClose} visible={openModal}/>
         </main>
     )

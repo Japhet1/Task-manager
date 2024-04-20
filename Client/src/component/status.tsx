@@ -9,8 +9,6 @@ import { useEffect, useState } from 'react';
 const Status: React.FC = () => {
     const [ filter, setFilter ] = useState("")
     const dispatch = useDispatch<AppDispatch>();
-    //const status = useSelector((state: RootState) => state.categories.categories)
-    //const todos = useSelector((state: RootState) => state.todos.todos);
 
     useEffect(() => {
         dispatch(setStatus(filter))

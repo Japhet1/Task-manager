@@ -4,24 +4,18 @@ import { FaTrash } from 'react-icons/fa'
 import { removeCategoryAsync } from '../features/categorySlice';
 import { useEffect, useState } from 'react';
 import { setCategory } from '../features/todoSlice';
-//import CategoryHead from './categoryHead'
-//import TodoList from '../features/todoList'
+import React from 'react';
 
-//export let CategoryHead = ''
 
 const FilterCategory: React.FC  = () => {
     const [ filter, setFilter ] = useState('')
     const dispatch = useDispatch<AppDispatch>();
     const categories = useSelector(allCategories)
-    //const todos = useSelector((state: RootState) => state.todos.todos);
+    
 
     const handleRemoveCategory = (_id: string) => {
         dispatch(removeCategoryAsync(_id));
     };
-
-    //console.log(categories)
-
-
 
     useEffect(() => {
         dispatch(setCategory(filter))

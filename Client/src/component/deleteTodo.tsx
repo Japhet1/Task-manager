@@ -1,10 +1,9 @@
-//import { useState } from 'react'
 import { removeTodoAsync } from '../features/todoSlice';
 import React from 'react'
 import { FaTrash } from 'react-icons/fa'
 import { AppDispatch } from '../stores/store';
 import { useDispatch } from 'react-redux';
-//import { RootState } from '../stores/store';
+
 
 interface ID {
     item: string

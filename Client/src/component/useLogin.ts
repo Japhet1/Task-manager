@@ -29,15 +29,11 @@ export const useLogin = () => {
 
                 navigate('/dashboard');
             }
-
-                
+    
         } catch (error) {
             console.error('Error sign in account:', error);
         }
-
-
     }
 
-    
     return { loginApi, isLoading, error }
 }

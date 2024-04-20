@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import { AppThunk } from '../stores/store';
-//import { signupUser, loginUser } from "./authSlice";
 import getUser from '../component/getUser';
 
 interface Todo {
@@ -17,8 +16,7 @@ interface Todo {
 interface TodosState {
   todos: Todo[];
   selectedCategory: string | null
-  selectedStatus: string
-    
+  selectedStatus: string  
 }
   
 const initialState: TodosState = {
@@ -78,11 +76,6 @@ export const fetchTodos = (): AppThunk => async (dispatch) => {
 
 export const createTodo = (todo: Todo): AppThunk => async (dispatch) => {
   try {
-    // const user = getUser();
-    // console.log(user.token)
-    // const token = JSON.parse(localStorage.getItem('user') || '')
-    // const user = token
-    // console.log(user.token)
     const userToken = localStorage.getItem('user');
     if (!userToken) {
       throw new Error('User token not found in localStorage');
@@ -135,71 +128,6 @@ export const removeTodoAsync = (_id: string): AppThunk => async (dispatch) => {
   }
 };
   
-// export const fetchTodos = (): AppThunk => async (dispatch) => {
-//   try {
-//     const response = await fetch('http://localhost:8000/api/todos');
-//     if (!response.ok) {
-//       throw new Error('Failed to fetch todos');
-//     }
-//     const data = await response.json();
-//     //const dataA = Object.keys(data).map(key => ({ id: key, ...data[key] }));
-//     dispatch(setTodos(data));
-//     console.log(data);
-//   } catch (error) {
-//     console.error('Error fetching todos:', error);
-//   }
-// };
-
-// export const createTodo = (todo: Todo): AppThunk => async (dispatch) => {
-//   try {
-//     const response = await fetch('http://localhost:8000/api/todos', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(todo),
-//     });
-//     if (!response.ok) {
-//       throw new Error('Failed to create todo');
-//     }
-//     const data = await response.json();
-//     dispatch(addTodo(data));
-//   } catch (error) {
-//     console.error('Error creating todo:', error);
-//   }
-// };
-  
-// export const updateTodoAsync = (todo: Todo): AppThunk => async (dispatch) => {
-//   try {
-//     const response = await fetch(`http://localhost:8000/api/todos/${todo._id}`, {
-//       method: 'PUT',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(todo),
-//     });
-//     if (!response.ok) {
-//       throw new Error('Failed to update todo');
-//     }
-//     dispatch(updateTodo(todo));
-//   } catch (error) {
-//     console.error('Error updating todo:', error);
-//   }
-// };
-  
-// export const removeTodoAsync = (_id: string): AppThunk => async (dispatch) => {
-//   try {
-//     const response = await fetch(`http://localhost:8000/api/todos/${_id}`, {
-//       method: 'DELETE',
-//     });
-//     if (!response.ok) {
-//       throw new Error('Failed to remove todo');
-//     }
-//     dispatch(removeTodo(_id));
-//   } catch (error) {
-//     console.error('Error removing todo:', error);
-//   }
-// };
 
 export default todosSlice.reducer;
 

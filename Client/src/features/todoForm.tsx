@@ -10,9 +10,7 @@ interface Change {
 }
 
 const TodoForm: React.FC<Change> = ({visible, onClose}) => {
-   
-    
-  
+
     interface FormData {
         _id: string,
         date: Date,
@@ -24,7 +22,6 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
     }
     const dispatch = useDispatch<AppDispatch>();
     const categories = useSelector((state: RootState) => state.categories.categories)
-    //const [ selectedValue, setSelectedValue ] = useState<string>()
     const [ formData, setFormData ] = useState<FormData>({
         _id: '',
         date: new Date(),

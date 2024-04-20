@@ -3,20 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateTodoAsync } from '../features/todoSlice';
 import {  AppDispatch, RootState } from '../stores/store'
 import { BsX } from 'react-icons/bs'
-// import { useSelector } from 'react-redux';
-// import { RootState } from '../stores/store';
 
 interface Change {
     visible: boolean,
     onClose: () => void,
-    //todos: Todo[],
     _id: string
 }
 
 const UpdateForm: React.FC<Change> = ({visible, onClose }) => {
    
-    
-  
     interface Todo {
         _id: string,
         date: Date,
@@ -25,13 +20,10 @@ const UpdateForm: React.FC<Change> = ({visible, onClose }) => {
         status: string,
         category: string
         assigned: string
-        //todos: []
     }
     
     const dispatch = useDispatch<AppDispatch>();
     const categories = useSelector((state: RootState) => state.categories.categories)
-    //const todos = useSelector((state: RootState) => state.todos.todos);
-    //const [ selectedValue, setSelectedValue ] = useState<string>()
     const [ formData, setFormData ] = useState<Todo>({
         _id: '',
         date: new Date(),
@@ -40,7 +32,6 @@ const UpdateForm: React.FC<Change> = ({visible, onClose }) => {
         status: '',
         category: '',
         assigned: ''
-        //todo: todos[]
     })
 
     if (!visible) return null
@@ -62,9 +53,6 @@ const UpdateForm: React.FC<Change> = ({visible, onClose }) => {
         e.preventDefault()
         setFormData({_id: '', date: new Date(), todo: '', description: '', status: 'Pending', category: '', assigned: '' })
         dispatch(updateTodoAsync(formData))
-        //dispatch(updateTodoAsync({ ...todo, status: 'Pending' }));
-        //setFormData({...todos, description: "",  category: "" })
-        //dispatch(updateTodoAsync())
     };
 
     return (

@@ -1,12 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-//import axios from "axios";
+import axios from "axios";
 import { AppThunk } from '../stores/store';
 
 interface Category {
   _id: string,
   category: string,
 }
-
 interface TodosState {
   categories: Category[];  
 }
@@ -39,57 +38,17 @@ const categoriesSlice = createSlice({
 
 export const { setCategories, addCategory, updateCategory, removeCategory } = categoriesSlice.actions;
 
-// export const fetchCategories = (): AppThunk => async (dispatch) => {
-//   try {
-//     // const response = await axios.get('http://localhost:5000/category');
-//     const response = await axios.get('http://localhost:8000/api/categories');
-//     dispatch(setCategories(response.data));
-//     console.log(response.data)
-//   } catch (error) {
-//     console.error('Error fetching categories:', error);
-//   }
-// };
-
-// export const createCategory = (category: Category): AppThunk => async (dispatch) => {
-//   try {
-//     // const response = await axios.post('http://localhost:5000/category', category);
-//     const response = await axios.post('http://localhost:8000/api/categories', category);
-//     dispatch(addCategory(response.data));
-//   } catch (error) {
-//     console.error('Error creating category:', error);
-//   }
-// };
-  
-// export const updateCategoryAsync = (category: Category): AppThunk => async (dispatch) => {
-//   try {
-//     // await axios.put(`http://localhost:5000/category/${category.id}`, category);
-//     await axios.put(`http://localhost:8000/api/categories/${category._id}`, category);
-//     dispatch(updateCategory(category));
-//   } catch (error) {
-//     console.error('Error updating category:', error);
-//   }
-// };
-  
-// export const removeCategoryAsync = (_id: string): AppThunk => async (dispatch) => {
-//   try {
-//     // await axios.delete(`http://localhost:5000/category/${id}`);
-//     await axios.delete(`http://localhost:8000/api/categories/${_id}`);
-//     dispatch(removeCategory(_id));
-//   } catch (error) {
-//     console.error('Error removing category:', error);
-//   }
-// };
 
 export const fetchCategories = (): AppThunk => async (dispatch) => {
   try {
-    const response = await fetch('http://localhost:8000/api/categories');
-    if (!response.ok) {
-      throw new Error('Failed to fetch categories');
-    }
-    const data = await response.json();
-    //const dataArray = Object.keys(data).map(key => ({ id: key, ...data[key] }));
-    dispatch(setCategories(data));
-    console.log(data);
+    const token = JSON.parse(localStorage.getItem('user') || '')
+    const user = token
+    const response = await axios.get('http://localhost:8000/api/categories', {
+      headers: {
+        'Authorization': `Bearer ${user.token}`
+        }
+    });
+    dispatch(setCategories(response.data));
   } catch (error) {
     console.error('Error fetching categories:', error);
   }
@@ -97,18 +56,26 @@ export const fetchCategories = (): AppThunk => async (dispatch) => {
 
 export const createCategory = (category: Category): AppThunk => async (dispatch) => {
   try {
-    const response = await fetch('http://localhost:8000/api/categories', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(category),
-    });
-    if (!response.ok) {
-      throw new Error('Failed to create category');
+
+    const userToken = localStorage.getItem('user');
+    if (!userToken) {
+      throw new Error('User token not found in localStorage');
     }
-    const data = await response.json();
-    dispatch(addCategory(data));
+
+    // Parse the token
+    const user = JSON.parse(userToken);
+    if (!user.token) {
+      console.log('Token not found in user object');
+      console.log(user.token);
+    }
+
+    const response = await axios.post('http://localhost:8000/api/categories', category, {
+      headers: {
+        'Authorization': `Bearer ${user.token}`
+        }
+    });
+    dispatch(addCategory(response.data));
+    console.log(response.data)
   } catch (error) {
     console.error('Error creating category:', error);
   }

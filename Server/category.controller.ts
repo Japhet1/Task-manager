@@ -4,7 +4,8 @@ import CategoryModel, { ICategory } from './category.model';
 class CategoryController {
   public static async getAllCategories(req: Request, res: Response): Promise<void> {
     try {
-      const categories: ICategory[] = await CategoryModel.find();
+      const user_id = req.user._id;
+      const categories: ICategory[] = await CategoryModel.find({ user_id });
       res.status(200).json( categories );
     } catch (error) {
       res.status(500).json({ error: 'Internal Server Error' });
@@ -14,7 +15,8 @@ class CategoryController {
   public static async createCategory(req: Request, res: Response): Promise<void> {
     const { category } = req.body;
     try {
-      const newCategory: ICategory = new CategoryModel({ category });
+      const user_id = req.user._id;
+      const newCategory: ICategory = new CategoryModel({ category, user_id });
       const savedCategory: ICategory = await newCategory.save();
       res.status(201).json( savedCategory );
     } catch (error) {

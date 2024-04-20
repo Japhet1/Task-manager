@@ -11,15 +11,11 @@ import Status from '../component/status';
 import UpdateTodo from '../component/updateTodo';
 import DeleteTodo from '../component/deleteTodo';
 import date from 'date-and-time';
-// import getUser from '../component/getUser'
 
 const ITEMS_PER_PAGE = 12;
 
 
-const TodoList: React.FC = () => { 
-  // const user = getUser();
-  // const token = JSON.parse(localStorage.getItem('user') || '')
-  // const user = token 
+const TodoList: React.FC = () => {  
   
     interface Todo {
         _id: string,
@@ -37,29 +33,14 @@ const TodoList: React.FC = () => {
     const todos = useSelector((state: RootState) => state.todos.todos);
     const filteredByStatus= useSelector(filterStatus)
     const filteredData = useSelector(selectFilteredData)
-    // const filterTodos = todos ? todos.filter((todo) => 
-    //     filteredData === null ? todo :
-    //     todo.category.toLowerCase().includes(filteredData.toLocaleLowerCase())
-        
-    //     )
-    //     : todos
-
-    //const data = setCategories
-    //console.log(setCategories)
 
     console.log(filteredData)
     
-    // const token: token = localStorage.getItem('userToken');
-    
-
     const filterTodos = todos ? (
         Array.isArray(todos) ?
           todos.filter((todo) => 
             filteredData === null || '' ? true : todo.category.toLowerCase().includes(filteredData.toLowerCase())
           ) 
-          // todos.filter((todo) => 
-          //   filteredByStatus === null ? true : todo.status.toLowerCase().includes(filteredByStatus.toLowerCase())
-          // )
         : []
     ) : [];
     const filter = todos ? (
@@ -67,9 +48,6 @@ const TodoList: React.FC = () => {
         todos.filter((todo) => 
           filteredByStatus === null || '' ? true : todo.category.toLowerCase().includes(filteredByStatus.toLowerCase())
         ) 
-        // todos.filter((todo) => 
-        //   filteredByStatus === null ? true : todo.status.toLowerCase().includes(filteredByStatus.toLowerCase())
-        // )
       : []
   ) : [];
 
@@ -85,20 +63,9 @@ const TodoList: React.FC = () => {
 
     const [showCards, setShowCards] = useState(true);
 
-    // const toggleView = () => {
-    //   setShowCards(!showCards);
-    // };
-
-    
-    
-  
     useEffect(() => {
-
-      
         dispatch(fetchTodos());
         dispatch(fetchCategories());
-      
-  
     }, [dispatch]);
     
     const newfilter = filterTodos.length | filter.length;
@@ -133,13 +100,13 @@ const TodoList: React.FC = () => {
                {/* {category} */}
               </h1>
             </div>
-              <div className='flex items-center border rounded-lg'>
-                <div className={`flex text-slate-500 border p-2 items-center space-x-2 rounded-md ${showCards ? 'bg-slate-700 text-white' : 'button-inactive'}`}>
+              <div className='flex items-center  rounded-lg'>
+                <div className={`flex text-slate-500  p-2 items-center space-x-2 rounded-md ${showCards ? 'bg-slate-700 text-white' : 'button-inactive'}`}>
                   <button onClick={() => setShowCards(true)}>
                     <PiCards className='text-xl'/>
                   </button>
                 </div>
-                <div className={`flex text-slate-500 border p-2 items-center space-x-2 rounded-md ${showCards ? 'button-active' : 'bg-slate-700 text-white'}`}>
+                <div className={`flex text-slate-500  p-2 items-center space-x-2 rounded-md ${showCards ? 'button-active' : 'bg-slate-700 text-white'}`}>
                   <button onClick={() => setShowCards(false)}>
                     <BsTable className='text-xl'/>
                   </button>
@@ -149,9 +116,9 @@ const TodoList: React.FC = () => {
             { showCards ? (
               <div className="grid grid-cols-12 gap-10">
               {displayedTodos.slice(0, ITEMS_PER_PAGE).map((item) => (
-                  <div key={item._id} className="relative col-span-4 rounded-lg bg-gray-50 border border-slate-300">
+                  <div key={item._id} className="relative col-span-4 rounded-lg bg-gray-100">
                       <div className='p-5'>
-                          <div className="flex justify-between text-gray-500 mb-5">
+                          <div className="flex justify-between text-gray-800 mb-5">
                             
                             <div className='space-y-4'>
                                 <h1>{date.format(new Date(item.date), 'DD-MM-YYYY')}</h1>
@@ -189,14 +156,6 @@ const TodoList: React.FC = () => {
                                   {item.assigned}
                                 </span>
                               </div>
-                              {/* <div className="flex items-center justify-between">
-                                  <div className='flex items-center space-x-3'>
-                                    <h1 className="text-base font-semibold">
-                                      Status:
-                                    </h1>
-                                    
-                                  </div> 
-                              </div> */}
                           </div> 
                       </div>
                       <div className='flex'>
@@ -218,7 +177,7 @@ const TodoList: React.FC = () => {
             ): (
               <div className="">
                   <div>
-                    <table className='border border-slate-500 rounded-lg'>
+                    <table className='rounded-lg'>
                       <thead>
                         <tr className='font-semibold text-start bg-slate-700 text-white'>
                           <th className='w-36 p-3 text-start text-lg'>Date</th>
@@ -233,8 +192,8 @@ const TodoList: React.FC = () => {
                       </thead>
                       <tbody>
                         {displayedTodos.slice(0, ITEMS_PER_PAGE).map((item) => (
-                          <tr key={item._id} className='border rounded-lg'>
-                            <td className='p-3 text-base text-slate-600'><h1>{date.format(new Date(item.date), 'DD-MM-YYYY')}</h1></td>
+                          <tr key={item._id} className=' rounded-lg hover:bg-slate-100 bg-slate-50'>
+                            <td className='p-3 text-sm text-slate-600'><h1>{date.format(new Date(item.date), 'DD-MM-YYYY')}</h1></td>
                             <td className='p-3'>
                               <h1 className={ item.status === "Pending"? 'text-red-500 font-semibold' : 
                                               item.status === "In progress"? 'text-orange-500 font-semibold': 
@@ -243,23 +202,23 @@ const TodoList: React.FC = () => {
                                   {item.status}
                                 </h1>
                               </td>
-                              <td className='p-3 text-base text-slate-600'><h1>{item.todo}</h1></td>
-                              <td className='p-3 text-base text-slate-600'><h1>{item.description}</h1></td>
-                              <td className='p-3 text-base text-slate-600 font-bold'>
+                              <td className='p-3 text-sm text-slate-600'><h1>{item.todo}</h1></td>
+                              <td className='p-3 text-sm text-slate-600'><h1>{item.description}</h1></td>
+                              <td className='p-3 text-sm text-slate-600 font-bold'>
                                 <h1>
                                   {item.assigned}
                                 </h1>
                               </td>
-                              <td className='p-3 text-base text-slate-600'>
+                              <td className='p-3 text-sm text-slate-600'>
                                 <h1>
                                   {item.category}
                                 </h1>
                               </td>
                               <td className='p-3'>
                                 <div className='flex justify-center space-x-2'>
-                                  <button className='text-center bg-red-600 text-base text-white px-2 py-1 rounded-lg' onClick={() => handleTogglePending(item)}><MdAdd/></button>
-                                  <button className='text-center bg-orange-600 text-base text-white px-2 py-1 rounded-lg' onClick={() => handleToggleInProgress(item)}><MdAdd/></button>
-                                  <button className='text-center bg-green-600 text-base text-white px-2 py-1 rounded-lg' onClick={() => handleToggleStatus(item)}><MdAdd/></button>
+                                  <button className='text-center bg-red-600 text-sm text-white px-2 py-1 rounded-lg' onClick={() => handleTogglePending(item)}><MdAdd/></button>
+                                  <button className='text-center bg-orange-600 text-sm text-white px-2 py-1 rounded-lg' onClick={() => handleToggleInProgress(item)}><MdAdd/></button>
+                                  <button className='text-center bg-green-600 text-sm text-white px-2 py-1 rounded-lg' onClick={() => handleToggleStatus(item)}><MdAdd/></button>
                                 </div>
                               </td>
                               <td className='p-3'>

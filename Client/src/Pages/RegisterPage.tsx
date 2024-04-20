@@ -1,12 +1,9 @@
 import React from 'react'
-// import FilterTodo from "./component/filterTodo"
 import NavBarHomePage from '../component/navBarHomePage'
 import Register from '../component/register'
 
 
-
 const RegisterPage = () => {
-  
 
   return (
     <main className="font-candara">

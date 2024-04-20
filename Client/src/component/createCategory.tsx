@@ -52,7 +52,6 @@ const CreateCategory: React.FC = () => {
                 </form>      
             </div>
         </div>
-        {/* <TodoForm onClose={handleOnClose} visible={openModal}/> */}
     </main>
   )
 }

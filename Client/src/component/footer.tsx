@@ -4,7 +4,7 @@ const Footer = () => {
 
   return (
     <main className=" mx-10 mt-10 px-10 py-6">
-        <div className="flex justify-between items-center text-slate-700 border-t border-slate-300 py-8">
+        <div className="flex justify-between items-center text-slate-700  py-8">
             {/* <div className='flex items-center space-x-5 text-xl text-gray-500'>
                 <BsTwitterX/>
                 <BsInstagram/>
@@ -21,15 +21,8 @@ const Footer = () => {
               <a><BsInstagram/></a>
               <a><BsDiscord/></a>
               <a><BsTelegram/></a>
-              
             </nav>
-          
         </div>
-
-        
-
-     
-
     </main>
   )
 }
