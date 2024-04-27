@@ -10,17 +10,23 @@ const CreateTodo: React.FC = () => {
 
     const handleOnClose = () => setOpenModal(false)
 
+    const token = JSON.parse(localStorage.getItem('user') || '')
+
     return (
         <main>
-            <div className='flex space-x-1 text-xl'>
-                <div className='text-2xl text-slate-700'><MdNoteAdd/></div>
-                <button className='text-slate-700'
-                    onClick={() => setOpenModal(true)}
-                >
-                    <h1>New Task</h1>
-                </button>
-            </div>
-            <TodoForm onClose={handleOnClose} visible={openModal}/>
+            {token.username == "Admin" ? 
+                <div>
+                    <div className='flex space-x-1 text-xl'>
+                        <div className='text-2xl text-slate-700'><MdNoteAdd/></div>
+                        <button className='text-slate-700'
+                            onClick={() => setOpenModal(true)}
+                        >
+                            <h1>New Task</h1>
+                        </button>
+                    </div>
+                    <TodoForm onClose={handleOnClose} visible={openModal}/>
+                </div> : null
+            }
         </main>
     )
 }

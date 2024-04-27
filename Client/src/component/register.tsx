@@ -16,38 +16,38 @@ const Register = () => {
     };
 
     return (
-        <main>
-            <form className='w-80 p-20 space-y-10' onSubmit={handleAddTodo}>
+        <main className='flex items-center p-10'>
+            <form className='w-[100%] p-10 space-y-8  rounded-lg bg-slate-50' onSubmit={handleAddTodo}>
                 <div>
                     <h1 className='text-4xl font-semibold'>Sign Up</h1>
                 </div>
-                <div className='space-y-6'>
+                <div className='space-y-3'>
                     <div className='space-y-2'>
                         <label>Full name:</label><br/>
-                        <input className='w-96 p-2 text-base rounded-md focus:border-none focus:outline-none focus:ring-0 border border-slate-300' 
+                        <input className='w-[100%] p-2 text-base rounded-md focus:border-none focus:outline-none focus:ring-0 border border-slate-300' 
                         type="text" 
                         placeholder='' 
                         onChange={(e) => setUsername(e.target.value)} value={username}/>
                     </div>
                     <div className='space-y-2'>
                         <label>Email:</label><br/>
-                        <input className='w-96 p-3 text-base rounded-md focus:border-none focus:outline-none focus:ring-0 border border-slate-300' 
+                        <input className='w-[100%] p-3 text-base rounded-md focus:border-none focus:outline-none focus:ring-0 border border-slate-300' 
                         type="email" 
                         placeholder='' 
                         onChange={(e) => setEmail(e.target.value)} value={email}/>
                     </div>
                     <div className='space-y-2'>
                         <label>Password:</label><br/>
-                        <input className='w-96 p-2 text-base rounded-md focus:border-none focus:outline-none focus:ring-0 border border-slate-300' 
+                        <input className='w-[100%] p-2 text-base rounded-md focus:border-none focus:outline-none focus:ring-0 border border-slate-300' 
                         type="password" 
                         placeholder='' 
                         onChange={(e) => setPassword(e.target.value)} value={password}/>
                     </div>
                     <div className='space-y-4'>
-                        <button className='w-96 bg-blue-500 p-2 rounded-md text-white' disabled={isLoading}>Sign up</button>
+                        <button className='w-[100%] bg-blue-500 p-2 rounded-md text-white' disabled={isLoading}>Sign up</button>
                         {error && <div className="error">{error}</div>}
                     </div>
-                    <div className='w-96 space-y-4'>
+                    <div className='w-[100%] space-y-4'>
                         <div>
                             <p>By confirming your email, you agree to our <strong>Term of Service</strong> and that you have read and understand our <strong>Privacy Policy</strong>.</p>
                         </div>
