@@ -18,14 +18,14 @@ const Login = () => {
     
     return (
         <main className='flex items-center p-10'>
-            <form className='w-[100%] p-10 space-y-8  rounded-lg bg-slate-50' onSubmit={handleAddTodo}>
+            <form className='w-[100%] p-10 space-y-8  rounded-lg border border-slate-700' onSubmit={handleAddTodo}>
                 <div>
-                    <h1 className='text-4xl font-semibold'>Sign In</h1>
+                    <h1 className='text-4xl text-slate-700 font-semibold'>Sign In</h1>
                 </div>
                 <div className='space-y-3'>
                     <div className='space-y-2'>
                         <label>Username:</label><br/>
-                        <input className='w-[100%] p-2 text-base rounded-md focus:border-none focus:outline-none focus:ring-0 border border-slate-300' 
+                        <input className='w-[100%] bg-transparent p-2 text-base rounded-md focus:ring-0 border border-slate-700' 
                         type="text" 
                         placeholder='' 
                         onChange={(e) => setUsername(e.target.value)} value={username}
@@ -33,7 +33,7 @@ const Login = () => {
                     </div>
                     <div className='space-y-2'>
                         <label>Email:</label><br/>
-                        <input className='w-[100%] p-2 text-base rounded-md focus:border-none focus:outline-none focus:ring-0 border border-slate-300' 
+                        <input className='w-[100%] bg-transparent p-2 text-base rounded-md focus:ring-0 border border-slate-700' 
                         type="email" 
                         placeholder='' 
                         onChange={(e) => setEmail(e.target.value)} value={email}
@@ -41,7 +41,7 @@ const Login = () => {
                     </div>
                     <div className='space-y-2'>
                         <label>Password:</label><br/>
-                        <input className='w-[100%] p-2 text-base rounded-md focus:border-none focus:outline-none focus:ring-0 border border-slate-300' 
+                        <input className='w-[100%] bg-transparent p-2 text-base rounded-md focus:ring-0 border border-slate-700' 
                         type="password" 
                         placeholder='' 
                         onChange={(e) => setPassword(e.target.value)} value={password}
@@ -54,18 +54,18 @@ const Login = () => {
                                 <label className='text-sm'>Remember Password</label>
                             </div>
                             <div>
-                                <div><a href='' className='text-sm text-blue-500'>Reset Password</a></div>
+                                <div><a href='' className='text-sm text-slate-700'>Reset Password</a></div>
                             </div>
                         </div>
                     </div>
                     
-                    <div>
-                        <button className='w-[100%] bg-blue-500 p-2 rounded-md text-white' disabled={isLoading}>Login</button>
+                    <div className=''>
+                        <button className='w-[100%] bg-slate-700 p-2 rounded-md text-[#FFC470]' disabled={isLoading}>Login</button>
                         {error && <div className="error">{error}</div>}
                     </div>
                     <div className='w-[100%]'>
                         <div className='flex items-center space-x-2'>
-                            <h1>Don't have an account?</h1><h1 className='text-blue-500 font-semibold'><a href="/">Sign up</a></h1>
+                            <h1>Don't have an account?</h1><h1 className='text-slate-700 font-semibold'><a href="/">Sign up</a></h1>
                         </div>
                     </div>
                     {/* <div className='w-[100%]'>

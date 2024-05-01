@@ -17,42 +17,42 @@ const Register = () => {
 
     return (
         <main className='flex items-center p-10'>
-            <form className='w-[100%] p-10 space-y-8  rounded-lg bg-slate-50' onSubmit={handleAddTodo}>
+            <form className='w-[100%] p-10 space-y-8 rounded-lg border border-slate-700' onSubmit={handleAddTodo}>
                 <div>
-                    <h1 className='text-4xl font-semibold'>Sign Up</h1>
+                    <h1 className='text-4xl text-slate-700 font-semibold'>Sign Up</h1>
                 </div>
                 <div className='space-y-3'>
                     <div className='space-y-2'>
                         <label>Full name:</label><br/>
-                        <input className='w-[100%] p-2 text-base rounded-md focus:border-none focus:outline-none focus:ring-0 border border-slate-300' 
+                        <input className='w-[100%] bg-transparent p-2 text-base rounded-md focus:ring-0 border border-slate-700' 
                         type="text" 
                         placeholder='' 
                         onChange={(e) => setUsername(e.target.value)} value={username}/>
                     </div>
                     <div className='space-y-2'>
                         <label>Email:</label><br/>
-                        <input className='w-[100%] p-3 text-base rounded-md focus:border-none focus:outline-none focus:ring-0 border border-slate-300' 
+                        <input className='w-[100%] bg-transparent p-2 text-base rounded-md focus:ring-0 border border-slate-700' 
                         type="email" 
                         placeholder='' 
                         onChange={(e) => setEmail(e.target.value)} value={email}/>
                     </div>
                     <div className='space-y-2'>
                         <label>Password:</label><br/>
-                        <input className='w-[100%] p-2 text-base rounded-md focus:border-none focus:outline-none focus:ring-0 border border-slate-300' 
+                        <input className='w-[100%] bg-transparent p-2 text-base rounded-md focus:ring-0 border border-slate-700' 
                         type="password" 
                         placeholder='' 
                         onChange={(e) => setPassword(e.target.value)} value={password}/>
                     </div>
-                    <div className='space-y-4'>
-                        <button className='w-[100%] bg-blue-500 p-2 rounded-md text-white' disabled={isLoading}>Sign up</button>
+                    <div className='space-y-4 py-2'>
+                        <button className='w-[100%] bg-slate-700 p-2 rounded-md text-[#FFC470]' disabled={isLoading}>Sign up</button>
                         {error && <div className="error">{error}</div>}
                     </div>
-                    <div className='w-[100%] space-y-4'>
-                        <div>
+                    <div className='w-[100%] py-2'>
+                        {/* <div>
                             <p>By confirming your email, you agree to our <strong>Term of Service</strong> and that you have read and understand our <strong>Privacy Policy</strong>.</p>
-                        </div>
+                        </div> */}
                         <div className='flex items-center space-x-2'>
-                            <h1>Already have an account?</h1><h1 className='text-blue-500 font-semibold'><a href="/login">Login</a></h1>
+                            <h1>Already have an account?</h1><h1 className='text-slate-700 font-semibold'><a href="/login">Login</a></h1>
                         </div>
                         
                     </div>

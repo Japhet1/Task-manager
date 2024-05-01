@@ -21,7 +21,7 @@ const Logout = () => {
     return (
         <main>
             <div>
-                <button className='py-1 px-4 text-white rounded-lg bg-slate-700' onClick={handleLogout}>
+                <button className='py-1 px-4 text-[#FFC470] rounded-lg bg-slate-700' onClick={handleLogout}>
                     <a href="/login">Logout</a>
                 </button>
             </div>

@@ -16,12 +16,14 @@ interface Todo {
 interface TodosState {
   todos: Todo[];
   selectedCategory: string | null
+  selectedUser: string | null
   selectedStatus: string  
 }
   
 const initialState: TodosState = {
   todos: [],
   selectedCategory: null,
+  selectedUser: null,
   selectedStatus: ""
 };
   
@@ -35,6 +37,7 @@ const todosSlice = createSlice({
     setCategory: (state, action: PayloadAction<string | null>) => {
       state.selectedCategory = action.payload
     },
+    
     setStatus: (state, action: PayloadAction<string>) => {
       state.selectedStatus = action.payload
     },
@@ -68,11 +71,12 @@ export const fetchTodos = (): AppThunk => async (dispatch) => {
     });
     const reversedData = response.data; //.reverse();
     dispatch(setTodos(reversedData));
-    // console.log(response.data)
+    console.log(response.data)
   } catch (error) {
     console.error('Error fetching todos:', error);
   }
 };
+
 
 export const createTodo = (todo: Todo): AppThunk => async (dispatch) => {
   try {
@@ -96,7 +100,7 @@ export const createTodo = (todo: Todo): AppThunk => async (dispatch) => {
 
     });
     dispatch(addTodo(response.data));
-    console.log(response.data)
+    // console.log(response.data)
   } catch (error) {
     console.error('Error creating todo:', error);
   }
@@ -120,8 +124,14 @@ export const updateTodoAsync = (todo: Todo): AppThunk => async (dispatch) => {
   
 export const removeTodoAsync = (_id: string): AppThunk => async (dispatch) => {
   try {
-    //await axios.delete(`http://localhost:5000/todo/${id}`);
-    await axios.delete(`http://localhost:8000/api/todos/${_id}`);
+    const token = JSON.parse(localStorage.getItem('user') || '')
+    const user = token
+    //await axios.delete(`http://localhost:5000/todo/${id}` );
+    await axios.delete(`http://localhost:8000/api/todos/${_id}`, {
+      headers: {
+      'Authorization': `Bearer ${user.token}`
+      }
+    });
     dispatch(removeTodo(_id));
   } catch (error) {
     console.error('Error removing todo:', error);

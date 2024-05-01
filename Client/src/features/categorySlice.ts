@@ -49,6 +49,7 @@ export const fetchCategories = (): AppThunk => async (dispatch) => {
         }
     });
     dispatch(setCategories(response.data));
+    // console.log(response.data)
   } catch (error) {
     console.error('Error fetching categories:', error);
   }
@@ -83,14 +84,14 @@ export const createCategory = (category: Category): AppThunk => async (dispatch)
 
 export const updateCategoryAsync = (category: Category): AppThunk => async (dispatch) => {
   try {
-    const response = await fetch(`http://localhost:8000/api/categories/${category._id}`, {
-      method: 'PUT',
+    const token = JSON.parse(localStorage.getItem('user') || '')
+    const user = token
+    const response = await axios.put(`http://localhost:8000/api/categories/${category._id}`, category, {
       headers: {
-        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${user.token}`
       },
-      body: JSON.stringify(category),
     });
-    if (!response.ok) {
+    if (response.status !== 200) {
       throw new Error('Failed to update category');
     }
     dispatch(updateCategory(category));
@@ -101,17 +102,19 @@ export const updateCategoryAsync = (category: Category): AppThunk => async (disp
 
 export const removeCategoryAsync = (_id: string): AppThunk => async (dispatch) => {
   try {
-    const response = await fetch(`http://localhost:8000/api/categories/${_id}`, {
-      method: 'DELETE',
+    const token = JSON.parse(localStorage.getItem('user') || '')
+    const user = token
+    await axios.delete(`http://localhost:8000/api/categories/${_id}`,  {
+      headers: {
+      'Authorization': `Bearer ${user.token}`
+      }
     });
-    if (!response.ok) {
-      throw new Error('Failed to remove category');
-    }
     dispatch(removeCategory(_id));
   } catch (error) {
     console.error('Error removing category:', error);
   }
 };
+
   
 export default categoriesSlice.reducer;
 

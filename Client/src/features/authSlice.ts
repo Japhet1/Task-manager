@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AppThunk } from '../stores/store';
-
-
+import axios from "axios";
 interface AuthData {
   // Define the structure of authentication data here
   username: string,
@@ -14,6 +13,8 @@ interface AuthState {
   user: AuthData[] | null
   isLoading: boolean;
   error: string | null;
+
+  selectedUser: AuthData[]
 }
 
 const initialState: AuthState = {
@@ -21,6 +22,8 @@ const initialState: AuthState = {
   user: null,
   isLoading: false,
   error: null,
+
+  selectedUser: [],
 };
   
 const authSlice = createSlice({
@@ -28,6 +31,10 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     // Reducer for logging in
+
+    setUser: (state, action: PayloadAction<AuthData[]>) => {
+      state.selectedUser = action.payload
+    },
     signup: (state, action: PayloadAction<AuthData[]>) => {
       state.user = action.payload;
     },
@@ -39,49 +46,30 @@ const authSlice = createSlice({
     logout: (state) => {
       state.user = null;
     },
-    registerUser(state) {
-      state.isLoading = true;
-    },
-    registerUserSuccess(state, action: PayloadAction<AuthData[]>) {
-      state.isLoading = false;
-      state.user = action.payload;
-      state.error = null;
-    },
-    registerUserFailure(state, action: PayloadAction<string>) {
-      state.isLoading = false;
-      state.error = action.payload;
-    },
-    loginUser(state) {
-      state.isLoading = true;
-      // Update state on successful login (handled in actions)
-    },
-    loginUserSuccess(state, action: PayloadAction<AuthData[]>) {
-      state.isLoading = false;
-      state.user = action.payload;
-      state.error = null;
-    },
-    loginUserFailure(state, action: PayloadAction<string>) {
-      state.isLoading = false;
-      state.error = action.payload;
-    },
-    logoutUser(state) {
-      state.user = null;
-    },
+
   },
 });
 
 export const { 
+  setUser,
   signup, 
   login, 
   logout, 
-  registerUser, 
-  registerUserSuccess, 
-  registerUserFailure,
-  loginUser, 
-  loginUserSuccess, 
-  loginUserFailure, 
-  logoutUser } = authSlice.actions;
+} = authSlice.actions;
 
+  export const fetchUsers = (): AppThunk => async (dispatch) => {
+    try {
+      // const token = JSON.parse(localStorage.getItem('user') || '')
+      // const user = token
+      const response = await axios.get('http://localhost:8000/api/users/');
+      dispatch(setUser(response.data));
+      console.log(response.data)
+    } catch (error) {
+      console.error('Error fetching categories:', error);
+    }
+  };
+  
+  
 export const logoutApi = (): AppThunk => async (dispatch) => {
   localStorage.removeItem('user')
   // dispatch logout action

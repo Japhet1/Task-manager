@@ -26,7 +26,7 @@ const FilterCategory: React.FC  = () => {
         <div className='text-xl font-semibold'><h1>Categories</h1></div>
             <div><button className='ms-3'>All</button></div>
             {categories.map((category) => (
-                <div key={category._id} className="flex justify-between items-center group px-2 py-1 rounded hover:bg-slate-100">
+                <div key={category._id} className="flex justify-between items-center group px-2 py-1 rounded hover:bg-[#EEE4B1]">
                     <a href="/">
                         <button onClick={(e) => { e.preventDefault(); setFilter(category.category)} }>{category.category}</button>
                     </a>
