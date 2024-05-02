@@ -17,7 +17,7 @@ const Login = () => {
     };
     
     return (
-        <main className='flex items-center p-10'>
+        <main className='flex items-center p-10' style={{width: "30vw"}}>
             <form className='w-[100%] p-10 space-y-8  rounded-lg border border-slate-700' onSubmit={handleAddTodo}>
                 <div>
                     <h1 className='text-4xl text-slate-700 font-semibold'>Sign In</h1>

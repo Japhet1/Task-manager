@@ -65,7 +65,7 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
             <div className="flex justify-center text-lg">
                 <form className="px-10 py-5 bg-[#FFC470] rounded-md shadow-md" onSubmit={handleAddTodo} style={{width: '35vw'}}>
                     
-                    <div className='mb-8 flex justify-between items-center'><h1 className='text-3xl text-slate-700 font-bold'>Create a task</h1><div className='flex justify-end items-end hover:scale-110 transition-all'><button className='rounded-full p-2 flex' onClick={onClose}><BsX className='text-3xl'/></button></div></div>
+                    <div className='mb-8 flex justify-between items-center'><h1 className='text-3xl text-slate-700 font-bold'>Create</h1><div className='flex justify-end items-end hover:scale-110 transition-all'><button className='rounded-full p-2 flex' onClick={onClose}><BsX className='text-3xl'/></button></div></div>
                     <div className='space-y-3'>
                         <div className='flex justify-between space-x-4'>
                             <div className='space-y-2 w-[100%]'>

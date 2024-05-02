@@ -17,7 +17,7 @@ const Register = () => {
 
     return (
         <main className='flex items-center p-10'>
-            <form className='w-[100%] p-10 space-y-8 rounded-lg border border-slate-700' onSubmit={handleAddTodo}>
+            <form className='w-[100%] p-10 space-y-8 rounded-lg border border-slate-700 shadow-xl' onSubmit={handleAddTodo}>
                 <div>
                     <h1 className='text-4xl text-slate-700 font-semibold'>Sign Up</h1>
                 </div>

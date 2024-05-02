@@ -5,9 +5,9 @@ import mongoose from 'mongoose';
 class TodoController {
   public static async getAllTodos(req: Request, res: Response): Promise<void> {
     try {
-      const user_id = req.user._id;
-      console.log(user_id)
-      const todos: ITodo[] = await TodoModel.find({ user_id }).sort({ createdAt: -1 });
+      //const user_id = req.user._id;
+      //console.log(user_id)
+      const todos: ITodo[] = await TodoModel.find({}).sort({ createdAt: -1 });
       res.status(200).json( todos );
     } catch (error) {
       res.status(500).json({ error: 'Internal Server Error' });

@@ -60,18 +60,27 @@ export const { setTodos, addTodo, updateTodo, removeTodo, setCategory, setStatus
 
 export const fetchTodos = (): AppThunk => async (dispatch) => {
   try {
-    const token = JSON.parse(localStorage.getItem('user') || '')
-    const user = token
-    //const response = await axios.get('http://localhost:5000/todo');
+    const token = JSON.parse(localStorage.getItem('user') || '');
+    const user = token;
+    console.log(user.username)
     const response = await axios.get('http://localhost:8000/api/todos', {
       headers: {
-      'Authorization': `Bearer ${user.token}`
+        'Authorization': `Bearer ${user.token}`
       }
-
     });
-    const reversedData = response.data; //.reverse();
-    dispatch(setTodos(reversedData));
-    console.log(response.data)
+
+    const todos = response.data;
+    if (user.username !== 'Admin') {
+      // If user is not an admin, filter todos based on assigned value
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const filteredTodos = todos.filter((todo: { assigned: any; }) => todo.assigned === user.username);
+      dispatch(setTodos(filteredTodos));
+    } else {
+      // If user is an admin, dispatch all todos
+      dispatch(setTodos(todos));
+    }
+
+    console.log(response.data);
   } catch (error) {
     console.error('Error fetching todos:', error);
   }

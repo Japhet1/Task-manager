@@ -9,7 +9,7 @@ const User = () => {
     <main>
         <div className='flex items-center gap-5'>
             <div className='text-slate-700 flex justify-center items-center space-x-4'>
-                <div className='flex space-x-3'><h1 className='font-semibold'>Welcome!</h1><span>{token.username}</span></div>
+                <div className='flex space-x-3'><h1 className=''>Welcome!</h1><span className='font-semibold'>{token.username}</span></div>
                 <Notification/>
             </div>
             <div>
