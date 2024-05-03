@@ -7,6 +7,7 @@ import { setCategory } from '../features/todoSlice';
 import React from 'react';
 
 
+
 const FilterCategory: React.FC  = () => {
     const [ filter, setFilter ] = useState('')
     const dispatch = useDispatch<AppDispatch>();
