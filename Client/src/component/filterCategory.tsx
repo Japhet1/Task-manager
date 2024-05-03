@@ -1,10 +1,11 @@
+import React from 'react';
 import { AppDispatch, allCategories } from '../stores/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaTrash } from 'react-icons/fa'
 import { removeCategoryAsync } from '../features/categorySlice';
 import { useEffect, useState } from 'react';
 import { setCategory } from '../features/todoSlice';
-import React from 'react';
+
 
 
 
