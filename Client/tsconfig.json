@@ -29,6 +29,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "server/**/*.ts", "node_modules/@types", "src/component/filterCategory.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "server/**/*.ts", "node_modules/@types", "src/component/filterCategory.tsx", "<path-to-your-source>.ts",
+  "<path-to-your-source>.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
