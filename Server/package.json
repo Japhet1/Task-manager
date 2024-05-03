@@ -24,6 +24,7 @@
     "mongodb": "^6.3.0",
     "mongoose": "^8.0.3",
     "rimraf": "^5.0.5",
+    "socket.io": "^4.7.5",
     "typescript": "^5.3.3",
     "validator": "^13.11.0"
   },

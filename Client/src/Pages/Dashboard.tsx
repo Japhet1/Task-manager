@@ -11,7 +11,7 @@ const Dashboard = () => {
   return (
     <main className="font-candara">
       <NavBar/>
-      <div className="relative flex justify-between items-center mx-10 px-10 py-10">
+      <div className="relative flex justify-between items-center px-10 py-10">
         <CreateTodo/>
         <CreateCategory/>
       </div>

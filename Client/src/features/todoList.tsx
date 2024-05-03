@@ -78,7 +78,7 @@ const TodoList: React.FC = () => {
     const displayedTodos = filterTodos.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
 
     return (
-        <div className='flex mx-10 px-10 py-5 gap-10'>
+        <div className='flex px-10 py-5 gap-10'>
           <div className='w-40 space-y-10 text-slate-700' >
             <div className=''>
               <FilterCategory/>
@@ -236,7 +236,7 @@ const TodoList: React.FC = () => {
             )}
             <div className='flex justify-center items-center space-x-5 mt-20 text-xl'>
                 {Array.from({ length: totalPages }, (_, index) => (
-                    <button className='hover:scale-110 rounded-lg border border-slate-700 py-1 px-3 transition-all' key={index} onClick={() => handlePageChange(index + 1)}>
+                    <button className='hover:scale-110 rounded-lg border border-slate-700 bg-slate-700 text-[#FFC470] py-1 px-4 transition-all' key={index} onClick={() => handlePageChange(index + 1)}>
                         {index + 1}
                     </button>
                 ))}

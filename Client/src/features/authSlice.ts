@@ -69,7 +69,7 @@ export const {
     }
   };
   
-  
+  fetchUsers()
 export const logoutApi = (): AppThunk => async (dispatch) => {
   localStorage.removeItem('user')
   // dispatch logout action
