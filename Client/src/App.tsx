@@ -9,18 +9,19 @@ import RegisterPage from './Pages/RegisterPage';
 const App = () => {
 
   return (
-    <main className="font-candara">
-      <BrowserRouter>
-        <Routes>
-          <Route path="*" element={<RegisterPage/>} />
-          <Route path='/dashboard' element={<Dashboard/>} />
-          <Route path='/login' element={<SignInPage/>} />
-          <Route path='/signup' element={<RegisterPage/>} />
-        </Routes>
-        <Footer/>
-      </BrowserRouter>
-      
-    </main>
+    <div className="flex flex-col min-h-screen font-candara">
+      <div className="flex-grow">
+        <BrowserRouter>
+          <Routes>
+            <Route path="*" element={<RegisterPage />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/login" element={<SignInPage />} />
+            <Route path="/signup" element={<RegisterPage />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+      <Footer className="bottom-0" />
+    </div>
   )
   
 }

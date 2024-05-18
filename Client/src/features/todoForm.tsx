@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createTodo } from './todoSlice';
 import {  AppDispatch, RootState } from '../stores/store'
 import { BsX } from 'react-icons/bs'
+import axios from 'axios';
+import { setUser } from './authSlice';
 
 interface Change {
     visible: boolean,
@@ -20,11 +22,38 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
         category: string,
         assigned: string
     }
+
+    interface UserData {
+        _id: string,
+        username: string,
+        email: string,
+        password: string
+    }
+
+
     const dispatch = useDispatch<AppDispatch>();
     const categories = useSelector((state: RootState) => state.categories.categories)
-    const users = useSelector((state: RootState) => state.auth.selectedUser)
+    // const users = useSelector((state: RootState) => state.auth.selectedUser)
+    const [user, setUsers] = useState<UserData[]>([{
+        _id: "",
+        username: "",
+        email: "",
+        password: ""
+    }])
 
-    console.log(users)
+    useEffect(() => {
+        const fetchUsers = async () => {
+          try {
+            const response = await axios.get('http://localhost:8000/api/users/');
+            setUsers(response.data);
+            dispatch(setUser(response.data));
+          } catch (error) {
+            // setError(error);
+            console.error(error);
+          }
+        };
+        fetchUsers();
+    }, [dispatch]);
 
     const [ formData, setFormData ] = useState<FormData>({
         _id: '',
@@ -58,7 +87,7 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
         console.log(formData)
     };
 
-
+    const data = user
 
     return (
         <div id='container' onClick={handleOnClose} className='flex justify-center items-center fixed z-20 inset-0 bg-black bg-opacity-30 backdrop-blur-sm px-10 py-5'>
@@ -73,8 +102,8 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
                                 {/* <input className="w-[100%] p-1 text-base rounded-md" name="assigned" type="text" value={formData.assigned} onChange={handleInputChange} required /> */}
                                 <select className='w-[100%] p-2 text-base text-slate-700 bg-transparent border border-slate-700 rounded-md' name="assigned" value={formData.assigned} onChange={handleInputChange} required>
                                 
-                                    {users.map((data, index) => (
-                                        <option key={index} value={data.username}>{data.username}</option>
+                                    {data.map((data) => (
+                                        <option className='rounded-lg text-slate-700 bg-[#FFC470]' key={data._id} value={data.username}>{data.username}</option>
                                     ))}
                                     
                                 </select>
@@ -86,7 +115,7 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
                                 <select className='w-[100%] p-2 text-base text-slate-700 bg-transparent border border-slate-700 rounded-md' name="category" id="category" value={formData.category} onChange={handleInputChange}>
                                 
                                     {categories.map((option) => (
-                                        <option key={option._id} value={option.category}>{option.category}</option>
+                                        <option className='rounded-lg text-slate-700 bg-[#FFC470]' key={option._id} value={option.category}>{option.category}</option>
                                     ))}
                                     
                                 </select>
@@ -107,7 +136,7 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
                     
                     </div>
                     <div className='mt-8'>
-                        <button className="py-1 px-4 rounded-md text-[#FFC470] bg-slate-700 hover:scale-110 transition-all" type="submit">Add</button>
+                        <button className="py-1 px-4 rounded-md text-[#FFC470] bg-slate-700 hover:scale-110 transition-all" type="submit">Save</button>
                     </div>                   
                     
                 </form>

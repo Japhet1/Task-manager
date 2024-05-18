@@ -9,19 +9,6 @@ dotenv.config();
 const secretKey = process.env.SECRET || '';
 
 const authenticateToken = async (req: Request, res: Response, next: NextFunction) => {
-  // const token = req.header('Authorization')?.split(' ')[1];
-
-  // if (!token) {
-  //   return res.status(401).json({ error: 'Access denied' });
-  // }
-
-  // jwt.verify(token, secretKey, (err: any, user: any) => {
-  //   if (err) {
-  //     return res.status(403).json({ error: 'Invalid token' });
-  //   }
-  //   req.user = user;
-  //   next();
-  // });
 
   const authorization = req.headers?.authorization;
 

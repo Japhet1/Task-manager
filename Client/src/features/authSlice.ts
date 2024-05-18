@@ -57,19 +57,20 @@ export const {
   logout, 
 } = authSlice.actions;
 
-  export const fetchUsers = (): AppThunk => async (dispatch) => {
-    try {
-      // const token = JSON.parse(localStorage.getItem('user') || '')
-      // const user = token
-      const response = await axios.get('http://localhost:8000/api/users/');
-      dispatch(setUser(response.data));
-      console.log(response.data)
-    } catch (error) {
-      console.error('Error fetching categories:', error);
-    }
-  };
-  
-  fetchUsers()
+export const fetchUsers = (): AppThunk => async (dispatch) => {
+  try {
+    // const token = JSON.parse(localStorage.getItem('user') || '')
+    // const user = token
+    const response = await axios.get('http://localhost:8000/api/users/');
+    console.log(response.data)
+    dispatch(setUser(response.data));
+    // console.log(response.data)
+  } catch (error) {
+    console.error('Error fetching categories:', error);
+  }
+};
+
+
 export const logoutApi = (): AppThunk => async (dispatch) => {
   localStorage.removeItem('user')
   // dispatch logout action

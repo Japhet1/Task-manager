@@ -131,7 +131,7 @@ const TodoList: React.FC = () => {
                                     </h1>
                                 </div>
                                 <div className='flex space-x-2'>
-                                    <UpdateTodo item={item._id}/>
+                                    <UpdateTodo item={item._id} assigned={item.assigned} category={item.category} todo={item.todo} desc={item.description}  />
                                     <DeleteTodo item={item._id}/>
                                 </div>
                               </div>
@@ -192,7 +192,7 @@ const TodoList: React.FC = () => {
                         </thead>
                         <tbody>
                           {displayedTodos.slice(0, ITEMS_PER_PAGE).map((item) => (
-                            <tr key={item._id} className=' rounded-lg hover:bg-[#EEE4B1] hover:text-white'>
+                            <tr key={item._id} className=' rounded-lg hover:bg-[#EEE4B1]'>
                               <td className='p-3 text-sm text-slate-600'><h1>{date.format(new Date(item.date), 'DD-MM-YYYY')}</h1></td>
                               <td className='p-3'>
                                 <h1 className={ item.status === "Pending"? 'text-red-500 font-semibold' : 
@@ -223,7 +223,7 @@ const TodoList: React.FC = () => {
                                 </td>
                                 <td className='p-3'>
                                   <div className='flex space-x-2'>
-                                    <UpdateTodo item={item._id}/>
+                                  <UpdateTodo item={item._id} assigned={item.assigned} category={item.category} todo={item.todo} desc={item.description}  />
                                     <DeleteTodo item={item._id}/>
                                   </div>
                                 </td>

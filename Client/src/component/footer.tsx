@@ -1,10 +1,17 @@
 import React from 'react'
 import { BsTwitterX, BsInstagram, BsDiscord, BsTelegram } from 'react-icons/bs'
-const Footer = () => {
+
+interface FooterProps {
+  className?: string;
+}
+
+
+
+const Footer: React.FC<FooterProps> = ({ className }) => {
 
   return (
-    <main className="">
-        <div className="flex justify-between items-center text-slate-700 me-10 px-10 p-5">
+    <main className={className}>
+        <div className="flex justify-between items-center text-slate-700 me-10 px-10 py-5">
             {/* <div className='flex items-center space-x-5 text-xl text-gray-500'>
                 <BsTwitterX/>
                 <BsInstagram/>

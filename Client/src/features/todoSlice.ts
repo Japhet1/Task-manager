@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import { AppThunk } from '../stores/store';
-import getUser from '../component/getUser';
+// import getUser from '../component/getUser';
 
 interface Todo {
   _id: string,
@@ -117,7 +117,18 @@ export const createTodo = (todo: Todo): AppThunk => async (dispatch) => {
   
 export const updateTodoAsync = (todo: Todo): AppThunk => async (dispatch) => {
   try {
-    const user = getUser();
+    const userToken = localStorage.getItem('user');
+    if (!userToken) {
+      throw new Error('User token not found in localStorage');
+    }
+
+    // Parse the token
+    const user = JSON.parse(userToken);
+    if (!user.token) {
+      console.log('Token not found in user object');
+      console.log(user.token);
+    }
+    console.log(user.token);
     //await axios.put(`http://localhost:5000/todo/${todo.id}`, todo);
     await axios.put(`http://localhost:8000/api/todos/${todo._id}`, todo, {
       headers: {

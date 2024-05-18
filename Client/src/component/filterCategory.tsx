@@ -6,9 +6,6 @@ import { removeCategoryAsync } from '../features/categorySlice';
 import { useEffect, useState } from 'react';
 import { setCategory } from '../features/todoSlice';
 
-
-
-
 const FilterCategory: React.FC  = () => {
     const [ filter, setFilter ] = useState('')
     const dispatch = useDispatch<AppDispatch>();
