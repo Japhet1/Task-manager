@@ -79,7 +79,7 @@ const TodoList: React.FC = () => {
 
     return (
         <div className='flex px-10 py-5 gap-10'>
-          <div className='w-40 space-y-10 text-slate-700' >
+          <div className='w-40 space-y-5 text-slate-700' >
             <div className=''>
               <FilterCategory/>
             </div>
@@ -159,7 +159,7 @@ const TodoList: React.FC = () => {
                               </div> 
                           </div>
                           <div className='flex'>
-                            <div className='absolute left-0 bottom-0 w-24 text-center font-semibold text-sm rounded-tr-md rounded-bl-md py-1 px-3 bg-slate-700 text-[#FFC470] mb-0'>
+                            <div className='absolute left-0 bottom-0 w-36 text-center font-semibold text-sm rounded-tr-md rounded-bl-md py-1 px-3 bg-slate-700 text-[#FFC470] mb-0'>
                               <h1>
                                 {item.category}
                               </h1>

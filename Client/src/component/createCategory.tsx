@@ -41,7 +41,7 @@ const CreateCategory: React.FC = () => {
                   <form onSubmit={handleSubmit} className='flex item-center space-x-2' action="">
                       <div className=''>
                           <input 
-                              className='text-md text- py-1 px-2 text-md focus:border-none focus:outline-none focus:ring-0 bg-transparent' 
+                              className='text-md text-white py-1 px-2 text-md focus:border-none focus:outline-none focus:ring-0 bg-transparent' 
                               type="text" 
                               name="category"
                               placeholder='Add new category ....'
