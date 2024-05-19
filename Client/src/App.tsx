@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Footer from './component/footer';
 import SignInPage from './Pages/SignInPage';
-import Dashboard from './Pages/dashboard';
+import Dashboard from './Pages/Dashboard';
 import RegisterPage from './Pages/RegisterPage';
 
 
