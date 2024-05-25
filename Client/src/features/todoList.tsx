@@ -76,13 +76,16 @@ const TodoList: React.FC = () => {
     };
     
     const displayedTodos = filterTodos.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
-
+    const token = JSON.parse(localStorage.getItem('user') || '')
     return (
         <div className='flex px-10 py-5 gap-10'>
           <div className='w-40 space-y-5 text-slate-700' >
-            <div className=''>
-              <FilterCategory/>
-            </div>
+            {token.username == "Admin" ?
+              <div className=''>
+                <FilterCategory/>
+              </div> 
+              : null 
+            }
             <div>
               <Status/>
             </div>
@@ -130,10 +133,14 @@ const TodoList: React.FC = () => {
                                         {item.status}
                                     </h1>
                                 </div>
-                                <div className='flex space-x-2'>
-                                    <UpdateTodo item={item._id} assigned={item.assigned} category={item.category} todo={item.todo} desc={item.description}  />
+                                {token.username == "Admin" ?
+                                  <div className='flex space-x-2'>
+                                    <UpdateTodo item={item._id} assigned={item.assigned} category={item.category} todo={item.todo} desc={item.description} status={item.status}  />
                                     <DeleteTodo item={item._id}/>
-                                </div>
+                                  </div>
+                                  : null
+                                }
+                                
                               </div>
                               <div className='space-y-3 mb-10'>
                                   <div className="space-y-6">
@@ -222,10 +229,14 @@ const TodoList: React.FC = () => {
                                   </div>
                                 </td>
                                 <td className='p-3'>
-                                  <div className='flex space-x-2'>
-                                  <UpdateTodo item={item._id} assigned={item.assigned} category={item.category} todo={item.todo} desc={item.description}  />
-                                    <DeleteTodo item={item._id}/>
-                                  </div>
+                                  {token.username == "Admin" ?
+                                    <div className='flex space-x-2'>
+                                      <UpdateTodo item={item._id} assigned={item.assigned} category={item.category} todo={item.todo} desc={item.description} status={item.status} />
+                                      <DeleteTodo item={item._id}/>
+                                    </div>
+                                    : null
+                                  }
+                                  
                                 </td>
                             </tr>
                           ))}

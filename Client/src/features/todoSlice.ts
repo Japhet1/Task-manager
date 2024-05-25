@@ -129,14 +129,15 @@ export const updateTodoAsync = (todo: Todo): AppThunk => async (dispatch) => {
       console.log(user.token);
     }
     console.log(user.token);
+    console.log(todo._id);
     //await axios.put(`http://localhost:5000/todo/${todo.id}`, todo);
-    await axios.put(`http://localhost:8000/api/todos/${todo._id}`, todo, {
+    const response = await axios.put(`http://localhost:8000/api/todos/${todo._id}`, todo, {
       headers: {
       'Authorization': `Bearer ${user.token}`
       }
 
     });
-    dispatch(updateTodo(todo));
+    dispatch(updateTodo(response.data));
   } catch (error) {
     console.error('Error updating todo:', error);
   }

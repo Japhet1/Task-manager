@@ -16,11 +16,12 @@ interface Change {
     assigned: string
     category: string,
     todo: string,
-    desc: string
+    desc: string,
+    status: string
 }
 
 
-const UpdateForm: React.FC<Change> = ({visible, onClose, assigned, category, todo, desc }) => {
+const UpdateForm: React.FC<Change> = ({visible, onClose, item, assigned, category, todo, desc, status }) => {
    
 
     // console.log(item)
@@ -71,11 +72,11 @@ const UpdateForm: React.FC<Change> = ({visible, onClose, assigned, category, tod
 
 
     const [ formData, setFormData ] = useState<Todo>({
-        _id: '',
+        _id: item,
         date: new Date(),
         todo: todo || '',
         description: desc || '',
-        status: '',
+        status: status || '',
         category: category || '',
         assigned: assigned || ''
     })

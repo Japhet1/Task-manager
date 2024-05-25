@@ -11,9 +11,10 @@ interface ID {
     category: string
     todo: string
     desc: string
+    status: string
 }
 
-const UpdateTodo: React.FC<ID> = ({item, assigned, category, todo, desc}) => {
+const UpdateTodo: React.FC<ID> = ({item, assigned, category, todo, desc, status}) => {
     
     const [ openModal, setOpenModal ] = useState(false)
 
@@ -24,7 +25,7 @@ const UpdateTodo: React.FC<ID> = ({item, assigned, category, todo, desc}) => {
             <button className='p-2 text-[#FFC470] rounded-lg bg-slate-700' onClick={() => setOpenModal(true)}>
                 <FaEdit />
             </button>  
-            <UpdateForm onClose={handleOnClose} visible={openModal} item={item} assigned={assigned} category={category} todo={todo} desc={desc}/> 
+            <UpdateForm onClose={handleOnClose} visible={openModal} item={item} assigned={assigned} category={category} todo={todo} desc={desc} status={status}/> 
         </main>
     )
 }

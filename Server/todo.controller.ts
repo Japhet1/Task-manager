@@ -28,7 +28,7 @@ class TodoController {
         emptyFields.push('description');
     }
     if (!category) {
-      emptyFields.push('category');
+        emptyFields.push('category');
   }
     if (emptyFields.length > 0) {
         res.status(400).json({ error: 'Please fill in all the fields', emptyFields });
@@ -44,13 +44,16 @@ class TodoController {
   }
 
   public static async updateTodo(req: Request, res: Response): Promise<void> {
+    const user_id = req.user._id;
+    const { date, todo, description, status, category, assigned } = req.body;
     const { id } = req.params;
     //const { status } = req.body;
+    
     if (!mongoose.Types.ObjectId.isValid(id)) {
       res.status(404).json({ error: 'No such task' });
     }
     try {
-      //const updatedTodo = await TodoModel.findByIdAndUpdate(id, { status }, { new: true }).lean() as ITodo;
+      // const updatedTodo = await TodoModel.findByIdAndUpdate(id, { date, todo, description, status, category, assigned, user_id }, { new: true }).lean() as ITodo;
       const updatedTodo: ITodo | null = await TodoModel.findOneAndUpdate({ _id: id }, {
         ...req.body
       });
