@@ -51,11 +51,11 @@ const FilterCategory: React.FC  = () => {
     //         ))}
     // </main>
 
-    <main className='space-y-3'>
-      <div className='text-xl font-semibold'><h1>Categories</h1></div>
-      <div><button onClick={() => setFilter('')} className='ms-3'>All</button></div>
+    <main className='flex items-center space-x-8'>
+      {/* <div className='text-xl font-semibold'><h1>Categories</h1></div> */}
+      <div><button onClick={() => setFilter('')} className='bg-white text-slate-900 px-3 py-1 rounded-2xl'>All</button></div>
       {categories.map((category: Category) => (
-        <div key={category._id} className="flex justify-between items-center group px-2 py-1 rounded hover:bg-[#EEE4B1]">
+        <div key={category._id} className="flex justify-between items-center bg-white rounded-2xl space-x-5 text-slate-900 group px-3 py-1 hover:bg-slate-900 hover:text-white">
           <button
             onClick={(e) => {
               e.preventDefault();
@@ -67,7 +67,7 @@ const FilterCategory: React.FC  = () => {
           </button>
           <div className="hidden group-hover:block">
             <FaTrash
-              className="text-slate-700 text-sm cursor-pointer"
+              className="text-slate-100 text-sm cursor-pointer"
               onClick={(event) => {
                 event.stopPropagation();
                 handleRemoveCategory(category._id);

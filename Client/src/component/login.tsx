@@ -18,9 +18,9 @@ const Login = () => {
     
     return (
         <main className='flex items-center p-10' style={{width: "32vw"}}>
-            <form className='w-[100%] p-10 space-y-8  rounded-lg border border-slate-700 shadow-lg' onSubmit={handleAddTodo}>
+            <form className='w-[100%] bg-white p-10 space-y-8  rounded-lg shadow-lg' onSubmit={handleAddTodo}>
                 <div>
-                    <h1 className='text-4xl text-slate-700 font-semibold'>Sign In</h1>
+                    <h1 className='text-4xl text-slate-900 font-semibold'>Sign In</h1>
                 </div>
                 <div className='space-y-3'>
                     <div className='space-y-2'>
@@ -54,13 +54,13 @@ const Login = () => {
                                 <label className='text-sm'>Remember Password</label>
                             </div>
                             <div>
-                                <div><a href='' className='text-sm text-slate-700'>Reset Password</a></div>
+                                <div><a href='' className='text-sm text-slate-900'>Reset Password</a></div>
                             </div>
                         </div>
                     </div>
                     
                     <div className=''>
-                        <button className='w-[100%] bg-slate-700 p-2 rounded-md text-[#FFC470]' disabled={isLoading}>Login</button>
+                        <button className='w-[100%] bg-slate-900 p-2 rounded-md text-white' disabled={isLoading}>Login</button>
                         {error && <div className="error">{error}</div>}
                     </div>
                     <div className='w-[100%]'>

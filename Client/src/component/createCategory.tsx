@@ -37,11 +37,11 @@ const CreateCategory: React.FC = () => {
     <main>
         {token.username == "Admin" ?
           <div className=''>
-              <div className='bg-slate-700 p-2 rounded-lg'>
+              <div className='bg-slate-50 p-2 rounded-2xl'>
                   <form onSubmit={handleSubmit} className='flex item-center space-x-2' action="">
                       <div className=''>
                           <input 
-                              className='text-md text-white py-1 px-2 text-md focus:border-none focus:outline-none focus:ring-0 bg-transparent' 
+                              className='text-md text-slate-900 py-1 px-2 text-md focus:border-none focus:outline-none focus:ring-0 bg-transparent' 
                               type="text" 
                               name="category"
                               placeholder='Add new category ....'
@@ -50,7 +50,7 @@ const CreateCategory: React.FC = () => {
                               required
                           />
                       </div>
-                      <div><button className='bg-slate-500 text-[#FFC470] rounded-lg py-1 px-2' type='submit'>Add</button></div>
+                      <div><button className='bg-slate-900 text-slate-100 rounded-lg py-1 px-2' type='submit'>Add</button></div>
                   </form>      
               </div>
           </div> : null

@@ -17,7 +17,7 @@ const Register = () => {
 
     return (
         <main className='flex items-center p-10'>
-            <form className='w-[100%] p-10 space-y-8 rounded-lg border border-slate-700 shadow-xl' onSubmit={handleAddTodo}>
+            <form className='w-[100%] bg-white p-10 space-y-8 rounded-lg shadow-xl' onSubmit={handleAddTodo}>
                 <div>
                     <h1 className='text-4xl text-slate-700 font-semibold'>Sign Up</h1>
                 </div>
@@ -44,7 +44,7 @@ const Register = () => {
                         onChange={(e) => setPassword(e.target.value)} value={password}/>
                     </div>
                     <div className='space-y-4 py-2'>
-                        <button className='w-[100%] bg-slate-700 p-2 rounded-md text-[#FFC470]' disabled={isLoading}>Sign up</button>
+                        <button className='w-[100%] bg-slate-700 p-2 rounded-md text-white' disabled={isLoading}>Sign up</button>
                         {error && <div className="error">{error}</div>}
                     </div>
                     <div className='w-[100%] py-2'>

@@ -71,7 +71,8 @@ export const theme = {
       "accordion-up": "accordion-up 0.2s ease-out",
     },
     fontFamily: {
-      "candara": "Poppins",
+      // "candara": "Poppins",
+      "candara": "Varela Round",
       // "candara": "Montserrat"
     }
   },
