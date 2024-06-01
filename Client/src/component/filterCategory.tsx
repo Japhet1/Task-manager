@@ -1,16 +1,16 @@
 import React from 'react';
 import { AppDispatch, allCategories } from '../stores/store';
 import { useDispatch, useSelector } from 'react-redux';
-import { FaTrash } from 'react-icons/fa'
+import { BsX } from 'react-icons/bs'
 import { removeCategoryAsync } from '../features/categorySlice';
 import { useEffect, useState } from 'react';
 import { setCategory } from '../features/todoSlice';
 
 
 interface Category {
-    _id: string;
-    category: string;
-  }
+  _id: string;
+  category: string;
+}
 
 
 const FilterCategory: React.FC  = () => {
@@ -53,9 +53,9 @@ const FilterCategory: React.FC  = () => {
 
     <main className='flex items-center space-x-8'>
       {/* <div className='text-xl font-semibold'><h1>Categories</h1></div> */}
-      <div><button onClick={() => setFilter('')} className='bg-white text-slate-900 px-3 py-1 rounded-2xl'>All</button></div>
+      <div><button onClick={() => setFilter('')} className='bg-slate-50 text-slate-900 px-3 py-1 rounded-2xl'>All</button></div>
       {categories.map((category: Category) => (
-        <div key={category._id} className="flex justify-between items-center bg-white rounded-2xl space-x-5 text-slate-900 group px-3 py-1 hover:bg-slate-900 hover:text-white">
+        <div key={category._id} className="flex justify-between items-center bg-slate-50 rounded-2xl space-x-5 text-slate-900 group px-3 py-1 hover:bg-slate-600 hover:text-white">
           <button
             onClick={(e) => {
               e.preventDefault();
@@ -66,8 +66,8 @@ const FilterCategory: React.FC  = () => {
             {category.category}
           </button>
           <div className="hidden group-hover:block">
-            <FaTrash
-              className="text-slate-100 text-sm cursor-pointer"
+            <BsX
+              className="text-slate-100 text-base cursor-pointer"
               onClick={(event) => {
                 event.stopPropagation();
                 handleRemoveCategory(category._id);

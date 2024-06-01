@@ -17,9 +17,9 @@ const CreateTodo: React.FC = () => {
         <main>
             {token.username == "Admin" ? 
                 <div>
-                    <div className='flex space-x-1 text-base bg-slate-900 px-4 py-2 rounded-xl '>
-                        <div className='text-xl text-slate-100'><MdAddTask/></div>
-                        <button className='text-slate-100 '
+                    <div className='flex space-x-1 text-base bg-slate-600 px-4 py-2 rounded-xl '>
+                        <div className='text-xl text-slate-50'><MdAddTask/></div>
+                        <button className='text-slate-50 '
                             onClick={() => setOpenModal(true)}
                         >
                             <h1>New Task</h1>

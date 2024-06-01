@@ -50,7 +50,7 @@ const CreateCategory: React.FC = () => {
                               required
                           />
                       </div>
-                      <div><button className='bg-slate-900 text-slate-100 rounded-lg py-1 px-2' type='submit'>Add</button></div>
+                      {/* <div><button className='bg-slate-900 text-slate-100 rounded-lg py-1 px-2' type='submit'>Add</button></div> */}
                   </form>      
               </div>
           </div> : null

@@ -11,7 +11,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
 
   return (
     <main className={className}>
-        <div className="flex justify-between items-center bg-slate-50 text-slate-700 px-5 py-10">
+        <div className="flex justify-between items-center bg-slate-300 text-slate-700 px-5 py-10">
             {/* <div className='flex items-center space-x-5 text-xl text-gray-500'>
                 <BsTwitterX/>
                 <BsInstagram/>
