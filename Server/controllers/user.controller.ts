@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import User from './user.model';
+import User from '../models/user.model';
 //import { UserDocument } from './user.model';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';

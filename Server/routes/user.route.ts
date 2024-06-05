@@ -2,7 +2,7 @@ import express, { Router } from 'express';
 const router: Router = express.Router();
 
 // Import controller functions
-import { loginUser, signUser, getAllUser } from './user.controller';
+import { loginUser, signUser, getAllUser } from '../controllers/user.controller';
 
 router.get('/', getAllUser);
 

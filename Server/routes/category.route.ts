@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import CategoryController from './category.controller';
-import authenticateToken from './user.middleware';
+import CategoryController from '../controllers/category.controller';
+import authenticateToken from '../middleware/user.middleware';
 
 const router: Router = Router();
 router.use(authenticateToken)

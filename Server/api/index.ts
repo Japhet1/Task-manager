@@ -2,9 +2,9 @@ import express, { Express, Request, Response} from 'express'
 import mongoose, { ConnectOptions } from 'mongoose';
 //import bodyParser from 'body-parser';
 import cors from 'cors';
-import todoRoutes from './routes/todo.route';
-import userRoutes from "./routes/user.route"
-import categoryRoutes from "./routes/category.route"
+import todoRoutes from '../routes/todo.route';
+import userRoutes from "../routes/user.route"
+import categoryRoutes from "../routes/category.route"
 import dotenv from 'dotenv';
 
 dotenv.config();

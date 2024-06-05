@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import CategoryModel, { ICategory } from './category.model';
+import CategoryModel, { ICategory } from '../models/category.model';
 
 class CategoryController {
   public static async getAllCategories(req: Request, res: Response): Promise<void> {

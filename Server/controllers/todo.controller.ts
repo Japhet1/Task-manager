@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import TodoModel, { ITodo } from './todo.model';
+import TodoModel, { ITodo } from '../models/todo.model';
 import mongoose from 'mongoose';
 
 class TodoController {
