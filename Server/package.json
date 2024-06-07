@@ -2,13 +2,10 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "build": "rimraf dist && npx tsc",
-    "prestart": "npm run build",
-    "start": "node dist/index.js",
-    "preserve": "npm run build",
-    "serve": "concurrently \"npx tsc -w\" \"nodemon dist/index.js\""
+    
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'tsc && node dist/index.js'"
   },
   "keywords": [],
   "author": "",
@@ -36,6 +33,7 @@
     "@types/node": "^20.10.6",
     "@types/validator": "^13.11.9",
     "http-proxy-middleware": "^2.0.6",
-    "nodemon": "^3.0.2"
+    "nodemon": "^3.0.2",
+    "npx": "^10.2.2"
   }
 }

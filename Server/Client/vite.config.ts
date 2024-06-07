@@ -21,15 +21,15 @@ import { createProxyMiddleware } from 'http-proxy-middleware'; // eslint-disable
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // server: {
-  //   proxy: {
-  //     '/api': {
-  //       target: 'http://localhost:8000', // Your backend server address
-  //       changeOrigin: true,
-  //       //rewrite: (path) => path.replace(/^\/api/, ''), // Remove the /api prefix
-  //     },
-  //   },
-  // },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8000', // Your backend server address
+        changeOrigin: true,
+        //rewrite: (path) => path.replace(/^\/api/, ''), // Remove the /api prefix
+      },
+    },
+  },
 });
 
 
