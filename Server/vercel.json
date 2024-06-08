@@ -1,9 +1,10 @@
 {
     "version": 2,
+    "public": "public",
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "api/index.ts"
+        "dest": "dist/index.js"
       }
     ]
   }
