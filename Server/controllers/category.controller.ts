@@ -1,10 +1,19 @@
 import { Request, Response } from 'express';
 import CategoryModel, { ICategory } from '../models/category.model';
 
+declare module 'express-serve-static-core' {
+  interface Request {
+    user?: {
+      _id: string;
+      // Add other user properties if needed
+    };
+  }
+}
+
 class CategoryController {
   public static async getAllCategories(req: Request, res: Response): Promise<void> {
     try {
-      const user_id = req.user._id;
+      const user_id = req.user?._id;
       const categories: ICategory[] = await CategoryModel.find({ user_id });
       res.status(200).json( categories );
     } catch (error) {
@@ -15,7 +24,7 @@ class CategoryController {
   public static async createCategory(req: Request, res: Response): Promise<void> {
     const { category } = req.body;
     try {
-      const user_id = req.user._id;
+      const user_id = req.user?._id;
       const newCategory: ICategory = new CategoryModel({ category, user_id });
       const savedCategory: ICategory = await newCategory.save();
       res.status(201).json( savedCategory );
