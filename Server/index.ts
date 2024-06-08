@@ -6,13 +6,13 @@ import todoRoutes from './routes/todo.route';
 import userRoutes from "./routes/user.route"
 import categoryRoutes from "./routes/category.route"
 import dotenv from 'dotenv';
-import path from 'path';
-import { fileURLToPath } from 'url';
+// import path from 'path';
+// import { fileURLToPath } from 'url';
 
 dotenv.config();
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+// const __filename = fileURLToPath(import.meta.url)
+// const __dirname = path.dirname(__filename)
 
 const app: Express = express()
 
@@ -34,9 +34,9 @@ app.use((req, res, next) => {
 
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, '/client/dist')))
+// app.use(express.static(path.join(__dirname, '/client/dist')))
 
-app.get('*', (req, res) => res.sendFile(path.join(__dirname, '/client/dist/index.html')))
+// app.get('*', (req, res) => res.sendFile(path.join(__dirname, '/client/dist/index.html')))
 
 // app.get('/', (req: Request, res: Response) => {
 //     res.send('Hello, Todo App!');
