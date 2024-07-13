@@ -12,9 +12,9 @@ const RegisterPage = () => {
         <div className='w-[75%] items-center pe-20 py-36 space-y-10'>
           {/* <img className='text-slate-300 w-[50%] object-cover' src="/3.png" alt="" /> */}
           
-          <div><h1 className='font-bold text-3xl text-slate-700'><span className='text-5xl bg-slate-900 text-slate-50 p-2 rounded-tr-xl rounded-bl-xl'>Welcome</span> Champion of Productivity! 🌟</h1></div>
+          <div><h1 className='font-bold text-3xl text-black dark:text-white'><span className='text-5xl bg-black dark:bg-slate-800 text-white p-2 rounded-tr-xl rounded-bl-xl'>Welcome</span> Champion of Productivity! 🌟</h1></div>
           <div>
-            <h1 className='leading-10 text-xl text-slate-700'>
+            <h1 className='leading-10 text-xl text-slate-700 dark:text-slate-200'>
               Prepare to conquer your tasks and reign supreme over your schedule with our powerful 
               Task Manager app. Let's embark on this journey together, turning your to-do lists into 
               triumphs and your goals into glorious achievements. Embrace efficiency, seize success, 

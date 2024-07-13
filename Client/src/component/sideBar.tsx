@@ -13,44 +13,44 @@ const SideBar = () => {
     <main>
         <div className=''>
             <Tabs>
-                <TabList className='flex items-center space-x-5 text-md text-slate-900 mb-5'>
-                    <Tab selectedClassName="bg-slate-600 text-slate-50" className="w-[10%] bg-slate-50 rounded-xl text-center px-4 py-2">
+                <TabList className='flex items-center space-x-5 text-md text-black mb-5'>
+                    {/* <Tab selectedClassName="bg-slate-600 text-slate-50" className="w-[8%] bg-[#9B3922] rounded-md text-center p-2">
                         <div className='flex justify-center items-center space-x-2'>
-                            <MdDashboard />
-                            <h1>Dashboard</h1>
+                            <MdDashboard className='text-lg'/>
+                            <h1 className='text-sm'>Dashboard</h1>
+                        </div>
+                    </Tab> */}
+                    <Tab selectedClassName="bg-black dark:bg-slate-800 text-white" className="w-[6%] border bg-black dark:bg-slate-800 rounded-md text-center p-2">
+                        <div className='flex justify-center items-center space-x-2'>
+                            <FaTasks className='text-sm'/>
+                            <h1 className='text-sm'>Task</h1>
                         </div>
                     </Tab>
-                    <Tab selectedClassName="bg-slate-600 text-slate-50" className="w-[10%] bg-slate-50 rounded-xl text-center px-4 py-2">
+                    {/* <Tab selectedClassName="bg-slate-600 text-slate-50" className="w-[8%] bg-[#9B3922] rounded-md text-center p-2">
                         <div className='flex justify-center items-center space-x-2'>
-                            <FaTasks />
-                            <h1>Task</h1>
+                            <MdSignalWifiStatusbarConnectedNoInternet4 className='text-lg'/>
+                            <h1 className='text-sm'>Status</h1>
                         </div>
-                    </Tab>
-                    <Tab selectedClassName="bg-slate-600 text-slate-50" className="w-[10%] bg-slate-50 rounded-xl text-center px-4 py-2">
+                    </Tab> */}
+                    {/* <Tab selectedClassName="bg-slate-600 text-slate-50" className="w-[8%] bg-[#9B3922] rounded-md text-center p-2">
                         <div className='flex justify-center items-center space-x-2'>
-                            <MdSignalWifiStatusbarConnectedNoInternet4 />
-                            <h1>Status</h1>
+                            <MdOutlineSettings className='text-lg'/>
+                            <h1 className='text-sm'>Settings</h1>
                         </div>
-                    </Tab>
-                    <Tab selectedClassName="bg-slate-600 text-slate-50" className="w-[10%] bg-slate-50 rounded-xl text-center px-4 py-2">
-                        <div className='flex justify-center items-center space-x-2'>
-                            <MdOutlineSettings />
-                            <h1>Settings</h1>
-                        </div>
-                    </Tab>
+                    </Tab> */}
                 </TabList>
-                <TabPanel>
+                {/* <TabPanel>
                     <DashboardView/>
-                </TabPanel>
+                </TabPanel> */}
                 <TabPanel>
                     <TodoList/>
                 </TabPanel>
-                <TabPanel>
+                {/* <TabPanel>
                     <Status/>
                 </TabPanel>
                 <TabPanel>
                     <Settings/>
-                </TabPanel>
+                </TabPanel> */}
             </Tabs>
         </div>
     </main>

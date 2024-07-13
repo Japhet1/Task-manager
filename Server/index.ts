@@ -47,7 +47,7 @@ app.use('/api/todos', todoRoutes);
 app.use('/api/users', userRoutes)
 app.use('/api/categories', categoryRoutes)
 
-mongoose.connect(MONG_ATLAS, {
+mongoose.connect(MONG_COMPASS, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 } as ConnectOptions);

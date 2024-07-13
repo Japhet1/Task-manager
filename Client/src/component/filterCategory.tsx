@@ -5,7 +5,7 @@ import { BsX } from 'react-icons/bs'
 import { removeCategoryAsync } from '../features/categorySlice';
 import { useEffect, useState } from 'react';
 import { setCategory } from '../features/todoSlice';
-
+import { useToast } from "../components/ui/use-toast"
 
 interface Category {
   _id: string;
@@ -14,13 +14,26 @@ interface Category {
 
 
 const FilterCategory: React.FC  = () => {
+
+    const { toast } = useToast()
     const [ filter, setFilter ] = useState<string>('')
     const dispatch = useDispatch<AppDispatch>();
     const categories = useSelector(allCategories)
     
 
     const handleRemoveCategory = (_id: string) => {
-        dispatch(removeCategoryAsync(_id));
+        const dispatchData: any = dispatch(removeCategoryAsync(_id))
+        if (dispatchData) {
+          toast({
+            title: "Successfull!!",
+            description: "Category deleted",
+            })
+        } else {
+          toast({
+            title: "OOPS!!",
+            description: "Category not deleted",
+            })
+        }
     };
 
     useEffect(() => {
@@ -51,23 +64,23 @@ const FilterCategory: React.FC  = () => {
     //         ))}
     // </main>
 
-    <main className='flex items-center space-x-8'>
+    <main className='flex items-center space-x-5'>
       {/* <div className='text-xl font-semibold'><h1>Categories</h1></div> */}
-      <div><button onClick={() => setFilter('')} className='bg-slate-50 text-slate-900 px-3 py-1 rounded-2xl'>All</button></div>
+      <div><button onClick={() => setFilter('')} className='bg-black text-white dark:bg-slate-800 text-sm px-3 py-1 rounded-md'>All</button></div>
       {categories.map((category: Category) => (
-        <div key={category._id} className="flex justify-between items-center bg-slate-50 rounded-2xl space-x-5 text-slate-900 group px-3 py-1 hover:bg-slate-600 hover:text-white">
+        <div key={category._id} className="flex justify-between items-center dark:text-white rounded-md space-x-2 text-black group px-2 py-1 hover:bg-black hover:dark:bg-slate-800 hover:dark:text-white hover:border-none hover:text-white">
           <button
             onClick={(e) => {
               e.preventDefault();
               setFilter(category.category);
             }}
-            className="flex-grow text-left"
+            className="flex-grow text-left text-sm"
           >
             {category.category}
           </button>
           <div className="hidden group-hover:block">
             <BsX
-              className="text-slate-100 text-base cursor-pointer"
+              className="text-white text-base cursor-pointer"
               onClick={(event) => {
                 event.stopPropagation();
                 handleRemoveCategory(category._id);

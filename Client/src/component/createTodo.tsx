@@ -17,12 +17,12 @@ const CreateTodo: React.FC = () => {
         <main>
             {token.username == "Admin" ? 
                 <div>
-                    <div className='flex space-x-1 text-base bg-slate-600 px-4 py-2 rounded-xl '>
-                        <div className='text-xl text-slate-50'><MdAddTask/></div>
-                        <button className='text-slate-50 '
+                    <div className='flex space-x-2 text-base bg-black dark:bg-slate-800 px-4 py-2 rounded-md '>
+                        <div className='text-lg text-white'><MdAddTask/></div>
+                        <button className='text-white'
                             onClick={() => setOpenModal(true)}
                         >
-                            <h1>New Task</h1>
+                            <h1 className='text-sm'>New Task</h1>
                         </button>
                     </div>
                     <TodoForm onClose={handleOnClose} visible={openModal}/>

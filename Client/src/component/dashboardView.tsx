@@ -4,6 +4,9 @@ import { AppDispatch, allCategories } from '../stores/store';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { setUser } from '../features/authSlice';
+import { IoRemoveOutline } from "react-icons/io5";
+import { TiUser } from "react-icons/ti";
+
 
 interface Category {
     _id: string;
@@ -45,19 +48,20 @@ const DashboardView = () => {
 
 
     return (
-        <main className='p-5 bg-slate-300 rounded-2xl'>
-            <div className='text-3xl font-semibold my-8 '>
+        <main className='px-10 py-2 border border-black rounded-md'>
+            {/* <div className='text-xl font-semibold my-8 '>
                 <h1>Dashboard</h1>
-            </div>
+            </div> */}
             <div className=''>
-                <div className='text-xl font-semibold my-8'>
+                <div className='text-xl text-[#F2613F] font-semibold my-8'>
                     <h1>Categories</h1>
+                    <IoRemoveOutline/>
                 </div>
-                <div className='flex flex-wrap gap-10 justify-between items-center'>
+                <div className='flex flex-wrap gap-5 items-center'>
                     {categories.map((category: Category) => (
-                        <div key={category._id} className='w-[30%] p-5 bg-slate-50 text-slate-900 rounded-xl'>
-                            <h1 className='text-xl font-bold mb-5'>{category.category}</h1>
-                            <div className='flex flex-wrap gap-4'>
+                        <div key={category._id} className='w-[22%] p-5 bg-[#481E14]  text-white rounded-md'>
+                            <h1 className='text-base font-bold mb-5'>{category.category}</h1>
+                            <div className='flex flex-wrap gap-4 text-sm'>
                                 <h1>Task: 0</h1>
                                 <h1>Pending: 0</h1>
                                 <h1>In Progress: 0</h1>
@@ -69,26 +73,28 @@ const DashboardView = () => {
                 </div>
             </div>
 
-            <div className='flex flex-wrap my-8 space-x-10 rounded-xl bg-slate-50'>
-                <div className='w-[48%] p-10'>
-                    <div className='text-slate-900 text-xl font-semibold mb-5 '>
+            <div className='flex flex-wrap my-8 space-x-10 rounded-md '>
+                <div className='w-[20%] py-10'>
+                    <div className='text-[#F2613F] text-xl font-semibold mb-5 '>
                         <h1>Status</h1>
+                        <IoRemoveOutline/>
                     </div>
-                    <div className='space-y-5 text-slate-500'>
+                    <div className='space-y-5 text-white text-sm'>
                         <h1>Pending Tasks: 0</h1>
                         <h1>In Progress Tasks: 0</h1>
                         <h1>Completed Tasks: 0</h1>
                     </div>
                 </div>
-                <div className='w-[48%] p-10'>
-                    <div className='text-slate-900 text-2xl font-semibold mb-5 '>
+                <div className='w-[40%] py-10'>
+                    <div className='text-[#F2613F] text-xl font-semibold mb-5 '>
                         <h1>Users</h1>
+                        <IoRemoveOutline/>
                     </div>
                     {user.map((user) => (
                         user.username !== "Admin" ?
-                        <div key={user._id} className='space-y-3 text-slate-500 mb-5'>
-                            <div className='flex ite space-x-2 text-slate-900'>
-                                <BsDashLg />
+                        <div key={user._id} className='space-y-3 text-white mb-5 text-sm'>
+                            <div className='flex ite space-x-2 text-[#F2613F]'>
+                                <TiUser />
                                 <h1 className='font-bold '>{user.username}</h1>
                             </div>
                             <div className='flex items-center space-x-5'>
@@ -100,18 +106,20 @@ const DashboardView = () => {
                         : null
                     ))}
                 </div>
-            </div>
-            <div className='flex flex-wrap gap-10'>
-                <div className='w-[50%] my-8 p-10 rounded-xl bg-slate-50'>
-                    <div className='text-slate-900 text-xl font-semibold mb-5 '>
+                <div className='w-[30%] py-10 rounded-md '>
+                    <div className='text-[#F2613F] text-xl font-semibold mb-5 '>
                         <h1>Timeline</h1>
+                        <IoRemoveOutline/>
                     </div>
-                    <div className='space-y-5 text-slate-500'>
+                    <div className='space-y-5 text-white text-sm'>
                         <h1>Pending Tasks: 0</h1>
                         <h1>In Progress Tasks: 0</h1>
                         <h1>Completed Tasks: 0</h1>
                     </div>
                 </div>
+            </div>
+            <div className='flex flex-wrap gap-10'>
+                
             </div>
         </main>
     )

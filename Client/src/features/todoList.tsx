@@ -81,18 +81,13 @@ const TodoList: React.FC = () => {
 
 
     return (
-        <div className='p-5 bg-slate-300 rounded-2xl'>
+        <div className='p-5 border-t border-gray-500 dark:border-gray-800'>
           
-          <div className='flex items-center justify-between text-slate-900 ' >
-            <div className='text-3xl font-semibold my-4'>
+          <div className='flex items-center justify-between text-black dark:text-white' >
+            <div className='text-xl font-semibold my-4'>
               <h1>Tasks</h1>
             </div>
-            {token.username == "Admin" ?
-              <div className=''>
-                <FilterCategory/>
-              </div> 
-              : null 
-            }
+            
             {/* <div>
               <Status/>
             </div> */}
@@ -104,16 +99,22 @@ const TodoList: React.FC = () => {
             </div> */}
           </div>
           <div className='w-full'>
-            <div className='flex justify-end items-center my-5'>
+            <div className='flex justify-between items-center my-5'>
+              {token.username == "Admin" ?
+                <div className=''>
+                  <FilterCategory/>
+                </div> 
+                : null 
+              }
               <div className='flex items-center  rounded-lg'>
-                <div className={`flex p-2 items-center space-x-2 rounded-md ${showCards ? 'bg-slate-200 text-slate-900' : 'button-inactive'}`}>
+                <div className={`flex p-2 items-center text-black dark:text-white space-x-2 rounded-md ${showCards ? 'bg-black dark:bg-slate-800 text-white' : 'button-inactive border'}`}>
                   <button onClick={() => setShowCards(true)}>
-                    <PiCards className='text-xl'/>
+                    <PiCards className='text-sm'/>
                   </button>
                 </div>
-                <div className={`flex p-2 items-center space-x-2 rounded-md ${showCards ? 'button-active' : 'bg-slate-200 text-slate-900'}`}>
+                <div className={`flex p-2 items-center  text-black dark:text-white space-x-2 border rounded-md ${showCards ? 'button-active' : 'bg-black dark:bg-slate-800 text-white border'}`}>
                   <button onClick={() => setShowCards(false)}>
-                    <BsTable className='text-xl'/>
+                    <BsTable className='text-sm'/>
                   </button>
                 </div>
               </div>
@@ -121,15 +122,15 @@ const TodoList: React.FC = () => {
             { showCards ? (
                 <div className="grid grid-cols-12 gap-10">
                   {displayedTodos.slice(0, ITEMS_PER_PAGE).map((item) => (
-                      <div key={item._id} className="relative col-span-4 rounded-lg bg-slate-50">
+                      <div key={item._id} className="relative col-span-4  rounded-md border ">
                           <div className='p-5'>
-                              <div className="flex justify-between text-slate-900 mb-5">
+                              <div className="flex justify-between text-black dark:text-white mb-5">
                                 
                                 <div className=''>
-                                    <h1>{date.format(new Date(item.date), 'DD-MM-YYYY')}</h1>
+                                    <h1 className='text-sm'>{date.format(new Date(item.date), 'DD-MM-YYYY')}</h1>
                                     
                                 </div>
-                                <div className='text-lg'>
+                                <div className='text-sm'>
                                     <h1 
                                         className={ item.status === "Pending"? 'text-red-500 font-semibold' : 
                                                     item.status === "In progress"? 'text-orange-500 font-semibold': 
@@ -149,29 +150,29 @@ const TodoList: React.FC = () => {
                               </div>
                               <div className='space-y-3 mb-10'>
                                   <div className="space-y-6">
-                                    <h1 className="text-base font-semibold">Task:</h1>
-                                    <span className="text-sm text-slate-500">
+                                    <h1 className="text-sm text-black dark:text-white font-semibold">Task:</h1>
+                                    <span className="text-sm text-slate-900 dark:text-slate-300">
                                       {item.todo}
                                     </span>
                                   </div>
-                                  <div className="space-y-6">
-                                    <h1 className="text-base font-semibold">
+                                  <div className="space-y-3">
+                                    <h1 className="text-sm text-black dark:text-white font-semibold">
                                       Description:
                                     </h1>
-                                    <span className="text-sm text-slate-500">
+                                    <span className="text-sm text-slate-900 dark:text-slate-300">
                                       {item.description}
                                     </span>
                                   </div>
-                                  <div className="space-y-6">
-                                    <h1 className="text-base font-semibold">Assigned To:</h1>
-                                    <span className="text-sm text-slate-500">
+                                  <div className="space-y-3">
+                                    <h1 className="text-sm text-black dark:text-white font-semibold">Assigned To:</h1>
+                                    <span className="text-sm text-slate-900 dark:text-slate-300">
                                       {item.assigned}
                                     </span>
                                   </div>
                               </div> 
                           </div>
                           <div className='flex'>
-                            <div className='absolute left-0 bottom-0 w-36 text-center font-semibold text-sm rounded-tr-lg rounded-bl-lg py-1 px-3 bg-slate-600 text-slate-50 mb-0'>
+                            <div className='absolute left-0 bottom-0 w-36 text-center font-semibold text-sm rounded-tr-lg rounded-bl-lg py-1 px-3 bg-black dark:bg-slate-800 text-white mb-0'>
                               <h1>
                                 {item.category}
                               </h1>
@@ -192,24 +193,24 @@ const TodoList: React.FC = () => {
               ): (
                 <div className="">
                     <div>
-                      <table className='bg-slate-50 rounded-xl'>
+                      <table className='rounded-md'>
                         <thead>
-                          <tr className='font-semibold text-start bg-slate-600 text-slate-50'>
-                            <th className='w-[10%] p-3 text-start text-lg'>Date</th>
-                            <th className='w-[10%] p-3 text-start text-lg'>Status</th>
-                            <th className='w-[30%] p-3 text-start text-lg'>Task</th>
-                            <th className='w-[30%] p-3 text-start text-lg'>Description</th>
-                            <th className='w-[10%] p-3 text-start text-lg'>Assigned</th>
-                            <th className='w-[20%] p-3 text-start text-lg'>Category</th>
-                            <th className='w-[20%] p-3 text-start text-lg'>Actions</th>
+                          <tr className='font-semibold text-start bg-black dark:bg-slate-800 text-white'>
+                            <th className='w-[10%] p-3 text-start text-base'>Date</th>
+                            <th className='w-[10%] p-3 text-start text-base'>Status</th>
+                            <th className='w-[30%] p-3 text-start text-base'>Task</th>
+                            <th className='w-[30%] p-3 text-start text-base'>Description</th>
+                            <th className='w-[10%] p-3 text-start text-base'>Assigned</th>
+                            <th className='w-[20%] p-3 text-start text-base'>Category</th>
+                            <th className='w-[20%] p-3 text-start text-base'>Actions</th>
 
                             {/* <th className='w-[20%] p-3 text-start text-lg'></th> */}
                           </tr>
                         </thead>
                         <tbody>
                           {displayedTodos.slice(0, ITEMS_PER_PAGE).map((item) => (
-                            <tr key={item._id} className=' rounded-lg hover:bg-slate-100'>
-                              <td className='p-3 text-sm text-slate-800'><h1>{date.format(new Date(item.date), 'DD-MM-YYYY')}</h1></td>
+                            <tr key={item._id} className=' rounded-lg hover:bg-gray-100 hover:dark:bg-slate-900 border-b'>
+                              <td className='p-3 text-sm text-slate-900 dark:text-slate-300'><h1>{date.format(new Date(item.date), 'DD-MM-YYYY')}</h1></td>
                               <td className='p-3 text-sm'>
                                 <h1 className={ item.status === "Pending"? 'text-red-500 font-semibold' : 
                                                 item.status === "In progress"? 'text-orange-500 font-semibold': 
@@ -218,14 +219,14 @@ const TodoList: React.FC = () => {
                                     {item.status}
                                   </h1>
                                 </td>
-                                <td className='p-3 text-sm text-slate-800'><h1>{item.todo}</h1></td>
-                                <td className='p-3 text-sm text-slate-800'><h1>{item.description}</h1></td>
-                                <td className='p-3 text-sm text-slate-800 font-bold'>
+                                <td className='p-3 text-sm text-slate-900 dark:text-slate-300'><h1>{item.todo}</h1></td>
+                                <td className='p-3 text-sm text-slate-900 dark:text-slate-300'><h1>{item.description}</h1></td>
+                                <td className='p-3 text-sm text-slate-900 dark:text-slate-300 font-bold'>
                                   <h1>
                                     {item.assigned}
                                   </h1>
                                 </td>
-                                <td className='p-3 text-sm text-slate-800'>
+                                <td className='p-3 text-sm text-slate-900 dark:text-slate-300'>
                                   <h1>
                                     {item.category}
                                   </h1>
@@ -263,7 +264,7 @@ const TodoList: React.FC = () => {
             )}
             <div className='flex justify-center items-center space-x-5 mt-20 text-xl'>
                 {Array.from({ length: totalPages }, (_, index) => (
-                    <button className='hover:scale-110 rounded-xl text-slate-50 bg-slate-600 py-1 px-4 transition-all' key={index} onClick={() => handlePageChange(index + 1)}>
+                    <button className='hover:scale-110 rounded-md text-white bg-black dark:bg-slate-800 py-1 px-4 transition-all' key={index} onClick={() => handlePageChange(index + 1)}>
                         {index + 1}
                     </button>
                 ))}

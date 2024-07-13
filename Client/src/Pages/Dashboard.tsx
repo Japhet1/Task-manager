@@ -12,7 +12,7 @@ const Dashboard = () => {
   return (
     <main className="font-candara">
       <NavBar/>
-      <div className="relative flex justify-center space-x-10 items-end px-10 py-5">
+      <div className="relative flex justify-center space-x-5 items-end px-10 py-5">
         <CreateTodo/>
         <CreateCategory/>
       </div>

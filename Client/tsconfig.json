@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+
     // "allowJs": true,
      "esModuleInterop": true,
     // "allowSyntheticDefaultImports": true,
@@ -27,7 +28,14 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "server/**/*.ts", "node_modules/@types", "src/component/filterCategory.tsx", "<path-to-your-source>.ts",
   "<path-to-your-source>.tsx"],

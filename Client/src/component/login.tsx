@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 // import { BsGoogle } from 'react-icons/bs'
 // import { IoRemoveOutline } from "react-icons/io5";
 import { useLogin } from '../component/useLogin'
+import { Input } from "../components/ui/input"
+
 
 const Login = () => {
     
@@ -17,31 +19,31 @@ const Login = () => {
     };
     
     return (
-        <main className='flex items-center p-10' style={{width: "32vw"}}>
-            <form className='w-[100%] bg-slate-100 p-10 space-y-8  rounded-lg shadow-lg' onSubmit={handleAddTodo}>
+        <main className='flex items-center px-5' style={{width: "32vw"}}>
+            <form className='w-[100%] bg-white dark:bg-slate-900 border border-black p-8 space-y-8  rounded-md shadow-3xl' onSubmit={handleAddTodo}>
                 <div>
-                    <h1 className='text-4xl text-slate-900 font-semibold'>Sign In</h1>
+                    <h1 className='text-2xl text-black dark:text-white font-semibold'>Sign In</h1>
                 </div>
                 <div className='space-y-3'>
                     <div className='space-y-2'>
-                        <label>Username:</label><br/>
-                        <input className='w-[100%] bg-transparent p-2 text-base rounded-md focus:ring-0 border border-slate-700' 
+                        <label className='text-sm dark:text-white font-bold'>Username:</label><br/>
+                        <Input className='w-[100%] bg-transparent text-sm rounded-md focus:border-none focus:outline-none focus:ring-0 border border-black dark:border-slate-700' 
                         type="text" 
                         placeholder='' 
                         onChange={(e) => setUsername(e.target.value)} value={username}
                         />
                     </div>
                     <div className='space-y-2'>
-                        <label>Email:</label><br/>
-                        <input className='w-[100%] bg-transparent p-2 text-base rounded-md focus:ring-0 border border-slate-700' 
+                        <label className='text-sm dark:text-white font-bold'>Email:</label><br/>
+                        <Input className='w-[100%] bg-transparent text-sm rounded-md focus:border-none focus:outline-none focus:ring-0 border border-black dark:border-slate-700' 
                         type="email" 
                         placeholder='' 
                         onChange={(e) => setEmail(e.target.value)} value={email}
                         />
                     </div>
                     <div className='space-y-2'>
-                        <label>Password:</label><br/>
-                        <input className='w-[100%] bg-transparent p-2 text-base rounded-md focus:ring-0 border border-slate-700' 
+                        <label className='text-sm dark:text-white font-bold'>Password:</label><br/>
+                        <Input className='w-[100%] bg-transparent text-sm rounded-md focus:border-none focus:outline-none focus:ring-0 border border-black dark:border-slate-700' 
                         type="password" 
                         placeholder='' 
                         onChange={(e) => setPassword(e.target.value)} value={password}
@@ -50,22 +52,22 @@ const Login = () => {
                     <div className='w-[100%]'>
                         <div className='flex items-center justify-between'>
                             <div className='space-x-2'>
-                                <input className='p-2 text-base rounded-md focus:border-none focus:outline-none focus:ring-0 border border-slate-300' type="checkbox" placeholder='' />
-                                <label className='text-sm'>Remember Password</label>
+                                <input className='text-base rounded-md focus:border-none focus:outline-none focus:ring-0 border border-black dark:border-slate-700' type="checkbox" placeholder='' />
+                                <label className='text-sm dark:text-white'>Remember Password</label>
                             </div>
                             <div>
-                                <div><a href='' className='text-sm text-slate-900'>Reset Password</a></div>
+                                <div><a href='' className='text-sm text-black dark:text-white'>Reset Password</a></div>
                             </div>
                         </div>
                     </div>
                     
                     <div className=''>
-                        <button className='w-[100%] bg-slate-900 p-2 rounded-md text-white' disabled={isLoading}>Login</button>
+                        <button className='w-[100%] bg-black dark:bg-white p-2 rounded-md text-white dark:text-black font-bold' disabled={isLoading}>Login</button>
                         {error && <div className="error">{error}</div>}
                     </div>
-                    <div className='w-[100%]'>
-                        <div className='flex items-center space-x-2'>
-                            <h1>Don't have an account?</h1><h1 className='text-slate-700 font-semibold'><a href="/">Sign up</a></h1>
+                    <div className='w-[100%] py-5'>
+                        <div className='flex items-center space-x-2 dark:text-white'>
+                            <h1>Don't have an account?</h1><h1 className='text-black dark:text-white font-semibold'><a href="/">Sign up</a></h1>
                         </div>
                     </div>
                     {/* <div className='w-[100%]'>

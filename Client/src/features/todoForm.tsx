@@ -5,6 +5,22 @@ import {  AppDispatch, RootState } from '../stores/store'
 import { BsX } from 'react-icons/bs'
 import axios from 'axios';
 import { setUser } from './authSlice';
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectTrigger,
+    SelectValue,
+} from "../components/ui/select"
+import { Input } from "../components/ui/input"
+import { Textarea } from "../components/ui/textarea"
+// import { Button } from "../components/ui/button"
+import { useToast } from "../components/ui/use-toast"
+
+
+  
 
 interface Change {
     visible: boolean,
@@ -12,6 +28,8 @@ interface Change {
 }
 
 const TodoForm: React.FC<Change> = ({visible, onClose}) => {
+
+    const { toast } = useToast()
 
     interface FormData {
         _id: string,
@@ -90,57 +108,96 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
     const data = user
 
     return (
-        <div id='container' onClick={handleOnClose} className='flex justify-center items-center fixed z-20 inset-0 bg-black bg-opacity-30 backdrop-blur-sm px-10 py-5'>
+        <div id='container' onClick={handleOnClose} className='flex justify-center items-center fixed z-20 inset-0 bg-black bg-opacity-50 backdrop-blur-sm px-10 py-5'>
             <div className="flex justify-center text-lg">
-                <form className="px-10 py-5 bg-slate-50 rounded-md shadow-md" onSubmit={handleAddTodo} style={{width: '35vw'}}>
+                <form className="px-8 py-5 bg-white dark:bg-slate-900 rounded-md shadow-md" onSubmit={handleAddTodo} style={{width: '35vw'}}>
                     
-                    <div className='mb-8 flex justify-between items-center'><h1 className='text-3xl text-slate-900 font-bold'>Create</h1><div className='flex justify-end items-end hover:scale-110 transition-all'><button className='rounded-full p-2 flex' onClick={onClose}><BsX className='text-3xl'/></button></div></div>
+                    <div className='mb-5 flex justify-between items-center'><h1 className='text-xl text-black dark:text-white font-bold'>Create</h1><div className='flex justify-end items-end hover:scale-110 transition-all'><button className='rounded-full p-2 flex' onClick={onClose}><BsX className='text-3xl'/></button></div></div>
                     <div className='space-y-3'>
                         <div className='flex justify-between space-x-4'>
                             <div className='space-y-2 w-[100%]'>
-                                <label htmlFor="todo" className='text-slate-800'>Assigned To *</label><br/>
+                                <label htmlFor="todo" className='text-black dark:text-white text-sm font-bold'>Assigned To *</label><br/>
                                 {/* <input className="w-[100%] p-1 text-base rounded-md" name="assigned" type="text" value={formData.assigned} onChange={handleInputChange} required /> */}
-                                <select className='w-[100%] p-2 text-base text-slate-900 bg-slate-200 border border-slate-300 rounded-lg' name="assigned" value={formData.assigned} onChange={handleInputChange} required>
+                                {/* <select className='w-[100%] p-2 text-sm text-black bg-gray-200 rounded-md' name="assigned" value={formData.assigned} onChange={handleInputChange} required>
                                 
                                     {data.map((data) => (
                                         data.username !== "Admin" ?
-                                        <option className='text-slate-900 bg-slate-200 border border-slate-300 p-5' key={data._id} value={data.username}>
+                                        <option className='text-black bg-gray-200 p-5' key={data._id} value={data.username}>
                                             {data.username}
                                         </option>
                                         : null
                                     ))}
                                     
-                                </select>
+                                </select> */}
+
+                            <Select name="assigned">
+                                <SelectTrigger className="w-[100%] p-2 text-sm text-black dark:text-white bg-gray-200 dark:bg-transparent rounded-md focus:border-none focus:outline-none focus:ring-0">
+                                    <SelectValue placeholder="Select team member" value={formData.assigned} onChange={handleInputChange}/>
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectGroup>
+                                        {/* <SelectLabel>Member</SelectLabel> */}
+                                        {data.filter((data) => data.username!== "Admin").map((data) => (
+                                            <SelectItem className="text-black dark:text-white" key={data._id} value={data.username}>
+                                                {data.username}
+                                            </SelectItem>
+                                        ))}
+                                    </SelectGroup>
+                                </SelectContent>
+                            </Select>
                             
                             </div>
                             <div className='space-y-2 w-[100%]'>
-                                <label htmlFor="category" className='text-slate-800'>Category *</label><br/>
+                                <label htmlFor="category" className='text-black dark:text-white text-sm font-bold'>Category *</label><br/>
                                 
-                                <select className='w-[100%] p-2 text-base text-slate-900 bg-slate-200 border border-slate-300 rounded-md' name="category" id="category" value={formData.category} onChange={handleInputChange}>
+                                {/* <select className='w-[100%] p-2 text-sm text-black bg-gray-200 rounded-md' name="category" id="category" value={formData.category} onChange={handleInputChange}>
                                 
                                     {categories.map((option) => (
-                                        <option className='rounded-lg bg-slate-200 border border-slate-300' key={option._id} value={option.category}>{option.category}</option>
+                                        <option className='text-black bg-gray-200 p-5' key={option._id} value={option.category}>{option.category}</option>
                                     ))}
                                     
-                                </select>
+                                </select> */}
+
+                                <Select name="category" >
+                                    <SelectTrigger className="w-[100%] p-2 text-sm text-black dark:text-white bg-gray-200 dark:bg-transparent rounded-md focus:border-none focus:outline-none focus:ring-0">
+                                        <SelectValue placeholder="Select category" value={formData.category} onChange={handleInputChange}/>
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectGroup>
+                                            {/* <SelectLabel>Member</SelectLabel> */}
+                                            {categories.map((option) => (
+                                                <SelectItem className="text-black dark:text-white" key={option._id} value={option.category}>
+                                                    {option.category}
+                                                </SelectItem>
+                                            ))}
+                                        </SelectGroup>
+                                    </SelectContent>
+                                </Select>
                             </div>
                         </div>
 
                         <div className='space-y-2'>
-                            <label htmlFor="todo" className='text-slate-800'>Task *</label><br/>
-                            <input className="w-[100%] p-2 text-base text-slate-900 bg-slate-200 border border-slate-300 rounded-md" name="todo" type="text" value={formData.todo} onChange={handleInputChange} required />
+                            <label htmlFor="todo" className='text-black dark:text-white text-sm font-bold'>Task *</label><br/>
+                            <Input className="w-[100%] p-2 text-sm text-black bg-gray-200 dark:bg-transparent rounded-md focus:border-none focus:outline-none focus:ring-0" name="todo" type="text" value={formData.todo} onChange={handleInputChange} required />
                         </div>
 
                         
                     
                         <div className='space-y-2'>
-                            <label htmlFor="description" className='text-slate-800'>Description *</label><br/>
-                            <textarea className='w-[100%] p-2 text-base text-slate-900 bg-slate-200 border border-slate-300 rounded-md' name="description" id="description" cols={30} rows={3} value={formData.description} onChange={handleInputChange} required></textarea>
+                            <label htmlFor="description" className='text-black dark:text-white text-sm font-bold'>Description *</label><br/>
+                            <Textarea className='w-[100%] p-2 text-sm text-black bg-gray-200 dark:bg-transparent rounded-md focus:border-none focus:outline-none focus:ring-0' name="description" id="description" cols={30} rows={3} value={formData.description} onChange={handleInputChange} required></Textarea>
                         </div>
                     
                     </div>
                     <div className='mt-8'>
-                        <button className="py-1 px-4 rounded-md text-slate-900 bg-slate-200 hover:scale-110 transition-all" type="submit">Save</button>
+                        <button className="py-1 px-4 rounded-md text-sm text-white dark:text-black bg-black dark:bg-white hover:scale-110 transition-all font-bold" type="submit"
+                            onClick={() => {
+                                toast({
+                                    title: "Successfull!!",
+                                    description: "New task created",
+                                })
+                            }}
+                        >Save</button>
                     </div>                   
                     
                 </form>

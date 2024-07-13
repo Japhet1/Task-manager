@@ -17,8 +17,8 @@ const DeleteTodo: React.FC<ID> = ({item}) => {
 
     return (
         <main>
-             <button className='items-center p-2 text-slate-900 rounded-lg bg-slate-200' onClick={() => handleRemoveTodo(item)}>
-                <FaTrash/>
+            <button className='items-center p-2 text-black dark:text-white rounded-md bg-slate-200 dark:bg-slate-700' onClick={() => handleRemoveTodo(item)}>
+                <FaTrash className='text-sm'/>
             </button>
 
         </main>

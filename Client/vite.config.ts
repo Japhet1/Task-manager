@@ -14,13 +14,20 @@ export default defineConfig({
 });
 */
 
+import path from "path"
+
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { createProxyMiddleware } from 'http-proxy-middleware'; // eslint-disable-line @typescript-eslint/no-unused-vars
+// import { createProxyMiddleware } from 'http-proxy-middleware'; // eslint-disable-line @typescript-eslint/no-unused-vars
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
   server: {
     proxy: {
       '/api': {

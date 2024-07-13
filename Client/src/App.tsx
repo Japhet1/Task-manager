@@ -4,12 +4,13 @@ import Footer from './component/footer';
 import SignInPage from './Pages/SignInPage';
 import Dashboard from './Pages/Dashboard';
 import RegisterPage from './Pages/RegisterPage';
+import { Toaster } from "./components/ui/toaster"
 
 
 const App = () => {
 
   return (
-    <div className="flex flex-col min-h-screen font-candara">
+    <div className="flex flex-col min-h-screen font-candara ">
       <div className="flex-grow">
         <BrowserRouter>
           <Routes>
@@ -20,6 +21,7 @@ const App = () => {
           </Routes>
         </BrowserRouter>
       </div>
+      <Toaster />
       <Footer className="bottom-0" />
     </div>
   )
