@@ -178,14 +178,14 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
 
                         <div className='space-y-2'>
                             <label htmlFor="todo" className='text-black dark:text-white text-sm font-bold'>Task *</label><br/>
-                            <Input className="w-[100%] p-2 text-sm text-black bg-gray-200 dark:bg-transparent rounded-md focus:border-none focus:outline-none focus:ring-0" name="todo" type="text" value={formData.todo} onChange={handleInputChange} required />
+                            <Input className="w-[100%] p-2 text-sm text-black bg-gray-200 dark:text-white dark:bg-transparent rounded-md focus:border-none focus:outline-none focus:ring-0" name="todo" type="text" value={formData.todo} onChange={handleInputChange} required />
                         </div>
 
                         
                     
                         <div className='space-y-2'>
                             <label htmlFor="description" className='text-black dark:text-white text-sm font-bold'>Description *</label><br/>
-                            <Textarea className='w-[100%] p-2 text-sm text-black bg-gray-200 dark:bg-transparent rounded-md focus:border-none focus:outline-none focus:ring-0' name="description" id="description" cols={30} rows={3} value={formData.description} onChange={handleInputChange} required></Textarea>
+                            <Textarea className='w-[100%] p-2 text-sm text-black bg-gray-200 dark:text-white dark:bg-transparent rounded-md focus:border-none focus:outline-none focus:ring-0' name="description" id="description" cols={30} rows={3} value={formData.description} onChange={handleInputChange} required></Textarea>
                         </div>
                     
                     </div>

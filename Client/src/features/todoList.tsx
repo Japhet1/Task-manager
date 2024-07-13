@@ -84,9 +84,9 @@ const TodoList: React.FC = () => {
         <div className='p-5 border-t border-gray-500 dark:border-gray-800'>
           
           <div className='flex items-center justify-between text-black dark:text-white' >
-            <div className='text-xl font-semibold my-4'>
+            {/* <div className='text-xl font-semibold my-4'>
               <h1>Tasks</h1>
-            </div>
+            </div> */}
             
             {/* <div>
               <Status/>
@@ -163,12 +163,15 @@ const TodoList: React.FC = () => {
                                       {item.description}
                                     </span>
                                   </div>
-                                  <div className="space-y-3">
-                                    <h1 className="text-sm text-black dark:text-white font-semibold">Assigned To:</h1>
-                                    <span className="text-sm text-slate-900 dark:text-slate-300">
-                                      {item.assigned}
-                                    </span>
-                                  </div>
+                                  {token.username == "Admin" ?
+                                    <div className="space-y-3">
+                                      <h1 className="text-sm text-black dark:text-white font-semibold">Assigned To:</h1>
+                                      <span className="text-sm text-slate-900 dark:text-slate-300">
+                                        {item.assigned}
+                                      </span>
+                                    </div>
+                                    : null
+                                  }
                               </div> 
                           </div>
                           <div className='flex'>
@@ -200,7 +203,7 @@ const TodoList: React.FC = () => {
                             <th className='w-[10%] p-3 text-start text-base'>Status</th>
                             <th className='w-[30%] p-3 text-start text-base'>Task</th>
                             <th className='w-[30%] p-3 text-start text-base'>Description</th>
-                            <th className='w-[10%] p-3 text-start text-base'>Assigned</th>
+                            {token.username == "Admin" ? <th className='w-[10%] p-3 text-start text-base'>Assigned</th> : null}
                             <th className='w-[20%] p-3 text-start text-base'>Category</th>
                             <th className='w-[20%] p-3 text-start text-base'>Actions</th>
 
@@ -221,11 +224,14 @@ const TodoList: React.FC = () => {
                                 </td>
                                 <td className='p-3 text-sm text-slate-900 dark:text-slate-300'><h1>{item.todo}</h1></td>
                                 <td className='p-3 text-sm text-slate-900 dark:text-slate-300'><h1>{item.description}</h1></td>
-                                <td className='p-3 text-sm text-slate-900 dark:text-slate-300 font-bold'>
-                                  <h1>
-                                    {item.assigned}
-                                  </h1>
-                                </td>
+                                {token.username == "Admin" ?
+                                  <td className='p-3 text-sm text-slate-900 dark:text-slate-300 font-bold'>
+                                    <h1>
+                                      {item.assigned}
+                                    </h1>
+                                  </td>
+                                  : null
+                                }
                                 <td className='p-3 text-sm text-slate-900 dark:text-slate-300'>
                                   <h1>
                                     {item.category}

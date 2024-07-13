@@ -58,7 +58,7 @@ const CreateCategory: React.FC = () => {
                               className='text-sm text-black dark:text-white py-1 px-2 text-md focus:border-none focus:outline-none focus:ring-0 bg-transparent' 
                               type="text" 
                               name="category"
-                              placeholder='Add new category ....'
+                              placeholder='Create category ....'
                               value={formData.category}
                               onChange={handleInputChange}
                               required
