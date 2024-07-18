@@ -45,7 +45,7 @@ const Register = () => {
                         onChange={(e) => setPassword(e.target.value)} value={password}/>
                     </div>
                     <div className='space-y-4 py-8'>
-                        <button className='w-[100%] bg-black dark:bg-white p-2 rounded-md text-white dark:text-black font-bold' disabled={isLoading}>Sign up</button>
+                        <button className='w-[100%] bg-black dark:bg-slate-800 p-2 rounded-md text-white font-bold' disabled={isLoading}>Sign up</button>
                         {error && <div className="error">{error}</div>}
                     </div>
                     <div className='w-[100%] py-5'>

@@ -3,6 +3,17 @@ import React from 'react'
 import { FaTrash } from 'react-icons/fa'
 import { AppDispatch } from '../stores/store';
 import { useDispatch } from 'react-redux';
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+  } from "../components/ui/alert-dialog"
 
 
 interface ID {
@@ -17,9 +28,28 @@ const DeleteTodo: React.FC<ID> = ({item}) => {
 
     return (
         <main>
-            <button className='items-center p-2 text-black dark:text-white rounded-md bg-slate-200 dark:bg-slate-700' onClick={() => handleRemoveTodo(item)}>
-                <FaTrash className='text-sm'/>
-            </button>
+            
+
+            <AlertDialog>
+                <AlertDialogTrigger>
+                    <button className='items-center p-2 text-black dark:text-white rounded-md bg-slate-200 dark:bg-slate-700'>
+                        <FaTrash className='text-sm'/>
+                    </button>
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                    <AlertDialogHeader>
+                        <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                        <AlertDialogDescription>
+                            This action cannot be undone. This will permanently delete the task.
+                        </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                        <AlertDialogCancel>Cancel</AlertDialogCancel>
+                        <AlertDialogAction onClick={() => handleRemoveTodo(item)}>Continue</AlertDialogAction>
+                    </AlertDialogFooter>
+                </AlertDialogContent>
+            </AlertDialog>
+
 
         </main>
     )

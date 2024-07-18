@@ -7,6 +7,8 @@ import DashboardView from "../component/dashboardView"
 import TodoList from "../features/todoList"
 import Status from './status';
 import Settings from './settings';
+import { IoChatboxEllipsesOutline } from "react-icons/io5";
+import Chat from './chat';
 
 const SideBar = () => {
   return (
@@ -20,10 +22,10 @@ const SideBar = () => {
                             <h1 className='text-sm'>Dashboard</h1>
                         </div>
                     </Tab> */}
-                    <Tab selectedClassName="bg-black dark:bg-slate-800 text-white" className="w-[6%] border bg-black dark:bg-slate-800 rounded-md text-center p-2">
+                    <Tab selectedClassName="bg-black dark:bg-slate-800 dark:border-none text-white" className="w-[6%] border border-black dark:border-slate-700 dark:text-white rounded-md text-center p-2">
                         <div className='flex justify-center items-center space-x-2'>
                             <FaTasks className='text-sm'/>
-                            <h1 className='text-sm'>Task</h1>
+                            <h1 className='text-sm font-bold'>Task</h1>
                         </div>
                     </Tab>
                     {/* <Tab selectedClassName="bg-slate-600 text-slate-50" className="w-[8%] bg-[#9B3922] rounded-md text-center p-2">
@@ -32,10 +34,16 @@ const SideBar = () => {
                             <h1 className='text-sm'>Status</h1>
                         </div>
                     </Tab> */}
-                    {/* <Tab selectedClassName="bg-slate-600 text-slate-50" className="w-[8%] bg-[#9B3922] rounded-md text-center p-2">
+                    <Tab selectedClassName="bg-black dark:bg-slate-800 dark:border-none text-white" className="w-[6%] border border-black dark:border-slate-700 dark:text-white rounded-md text-center p-2">
                         <div className='flex justify-center items-center space-x-2'>
-                            <MdOutlineSettings className='text-lg'/>
-                            <h1 className='text-sm'>Settings</h1>
+                            <IoChatboxEllipsesOutline className='text-base'/>
+                            <h1 className='text-sm font-bold'>Chat</h1>
+                        </div>
+                    </Tab>
+                    {/* <Tab selectedClassName="bg-black dark:bg-slate-800 text-white" className="w-[6%] border border-black dark:bg-slate-800 rounded-md text-center p-2">
+                        <div className='flex justify-center items-center space-x-2'>
+                            <MdOutlineSettings className='text-sm'/>
+                            <h1 className='text-sm font-bold'>Settings</h1>
                         </div>
                     </Tab> */}
                 </TabList>
@@ -47,8 +55,11 @@ const SideBar = () => {
                 </TabPanel>
                 {/* <TabPanel>
                     <Status/>
-                </TabPanel>
+                </TabPanel> */}
                 <TabPanel>
+                    <Chat/>
+                </TabPanel>
+                {/* <TabPanel>
                     <Settings/>
                 </TabPanel> */}
             </Tabs>

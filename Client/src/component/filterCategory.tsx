@@ -66,7 +66,7 @@ const FilterCategory: React.FC  = () => {
 
     <main className='flex items-center space-x-5'>
       {/* <div className='text-xl font-semibold'><h1>Categories</h1></div> */}
-      <div><button onClick={() => setFilter('')} className='bg-black text-white dark:bg-slate-800 text-sm px-3 py-1 rounded-md'>All</button></div>
+      <div><button onClick={() => setFilter('')} className='bg-black font-bold text-white dark:bg-slate-800 text-sm px-3 py-1 rounded-md'>All</button></div>
       {categories.map((category: Category) => (
         <div key={category._id} className="flex justify-between items-center font-bold dark:text-white rounded-md space-x-2 text-black group px-2 py-1 hover:bg-black hover:dark:bg-slate-800 hover:dark:text-white hover:border-none hover:text-white">
           <button
