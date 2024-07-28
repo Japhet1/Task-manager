@@ -22,7 +22,7 @@ const UpdateTodo: React.FC<ID> = ({item, assigned, category, todo, desc, status}
 
     return (
         <main>
-            <button className='p-2 text-black dark:text-white rounded-md bg-slate-200 dark:bg-slate-700' onClick={() => setOpenModal(true)}>
+            <button className='p-2 text-black dark:text-white rounded-md bg-slate-200 dark:bg-slate-950' onClick={() => setOpenModal(true)}>
                 <FaEdit className='text-sm'/>
             </button>  
             <UpdateForm onClose={handleOnClose} visible={openModal} item={item} assigned={assigned} category={category} todo={todo} desc={desc} status={status}/> 

@@ -32,7 +32,7 @@ const DeleteTodo: React.FC<ID> = ({item}) => {
 
             <AlertDialog>
                 <AlertDialogTrigger>
-                    <button className='items-center p-2 text-black dark:text-white rounded-md bg-slate-200 dark:bg-slate-700'>
+                    <button className='items-center p-2 text-black dark:text-white rounded-md bg-slate-200 dark:bg-slate-950'>
                         <FaTrash className='text-sm'/>
                     </button>
                 </AlertDialogTrigger>

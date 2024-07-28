@@ -12,7 +12,7 @@ import UpdateTodo from '../component/updateTodo';
 import DeleteTodo from '../component/deleteTodo';
 import date from 'date-and-time';
 
-const ITEMS_PER_PAGE = 9;
+const ITEMS_PER_PAGE = 12;
 
 
 const TodoList: React.FC = () => {  
@@ -81,7 +81,7 @@ const TodoList: React.FC = () => {
 
 
     return (
-        <div className='p-5 border-t border-gray-500 dark:border-gray-800'>
+        <div className='py-5 border-t border-gray-500 dark:border-gray-800'>
           
           <div className='flex items-center justify-between text-black dark:text-white' >
             {/* <div className='text-xl font-semibold my-4'>
@@ -120,10 +120,10 @@ const TodoList: React.FC = () => {
               </div>
             </div>
             { showCards ? (
-                <div className="grid grid-cols-12 gap-10">
+                <div className="grid grid-cols-12 gap-5">
                   {displayedTodos.slice(0, ITEMS_PER_PAGE).map((item) => (
-                      <div key={item._id} className="relative col-span-4 rounded-md border hover:shadow-lg">
-                          <div className='p-5'>
+                      <div key={item._id} className="relative col-span-3 rounded-md border hover:shadow-lg dark:bg-slate-900">
+                          <div className='p-3'>
                               <div className="flex justify-between text-black dark:text-white mb-5">
                                 
                                 <div className=''>
@@ -151,7 +151,7 @@ const TodoList: React.FC = () => {
                               <div className='space-y-3 mb-10'>
                                   <div className="space-y-6">
                                     <h1 className="text-sm text-black dark:text-white font-semibold">Task:</h1>
-                                    <span className="text-sm text-slate-900 dark:text-slate-300">
+                                    <span className="text-sm text-slate-600 dark:text-slate-400">
                                       {item.todo}
                                     </span>
                                   </div>
@@ -159,14 +159,14 @@ const TodoList: React.FC = () => {
                                     <h1 className="text-sm text-black dark:text-white font-semibold">
                                       Description:
                                     </h1>
-                                    <span className="text-sm text-slate-900 dark:text-slate-300">
+                                    <span className="text-sm text-slate-600 dark:text-slate-400">
                                       {item.description}
                                     </span>
                                   </div>
                                   {token.username == "Admin" ?
                                     <div className="space-y-3">
                                       <h1 className="text-sm text-black dark:text-white font-semibold">Assigned To:</h1>
-                                      <span className="text-sm text-slate-900 dark:text-slate-300">
+                                      <span className="text-sm text-slate-600 dark:text-slate-400">
                                         {item.assigned}
                                       </span>
                                     </div>
@@ -175,7 +175,7 @@ const TodoList: React.FC = () => {
                               </div> 
                           </div>
                           <div className='flex'>
-                            <div className='absolute left-0 bottom-0  text-center flex font-semibold text-sm rounded-tr-lg rounded-bl-lg py-1 px-3 bg-black dark:bg-slate-800 text-white mb-0'>
+                            <div className='absolute left-0 bottom-0  text-center flex font-semibold text-sm rounded-tr-lg rounded-bl-lg py-1 px-3 bg-black dark:bg-slate-950 text-white mb-0'>
                               <h1>
                                 {item.category}
                               </h1>
@@ -196,9 +196,9 @@ const TodoList: React.FC = () => {
               ): (
                 <div className="">
                     <div>
-                      <table className='rounded-md'>
-                        <thead>
-                          <tr className='font-semibold text-start bg-black dark:bg-slate-800 text-white'>
+                      <table className=''>
+                        <thead className=' bg-black dark:bg-slate-800 rounded-md'>
+                          <tr className='font-semibold text-start text-white'>
                             <th className='w-[10%] p-3 text-start text-base'>Date</th>
                             <th className='w-[10%] p-3 text-start text-base'>Status</th>
                             <th className='w-[30%] p-3 text-start text-base'>Task</th>
