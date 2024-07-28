@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useRegister } from '../component/useRegister'
+import { useRegister } from '../hooks/useRegister'
 import { Input } from "../components/ui/input"
 
 

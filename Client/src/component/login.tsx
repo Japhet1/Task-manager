@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 // import { BsGoogle } from 'react-icons/bs'
 // import { IoRemoveOutline } from "react-icons/io5";
-import { useLogin } from '../component/useLogin'
+import { useLogin } from '../hooks/useLogin'
 import { Input } from "../components/ui/input"
 
 
