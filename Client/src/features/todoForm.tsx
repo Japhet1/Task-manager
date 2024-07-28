@@ -118,7 +118,7 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
                             <div className='space-y-2 w-[100%]'>
                                 <label htmlFor="todo" className='text-black dark:text-white text-sm font-bold'>Assigned To *</label><br/>
                                 {/* <input className="w-[100%] p-1 text-base rounded-md" name="assigned" type="text" value={formData.assigned} onChange={handleInputChange} required /> */}
-                                {/* <select className='w-[100%] p-2 text-sm text-black bg-gray-200 rounded-md' name="assigned" value={formData.assigned} onChange={handleInputChange} required>
+                                <select className='w-[100%] p-2 text-sm text-black bg-gray-200 rounded-md' name="assigned" value={formData.assigned} onChange={handleInputChange} required>
                                 
                                     {data.map((data) => (
                                         data.username !== "Admin" ?
@@ -128,15 +128,15 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
                                         : null
                                     ))}
                                     
-                                </select> */}
+                                </select>
 
-                            <Select name="assigned">
+                            {/* <Select name="assigned">
                                 <SelectTrigger className="w-[100%] p-2 text-sm text-black dark:text-white bg-gray-200 dark:bg-transparent rounded-md focus:border-none focus:outline-none focus:ring-0">
                                     <SelectValue placeholder="Select team member" value={formData.assigned} onChange={handleInputChange}/>
                                 </SelectTrigger>
                                 <SelectContent>
                                     <SelectGroup>
-                                        {/* <SelectLabel>Member</SelectLabel> */}
+                                        <SelectLabel>Member</SelectLabel>
                                         {data.filter((data) => data.username!== "Admin").map((data) => (
                                             <SelectItem className="text-black dark:text-white" key={data._id} value={data.username}>
                                                 {data.username}
@@ -144,27 +144,27 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
                                         ))}
                                     </SelectGroup>
                                 </SelectContent>
-                            </Select>
+                            </Select> */}
                             
                             </div>
                             <div className='space-y-2 w-[100%]'>
                                 <label htmlFor="category" className='text-black dark:text-white text-sm font-bold'>Category *</label><br/>
                                 
-                                {/* <select className='w-[100%] p-2 text-sm text-black bg-gray-200 rounded-md' name="category" id="category" value={formData.category} onChange={handleInputChange}>
+                                <select className='w-[100%] p-2 text-sm text-black bg-gray-200 rounded-md' name="category" id="category" value={formData.category} onChange={handleInputChange}>
                                 
                                     {categories.map((option) => (
                                         <option className='text-black bg-gray-200 p-5' key={option._id} value={option.category}>{option.category}</option>
                                     ))}
                                     
-                                </select> */}
+                                </select>
 
-                                <Select name="category" >
+                                {/* <Select name="category" >
                                     <SelectTrigger className="w-[100%] p-2 text-sm text-black dark:text-white bg-gray-200 dark:bg-transparent rounded-md focus:border-none focus:outline-none focus:ring-0">
                                         <SelectValue placeholder="Select category" value={formData.category} onChange={handleInputChange}/>
                                     </SelectTrigger>
                                     <SelectContent>
                                         <SelectGroup>
-                                            {/* <SelectLabel>Member</SelectLabel> */}
+                                            <SelectLabel>Member</SelectLabel>
                                             {categories.map((option) => (
                                                 <SelectItem className="text-black dark:text-white" key={option._id} value={option.category}>
                                                     {option.category}
@@ -172,7 +172,7 @@ const TodoForm: React.FC<Change> = ({visible, onClose}) => {
                                             ))}
                                         </SelectGroup>
                                     </SelectContent>
-                                </Select>
+                                </Select> */}
                             </div>
                         </div>
 

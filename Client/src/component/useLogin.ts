@@ -22,7 +22,7 @@ export const useLogin = () => {
 
             if (!response.data) {
                 setIsLoading(false)
-                setError(response.data.error)
+                
             } else {
                 localStorage.setItem('user', JSON.stringify(response.data));
                 dispatch(login(response.data));
@@ -30,8 +30,9 @@ export const useLogin = () => {
                 navigate('/dashboard');
             }
     
-        } catch (error) {
+        } catch (error: any) {
             console.error('Error sign in account:', error);
+            setError(error.response.data.error)
         }
     }
 

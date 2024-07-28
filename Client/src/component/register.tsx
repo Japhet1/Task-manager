@@ -16,6 +16,9 @@ const Register = () => {
         await registerApi (username, email, password)
     };
 
+    console.log(error);
+    
+
     return (
         <main className='flex items-center px-5'>
             <form className='w-[100%] bg-white dark:bg-slate-900 border border-black p-8 space-y-5 rounded-md shadow-3xl' onSubmit={handleAddTodo}>
@@ -25,28 +28,52 @@ const Register = () => {
                 <div className='space-y-2'>
                     <div className='space-y-2'>
                         <label className='text-sm dark:text-white font-bold'>Full name:</label><br/>
-                        <Input className='w-[100%] bg-transparent text-sm rounded-md focus:border-none focus:outline-none focus:ring-0 border border-black dark:border-slate-700' 
+                        <Input className={`
+                        "w-[100%] bg-transparent text-sm rounded-md focus:border-none 
+                        focus:outline-none focus:ring-0 border border-black dark:border-slate-700"
+                        ${error ? 'border-red-500' : null}
+                        `}
                         type="text" 
                         placeholder='' 
                         onChange={(e) => setUsername(e.target.value)} value={username}/>
                     </div>
                     <div className='space-y-2'>
                         <label className='text-sm dark:text-white font-bold'>Email:</label><br/>
-                        <Input className='w-[100%] bg-transparent text-sm rounded-md focus:border-none focus:outline-none focus:ring-0 border border-black dark:border-slate-700' 
+                        <Input className={`
+                        "w-[100%] bg-transparent text-sm rounded-md focus:border-none 
+                        focus:outline-none focus:ring-0 border border-black dark:border-slate-700"
+                        ${error ? 'border-red-500' : null}
+                        `}
                         type="email" 
                         placeholder='' 
                         onChange={(e) => setEmail(e.target.value)} value={email}/>
                     </div>
                     <div className='space-y-2 mb-5'>
                         <label className='text-sm dark:text-white font-bold'>Password:</label><br/>
-                        <Input className='w-[100%] bg-transparent text-sm rounded-md focus:border-none focus:outline-none focus:ring-0 border border-black dark:border-slate-700' 
+                        <Input className={`
+                        "w-[100%] bg-transparent text-sm rounded-md focus:border-none 
+                        focus:outline-none focus:ring-0 border border-black dark:border-slate-700"
+                        ${error ? 'border-red-500' : null}
+                        `}
                         type="password" 
                         placeholder='' 
                         onChange={(e) => setPassword(e.target.value)} value={password}/>
                     </div>
-                    <div className='space-y-4 py-8'>
+                    <div className='w-[100%]'>
+                        <div className='flex items-center justify-between'>
+                            <div className='space-x-2'>
+                                <input className='text-base rounded-md focus:border-none focus:outline-none focus:ring-0 border border-black dark:border-slate-700' type="checkbox" placeholder='' />
+                                <label className='text-sm dark:text-white'>Remember Password</label>
+                            </div>
+                            {/* <div>
+                                <div><a href='' className='text-sm text-black dark:text-white'>Reset Password</a></div>
+                            </div> */}
+                        </div>
+                    </div>
+                    {error && <div className="bg-red-100 text-red-500 px-2 py-1 rounded-md text-center">{error}</div>}
+                    <div className='py-4'>
                         <button className='w-[100%] bg-black dark:bg-slate-800 p-2 rounded-md text-white font-bold' disabled={isLoading}>Sign up</button>
-                        {error && <div className="error">{error}</div>}
+                        
                     </div>
                     <div className='w-[100%] py-5'>
                         {/* <div>

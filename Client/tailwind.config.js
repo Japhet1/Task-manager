@@ -72,7 +72,9 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        "candara": "Montserrat",
+        // "candara": "Dubai",
+        "candara": "Trebuchet MS",
+        // "candara": "Montserrat",
         // "candara": "Varela Round",
         // "candara": "Poppins"
       }

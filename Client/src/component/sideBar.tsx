@@ -34,12 +34,12 @@ const SideBar = () => {
                             <h1 className='text-sm'>Status</h1>
                         </div>
                     </Tab> */}
-                    <Tab selectedClassName="bg-black dark:bg-slate-800 dark:border-none text-white" className="w-[6%] border border-black dark:border-slate-700 dark:text-white rounded-md text-center p-2">
+                    {/* <Tab selectedClassName="bg-black dark:bg-slate-800 dark:border-none text-white" className="w-[6%] border border-black dark:border-slate-700 dark:text-white rounded-md text-center p-2">
                         <div className='flex justify-center items-center space-x-2'>
                             <IoChatboxEllipsesOutline className='text-base'/>
                             <h1 className='text-sm font-bold'>Chat</h1>
                         </div>
-                    </Tab>
+                    </Tab> */}
                     {/* <Tab selectedClassName="bg-black dark:bg-slate-800 text-white" className="w-[6%] border border-black dark:bg-slate-800 rounded-md text-center p-2">
                         <div className='flex justify-center items-center space-x-2'>
                             <MdOutlineSettings className='text-sm'/>
@@ -56,9 +56,9 @@ const SideBar = () => {
                 {/* <TabPanel>
                     <Status/>
                 </TabPanel> */}
-                <TabPanel>
+                {/* <TabPanel>
                     <Chat/>
-                </TabPanel>
+                </TabPanel> */}
                 {/* <TabPanel>
                     <Settings/>
                 </TabPanel> */}

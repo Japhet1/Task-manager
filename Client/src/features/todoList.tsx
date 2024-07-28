@@ -122,7 +122,7 @@ const TodoList: React.FC = () => {
             { showCards ? (
                 <div className="grid grid-cols-12 gap-10">
                   {displayedTodos.slice(0, ITEMS_PER_PAGE).map((item) => (
-                      <div key={item._id} className="relative col-span-4  rounded-md border ">
+                      <div key={item._id} className="relative col-span-4 rounded-md border hover:shadow-lg">
                           <div className='p-5'>
                               <div className="flex justify-between text-black dark:text-white mb-5">
                                 
@@ -175,7 +175,7 @@ const TodoList: React.FC = () => {
                               </div> 
                           </div>
                           <div className='flex'>
-                            <div className='absolute left-0 bottom-0 w-36 text-center font-semibold text-sm rounded-tr-lg rounded-bl-lg py-1 px-3 bg-black dark:bg-slate-800 text-white mb-0'>
+                            <div className='absolute left-0 bottom-0  text-center flex font-semibold text-sm rounded-tr-lg rounded-bl-lg py-1 px-3 bg-black dark:bg-slate-800 text-white mb-0'>
                               <h1>
                                 {item.category}
                               </h1>

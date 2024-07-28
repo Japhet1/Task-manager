@@ -29,7 +29,7 @@ export const useRegister = () => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             console.error('Error signing in account:', error); // Fix typo
-            setError(error);
+            setError(error.response.data.error);
         }
     };
 
